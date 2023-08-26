@@ -33,9 +33,14 @@ export default async function Trending() {
 
   return (
     <main className="main">
-      {trendingShows.map((movie: any, index: any) => (
-        <MovieCard key={index} movie={movie} />
-      ))}
+      <span className="mb-[2rem] max-w-fit uppercase text-[0.9rem] font-bold">
+        Trending Shows
+      </span>
+      <div className="inner">
+        {trendingShows.map((movie: any, index: any) => (
+          <MovieCard key={index} movie={movie} />
+        ))}
+      </div>
     </main>
   );
 }

@@ -33,9 +33,14 @@ export default async function TopRated() {
 
   return (
     <main className="main">
-      {topRatedMovies.map((movie: any, index: any) => (
-        <MovieCard key={index} movie={movie} />
-      ))}
+      <span className="mb-[2rem] max-w-fit uppercase text-[0.9rem] font-bold">
+        Top Rated Movies
+      </span>
+      <div className="inner">
+        {topRatedMovies.map((movie: any, index: any) => (
+          <MovieCard key={index} movie={movie} />
+        ))}
+      </div>
     </main>
   );
 }

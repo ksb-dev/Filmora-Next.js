@@ -23,8 +23,8 @@ const Nav = () => {
         "nav  " + (mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1")
       }
     >
-      <div className="pb-[2rem]">
-        <p className="mb-[1rem] font-bold uppercase">Options</p>
+      <div className="pb-[1rem] mb-[1rem]">
+        <p className="mb-[1rem] font-bold uppercase text-[0.9rem]">Options</p>
         <div className="cursor-pointer mb-[0.5rem] flex items-center">
           {pathname.includes("/pages/movies/") ? (
             <div className="flex items-center">
@@ -68,7 +68,9 @@ const Nav = () => {
         </div>
       </div>
       <div className="categories">
-        <p className="mb-[1rem] font-bold uppercase">Categories</p>
+        <p className="mb-[1rem] font-bold uppercase text-[0.9rem]">
+          Categories
+        </p>
         <Link
           href={
             pathname.includes("movies")

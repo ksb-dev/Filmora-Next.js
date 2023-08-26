@@ -24,10 +24,8 @@ const Header = () => {
   return (
     <div
       className={
-        "header " +
-        (mode
-          ? "whiteBg1 blackColor1 lightShadow1"
-          : "blackBg2 whiteColor1 darkShadow1")
+        "header shadow-[0_2px_8px_rgba(0,0,0,0.2)] " +
+        (mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1")
       }
     >
       <div className="flex items-center justify-between max-w-[1280px] w-[1280px]">
@@ -76,12 +74,21 @@ const Header = () => {
               </Link>
               <Link
                 href="/pages/register"
-                className={"link " + (mode ? "blackColor1" : "whiteColor1")}
+                className={
+                  "link mr-[1rem] " + (mode ? "blackColor1" : "whiteColor1")
+                }
               >
                 Register
               </Link>
             </>
           )}
+
+          <Link
+            href="/pages/about"
+            className={"link " + (mode ? "blackColor1" : "whiteColor1")}
+          >
+            About
+          </Link>
         </div>
       </div>
     </div>

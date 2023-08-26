@@ -22,9 +22,9 @@ const InnerRootLayout = ({ children }: { children: React.ReactNode }) => {
     >
       <Header />
       <div className="container">
-        {pathname !== "/pages/login" && pathname !== "/pages/register" && (
-          <Nav />
-        )}
+        {pathname !== "/pages/login" &&
+          pathname !== "/pages/register" &&
+          pathname !== "/pages/about" && <Nav />}
         {children}
       </div>
     </div>

@@ -33,9 +33,14 @@ export default async function Home() {
 
   return (
     <main className="main">
-      {popularMovies.map((movie: any, index: any) => (
-        <MovieCard key={index} movie={movie} />
-      ))}
+      <span className="mb-[2rem] max-w-fit uppercase text-[0.9rem] font-bold">
+        Popular Movies
+      </span>
+      <div className="inner">
+        {popularMovies.map((movie: any, index: any) => (
+          <MovieCard key={index} movie={movie} />
+        ))}
+      </div>
     </main>
   );
 }
