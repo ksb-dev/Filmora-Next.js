@@ -32,10 +32,7 @@ const Header = () => {
         <div>
           <Link
             href="/"
-            className={
-              "link relative flex text-[2rem] font-bold " +
-              (mode ? "blueColor" : "redColor")
-            }
+            className="link relative flex text-[2rem] font-bold text-[var(--blue)]"
           >
             <span className="text">Film</span>
             <span className="absolute left-[4rem] text-[3rem] top-1">

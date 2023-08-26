@@ -16,17 +16,18 @@ const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
-const MovieCard = ({ movie }: any) => {
+const ShowCard = ({ show }: any) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const {
-    id,
-    title,
-    backdrop_path,
-    original_language,
-    poster_path,
+    name,
     vote_average,
-    release_date,
-  } = movie;
+    first_air_date,
+    poster_path,
+    backdrop_path,
+    id,
+    genre_ids,
+    overview,
+  } = show;
 
   const getClassBg = (vote: any) => {
     if (vote >= 7.5) {
@@ -44,7 +45,7 @@ const MovieCard = ({ movie }: any) => {
         <div className="relative h-[260px]">
           <Image
             src={poster_path === null ? url : IMG_PATH + poster_path}
-            alt={title}
+            alt={name}
             layout="fill"
             objectFit="cover"
             priority
@@ -60,13 +61,10 @@ const MovieCard = ({ movie }: any) => {
           >
             <CircularProgressbar
               value={vote_average * 10}
-              strokeWidth={5}
+              strokeWidth={6}
               styles={buildStyles({
                 pathColor: "#fff",
               })}
-              // styles={buildStyles({
-              //   pathColor: getClassColor(vote_average),
-              // })}
             />
             <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-[0.8rem] font-medium">
               {Number(String(vote_average).substring(0, 3))}
@@ -74,9 +72,9 @@ const MovieCard = ({ movie }: any) => {
           </div>
         </div>
         <div className="flex flex-col mt-[2rem]">
-          <span className="inline-block font-medium">{title}</span>
-          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.9rem] tracking-[0.5px]">
-            {release_date && moment(release_date).format("Do MMM, YYYY")}
+          <span className="inline-block font-medium">{name}</span>
+          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.8rem]">
+            {first_air_date && moment(first_air_date).format("Do MMM, YYYY")}
           </span>
         </div>
       </div>
@@ -84,4 +82,4 @@ const MovieCard = ({ movie }: any) => {
   );
 };
 
-export default MovieCard;
+export default ShowCard;

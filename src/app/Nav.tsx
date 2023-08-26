@@ -28,12 +28,7 @@ const Nav = () => {
         <div className="cursor-pointer mb-[1rem] flex items-center">
           {pathname.includes("/pages/movies/") ? (
             <div className="flex items-center">
-              <p
-                className={
-                  "relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] " +
-                  (mode ? "blueBg" : "redBg")
-                }
-              >
+              <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
                 </span>
@@ -54,12 +49,7 @@ const Nav = () => {
         <div className="cursor-pointer mb-[0.5rem] flex items-center">
           {pathname.includes("/pages/shows/") ? (
             <div className="flex items-center">
-              <p
-                className={
-                  "relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] " +
-                  (mode ? "blueBg" : "redBg")
-                }
-              >
+              <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
                 </span>
@@ -97,6 +87,7 @@ const Nav = () => {
           </span>
           Popular
         </Link>
+
         <Link
           href={
             pathname.includes("movies")
@@ -104,7 +95,7 @@ const Nav = () => {
               : "/pages/shows/trending"
           }
           className={
-            "link flex items-center mb-[0.5rem] " +
+            "link flex items-center mb-[1rem] " +
             (mode ? "blackColor1" : "whiteColor1")
           }
         >
@@ -113,6 +104,7 @@ const Nav = () => {
           </span>
           Trending
         </Link>
+
         <Link
           href={
             pathname.includes("movies")

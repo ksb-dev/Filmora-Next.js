@@ -8,7 +8,7 @@ import { useEffect } from "react";
 //import { getMovies } from "@/redux/services/getMovies";
 
 // components
-import MovieCard from "@/components/MovieCard/MovieCard";
+import ShowCard from "@/components/ShowCard/ShowCard";
 //import { useAppDispatch, RootState } from "@/redux/store";
 
 async function getTrendingShows() {
@@ -37,8 +37,8 @@ export default async function Trending() {
         Trending Shows
       </span>
       <div className="inner">
-        {trendingShows.map((movie: any, index: any) => (
-          <MovieCard key={index} movie={movie} />
+        {trendingShows.map((show: any, index: any) => (
+          <ShowCard key={index} show={show} />
         ))}
       </div>
     </main>

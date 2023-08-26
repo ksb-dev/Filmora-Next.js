@@ -8,19 +8,19 @@
   --white-1: rgb(255, 255, 255);
   --white-2: rgb(235, 235, 235);
 
-  --black-1: rgb(45, 45, 45);
+  --black-1: #555;
   --black-2: rgb(30, 30, 30);
 
-  --blue: #1da1f2;
   --blue: #4285f4;
-  /* --blue: #032541; */
-  --red: #e50914;
-  --red: #0f9d58;
+  --red: tomato;
+  --green: #0f9d58;
+  --orange: darkorange;
+  --gold: goldenrod;
 
   --shadow-1: 0 2px 8px rgba(0, 0, 0, 0.2);
 
-  --lightBorder1: 1px solid #cdcdcd;
-  --darkBorder1: 1px solid #000;
+  --lightBorder1: 4px solid #fff;
+  --darkBorder1: 4px solid rgb(30, 30, 30);
 }
 
 * {
@@ -178,18 +178,27 @@ body {
 
 .blueBg {
   background: var(--blue);
+  color: #fff;
 }
 
 .redBg {
   background: var(--red);
+  color: #fff;
 }
 
-.lightBorder {
-  border-bottom: var(--lightBorder1);
+.greenBg {
+  background: var(--green);
+  color: #fff;
 }
 
-.darkBorder {
-  border-bottom: var(--darkBorder1);
+.orangeBg {
+  background: var(--orange);
+  color: #fff;
+}
+
+.goldBg {
+  background: var(--gold);
+  color: #fff;
 }
 
 .blueColor {
@@ -198,6 +207,26 @@ body {
 
 .redColor {
   color: var(--red);
+}
+
+.greenColor {
+  color: var(--green);
+}
+
+.orangeColor {
+  color: var(--orange);
+}
+
+.goldColor {
+  color: var(--gold);
+}
+
+.lightBorder {
+  border: var(--lightBorder1);
+}
+
+.darkBorder {
+  border: var(--darkBorder1);
 }
 
 .lightShadow1 {

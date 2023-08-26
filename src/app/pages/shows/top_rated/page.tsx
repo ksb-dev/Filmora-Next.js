@@ -8,7 +8,7 @@
 //import { getMovies } from "@/redux/services/getMovies";
 
 // components
-import MovieCard from "@/components/MovieCard/MovieCard";
+import ShowCard from "@/components/ShowCard/ShowCard";
 //import { useAppDispatch, RootState } from "@/redux/store";
 
 async function getTopRatedShows() {
@@ -37,8 +37,8 @@ export default async function TopRated() {
         Top Rated Shows
       </span>
       <div className="inner">
-        {topRatedShows.map((movie: any, index: any) => (
-          <MovieCard key={index} movie={movie} />
+        {topRatedShows.map((show: any, index: any) => (
+          <ShowCard key={index} show={show} />
         ))}
       </div>
     </main>
