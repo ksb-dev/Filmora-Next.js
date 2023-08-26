@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+
 import Image from "next/image";
 
 // redux
@@ -27,6 +29,7 @@ const MovieCard = ({ movie }: any) => {
     vote_average,
     release_date,
   } = movie;
+  const ref = useRef<any>(null);
 
   const getClassBg = (vote: any) => {
     if (vote >= 7.5) {
@@ -38,8 +41,20 @@ const MovieCard = ({ movie }: any) => {
     }
   };
 
+  const show = () => {
+    ref.current!.style.transform = "translateY(0%)";
+  };
+
+  const hide = () => {
+    ref.current!.style.transform = "translateY(100%)";
+  };
+
   return (
-    <div>
+    <div
+      style={{ position: "relative", overflow: "hidden" }}
+      onMouseOver={show}
+      onMouseLeave={hide}
+    >
       <div>
         <div className="relative h-[260px]">
           <Image
@@ -64,21 +79,37 @@ const MovieCard = ({ movie }: any) => {
               styles={buildStyles({
                 pathColor: "#fff",
               })}
-              // styles={buildStyles({
-              //   pathColor: getClassColor(vote_average),
-              // })}
             />
             <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-[0.8rem] font-medium">
               {Number(String(vote_average).substring(0, 3))}
             </span>
           </div>
         </div>
-        <div className="flex flex-col mt-[2rem]">
+
+        <div className="flex flex-col mt-[1rem] p-[1rem]">
           <span className="inline-block font-medium">{title}</span>
-          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.9rem] tracking-[0.5px]">
+          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.85rem]">
             {release_date && moment(release_date).format("Do MMM, YYYY")}
           </span>
         </div>
+      </div>
+
+      <div
+        ref={ref}
+        style={{
+          position: "absolute",
+          background: "rgba(0,0,0,0.5)",
+          width: "100%",
+          height: "50%",
+          bottom: 0,
+          left: 0,
+          transform: "translateY(110%)",
+          transition: "all 0.3s ease",
+        }}
+      >
+        <p className="bg-[var(--blue)] text-white m-[1rem] text-center py-[0.5rem]">
+          Add
+        </p>
       </div>
     </div>
   );

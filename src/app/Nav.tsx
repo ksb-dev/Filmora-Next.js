@@ -24,7 +24,7 @@ const Nav = () => {
       }
     >
       <div className="pb-[1rem] mb-[1rem]">
-        <p className="mb-[1rem] font-bold uppercase text-[0.9rem]">Options</p>
+        <p className="mb-[1rem] font-bold uppercase">Options</p>
         <div className="cursor-pointer mb-[1rem] flex items-center">
           {pathname.includes("/pages/movies/") ? (
             <div className="flex items-center">
@@ -68,9 +68,7 @@ const Nav = () => {
         </div>
       </div>
       <div className="categories">
-        <p className="mb-[1rem] font-bold uppercase text-[0.9rem]">
-          Categories
-        </p>
+        <p className="mb-[1rem] font-bold uppercase">Categories</p>
         <Link
           href={
             pathname.includes("movies")

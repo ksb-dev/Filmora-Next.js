@@ -33,7 +33,7 @@ export default async function TopRated() {
 
   return (
     <main className="main">
-      <span className="mb-[2rem] max-w-fit uppercase text-[0.9rem] font-bold">
+      <span className="mb-[2rem] max-w-fit uppercase font-bold">
         Top Rated Shows
       </span>
       <div className="inner">
