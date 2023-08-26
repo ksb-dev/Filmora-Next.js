@@ -25,11 +25,16 @@ const Nav = () => {
     >
       <div className="pb-[1rem] mb-[1rem]">
         <p className="mb-[1rem] font-bold uppercase text-[0.9rem]">Options</p>
-        <div className="cursor-pointer mb-[0.5rem] flex items-center">
+        <div className="cursor-pointer mb-[1rem] flex items-center">
           {pathname.includes("/pages/movies/") ? (
             <div className="flex items-center">
-              <p className="relative inline-block h-[20px] w-[20px] mr-[0.5rem] bg-[var(--blue)] text-white border border-[var(--blue)] rounded-[50%]">
-                <span className="absolute bottom-[1px] left-[1px] ">
+              <p
+                className={
+                  "relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] " +
+                  (mode ? "blueBg" : "redBg")
+                }
+              >
+                <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
                 </span>
               </p>
@@ -49,8 +54,13 @@ const Nav = () => {
         <div className="cursor-pointer mb-[0.5rem] flex items-center">
           {pathname.includes("/pages/shows/") ? (
             <div className="flex items-center">
-              <p className="relative inline-block h-[20px] w-[20px] mr-[0.5rem] bg-[var(--blue)] text-white border border-[var(--blue)] rounded-[50%]">
-                <span className="absolute bottom-[1px] left-[1px] ">
+              <p
+                className={
+                  "relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] " +
+                  (mode ? "blueBg" : "redBg")
+                }
+              >
+                <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
                 </span>
               </p>
@@ -78,7 +88,7 @@ const Nav = () => {
               : "/pages/shows/popular"
           }
           className={
-            "link flex items-center mb-[0.5rem] " +
+            "link flex items-center mb-[1rem] " +
             (mode ? "blackColor1" : "whiteColor1")
           }
         >
@@ -110,7 +120,7 @@ const Nav = () => {
               : "/pages/shows/top_rated"
           }
           className={
-            "link flex items-center mb-[0.5rem] " +
+            "link flex items-center mb-[1rem] " +
             (mode ? "blackColor1" : "whiteColor1")
           }
         >
