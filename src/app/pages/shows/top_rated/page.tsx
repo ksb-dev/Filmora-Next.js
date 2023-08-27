@@ -1,35 +1,11 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-//"use client";
-
-//import { useEffect } from "react";
-
-// redux
-//import { useSelector } from "react-redux";
-//import { getMovies } from "@/redux/services/getMovies";
+// lib
+import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
 // components
 import ShowCard from "@/components/Card/ShowCard/ShowCard";
-//import { useAppDispatch, RootState } from "@/redux/store";
-
-async function getTopRatedShows() {
-  const res = await fetch(
-    `https://api.themoviedb.org/3/tv/top_rated?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=1`
-  );
-  const data = await res.json();
-
-  return data.results;
-}
 
 export default async function TopRated() {
-  const topRatedShows = await getTopRatedShows();
-  // const dispatch = useAppDispatch();
-  // const { sortedMovies, loading, error } = useSelector(
-  //   (state: RootState) => state.movies
-  // );
-
-  // useEffect(() => {
-  //   dispatch(getMovies("now_playing"));
-  // }, []);
+  const topRatedShows = await getMoviesOrShows("top_rated", "tv");
 
   return (
     <main className="main">

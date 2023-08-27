@@ -19,6 +19,8 @@ import Link from "next/link";
 import { BsPlus } from "react-icons/bs";
 import { BiCheck } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { FaPlus } from "react-icons/fa";
+import { HiPlus } from "react-icons/hi";
 
 // styles
 import styles from "../card.module.css";
@@ -52,11 +54,18 @@ const ShowCard = ({ show }: any) => {
 
   return (
     <div
-      style={{ position: "relative", overflow: "hidden" }}
-      onMouseOver={showWishlistBtn}
-      onMouseLeave={hideWishlistBtn}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        transition: "filter 0.3s ease",
+      }}
     >
-      <Link href="#">
+      <Link
+        href="#"
+        onMouseOver={showWishlistBtn}
+        onMouseLeave={hideWishlistBtn}
+        className={"hover:brightness-90 " + (mode ? "whiteBg1" : "blackBg2")}
+      >
         <div className="relative h-[260px]">
           <Image
             src={poster_path === null ? url : IMG_PATH + poster_path}
@@ -87,44 +96,67 @@ const ShowCard = ({ show }: any) => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-[2rem]">
+        <div
+          className={
+            "flex flex-col pt-[2rem] p-[1rem] " +
+            (mode ? "whiteBg1" : "blackBg2")
+          }
+        >
           <span className="inline-block font-medium">{name}</span>
-          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.85rem]">
+          <span className="inline-block mt-[0.5rem] text-[#777] text-[0.85rem]">
             {first_air_date && moment(first_air_date).format("Do MMM, YYYY")}
           </span>
         </div>
       </Link>
 
       <div
+        onMouseOver={showWishlistBtn}
+        onMouseLeave={hideWishlistBtn}
         ref={ref}
         style={{
           position: "absolute",
           top: "0",
-          left: 0,
+          left: "0",
           right: "0",
           transform: "translateX(150%)",
-          transition: "all 0.3s ease",
-          background: "rgba(0,0,0,0.75)",
-          color: "#fff",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          textTransform: "uppercase",
-          fontWeight: "600",
-          fontSize: "0.8rem",
-          padding: "0.75rem 0",
+          transition: "all 0.3s ease-in-out",
+          //background: "var(--blue)",
         }}
+        //className={mode ? "lightAlpha" : "darkAlpha"}
       >
-        <span
+        <p
           style={{
-            fontSize: "1.5rem",
-            marginRight: "0.25rem",
+            position: "relative",
+            background: "rgba(0,0,0,0.75)",
+            color: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            textTransform: "uppercase",
+            fontWeight: "700",
+            fontSize: "0.8rem",
+            padding: "0.75rem 0",
+            margin: "0.5rem",
+            //width: "40px",
+            //height: "40px",
           }}
+          //className={mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1"}
         >
-          <BsPlus />
-        </span>
-        Wishlist
+          <span
+            style={{
+              // position: "absolute",
+              // top: "50%",
+              // left: "50%",
+              // transform: "translate(-50%, -50%)",
+              fontSize: "1rem",
+              marginRight: "0.25rem",
+            }}
+          >
+            <HiPlus />
+          </span>
+          Wishlist
+        </p>
       </div>
     </div>
   );
