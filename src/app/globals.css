@@ -6,7 +6,7 @@
   --border-radius-1: 7.5px;
 
   --white-1: rgb(255, 255, 255);
-  --white-2: rgb(235, 235, 235);
+  --white-2: rgb(245, 245, 245);
 
   --black-1: #555;
   --black-2: rgb(30, 30, 30);
@@ -17,7 +17,7 @@
   --orange: darkorange;
   --gold: goldenrod;
 
-  --shadow-1: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   --lightBorder1: 4px solid #fff;
   --darkBorder1: 4px solid rgb(30, 30, 30);
@@ -151,7 +151,7 @@ body {
 
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-    gap: 1rem;
+    gap: 1rem 1rem;
   }
 }
 
@@ -170,7 +170,6 @@ body {
 
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-    gap: 1rem;
   }
 }
 

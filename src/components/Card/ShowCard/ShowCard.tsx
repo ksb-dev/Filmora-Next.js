@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+
 import Image from "next/image";
 
 // redux
@@ -11,6 +13,15 @@ import moment from "moment";
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { RootState } from "@/redux/store";
+import Link from "next/link";
+
+// recat-icons
+import { BsPlus } from "react-icons/bs";
+import { BiCheck } from "react-icons/bi";
+import { RiDeleteBinLine } from "react-icons/ri";
+
+// styles
+import styles from "../card.module.css";
 
 const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
@@ -18,16 +29,8 @@ const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
 const ShowCard = ({ show }: any) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
-  const {
-    name,
-    vote_average,
-    first_air_date,
-    poster_path,
-    backdrop_path,
-    id,
-    genre_ids,
-    overview,
-  } = show;
+  const { id, name, poster_path, vote_average, first_air_date } = show;
+  const ref = useRef<any>(null);
 
   const getClassBg = (vote: any) => {
     if (vote >= 7.5) {
@@ -39,9 +42,21 @@ const ShowCard = ({ show }: any) => {
     }
   };
 
+  const showWishlistBtn = () => {
+    ref.current!.style.transform = "translateX(0%)";
+  };
+
+  const hideWishlistBtn = () => {
+    ref.current!.style.transform = "translateX(150%)";
+  };
+
   return (
-    <div>
-      <div>
+    <div
+      style={{ position: "relative", overflow: "hidden" }}
+      onMouseOver={showWishlistBtn}
+      onMouseLeave={hideWishlistBtn}
+    >
+      <Link href="#">
         <div className="relative h-[260px]">
           <Image
             src={poster_path === null ? url : IMG_PATH + poster_path}
@@ -61,7 +76,7 @@ const ShowCard = ({ show }: any) => {
           >
             <CircularProgressbar
               value={vote_average * 10}
-              strokeWidth={6}
+              strokeWidth={5}
               styles={buildStyles({
                 pathColor: "#fff",
               })}
@@ -71,12 +86,45 @@ const ShowCard = ({ show }: any) => {
             </span>
           </div>
         </div>
+
         <div className="flex flex-col mt-[2rem]">
           <span className="inline-block font-medium">{name}</span>
-          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.8rem]">
+          <span className="inline-block pt-[0.5rem] text-[#777] text-[0.85rem]">
             {first_air_date && moment(first_air_date).format("Do MMM, YYYY")}
           </span>
         </div>
+      </Link>
+
+      <div
+        ref={ref}
+        style={{
+          position: "absolute",
+          top: "0",
+          left: 0,
+          right: "0",
+          transform: "translateX(150%)",
+          transition: "all 0.3s ease",
+          background: "rgba(0,0,0,0.75)",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+          textTransform: "uppercase",
+          fontWeight: "600",
+          fontSize: "0.8rem",
+          padding: "0.75rem 0",
+        }}
+      >
+        <span
+          style={{
+            fontSize: "1.5rem",
+            marginRight: "0.25rem",
+          }}
+        >
+          <BsPlus />
+        </span>
+        Wishlist
       </div>
     </div>
   );

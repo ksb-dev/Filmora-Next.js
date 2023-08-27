@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <div
       className={
-        "header shadow-[0_2px_8px_rgba(0,0,0,0.2)] " +
+        "header shadow-[0_2px_15px_rgba(0,0,0,0.1)] " +
         (mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1")
       }
     >

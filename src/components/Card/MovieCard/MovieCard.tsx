@@ -19,6 +19,8 @@ import Link from "next/link";
 import { BsPlus } from "react-icons/bs";
 import { BiCheck } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { FaPlus } from "react-icons/fa";
+import { HiPlus } from "react-icons/hi";
 
 // styles
 import styles from "../card.module.css";
@@ -29,15 +31,7 @@ const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
 const MovieCard = ({ movie }: any) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
-  const {
-    id,
-    title,
-    backdrop_path,
-    original_language,
-    poster_path,
-    vote_average,
-    release_date,
-  } = movie;
+  const { id, title, poster_path, vote_average, release_date } = movie;
   const ref = useRef<any>(null);
 
   const getClassBg = (vote: any) => {
@@ -50,19 +44,24 @@ const MovieCard = ({ movie }: any) => {
     }
   };
 
-  const show = () => {
+  const showWishlistBtn = () => {
     ref.current!.style.transform = "translateX(0%)";
   };
 
-  const hide = () => {
+  const hideWishlistBtn = () => {
     ref.current!.style.transform = "translateX(150%)";
   };
 
   return (
     <div
-      style={{ position: "relative", overflow: "hidden" }}
-      onMouseOver={show}
-      onMouseLeave={hide}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        transition: "filter 0.3s ease",
+      }}
+      onMouseOver={showWishlistBtn}
+      onMouseLeave={hideWishlistBtn}
+      className={"hover:brightness-90 " + (mode ? "whiteBg1" : "blackBg2")}
     >
       <Link href="#">
         <div className="relative h-[260px]">
@@ -95,7 +94,7 @@ const MovieCard = ({ movie }: any) => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-[2rem]">
+        <div className="flex flex-col p-[1rem] mt-[1rem] h-max">
           <span className="inline-block font-medium">{title}</span>
           <span className="inline-block pt-[0.5rem] text-[#777] text-[0.85rem]">
             {release_date && moment(release_date).format("Do MMM, YYYY")}
@@ -121,16 +120,16 @@ const MovieCard = ({ movie }: any) => {
           textTransform: "uppercase",
           fontWeight: "600",
           fontSize: "0.8rem",
-          padding: "0.5rem 0",
+          padding: "0.75rem 0",
         }}
       >
         <span
           style={{
-            fontSize: "1.5rem",
+            fontSize: "1rem",
             marginRight: "0.25rem",
           }}
         >
-          <BsPlus />
+          <HiPlus />
         </span>
         Wishlist
       </div>
