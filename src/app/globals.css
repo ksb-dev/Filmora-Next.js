@@ -201,6 +201,14 @@ body {
   color: #fff;
 }
 
+.lightAlpha {
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.darkAlpha {
+  background: rgba(30, 30, 30, 0.75);
+}
+
 .blueColor {
   color: var(--blue);
 }

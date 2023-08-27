@@ -13,6 +13,15 @@ import moment from "moment";
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { RootState } from "@/redux/store";
+import Link from "next/link";
+
+// recat-icons
+import { BsPlus } from "react-icons/bs";
+import { BiCheck } from "react-icons/bi";
+import { RiDeleteBinLine } from "react-icons/ri";
+
+// styles
+import styles from "../card.module.css";
 
 const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
@@ -42,11 +51,11 @@ const MovieCard = ({ movie }: any) => {
   };
 
   const show = () => {
-    ref.current!.style.transform = "translateY(0%)";
+    ref.current!.style.transform = "translateX(0%)";
   };
 
   const hide = () => {
-    ref.current!.style.transform = "translateY(100%)";
+    ref.current!.style.transform = "translateX(150%)";
   };
 
   return (
@@ -55,7 +64,7 @@ const MovieCard = ({ movie }: any) => {
       onMouseOver={show}
       onMouseLeave={hide}
     >
-      <div>
+      <Link href="#">
         <div className="relative h-[260px]">
           <Image
             src={poster_path === null ? url : IMG_PATH + poster_path}
@@ -86,30 +95,44 @@ const MovieCard = ({ movie }: any) => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-[1rem] p-[1rem]">
+        <div className="flex flex-col mt-[2rem]">
           <span className="inline-block font-medium">{title}</span>
           <span className="inline-block pt-[0.5rem] text-[#777] text-[0.85rem]">
             {release_date && moment(release_date).format("Do MMM, YYYY")}
           </span>
         </div>
-      </div>
+      </Link>
 
       <div
         ref={ref}
         style={{
           position: "absolute",
-          background: "rgba(0,0,0,0.5)",
-          width: "100%",
-          height: "50%",
-          bottom: 0,
+          top: "0",
           left: 0,
-          transform: "translateY(110%)",
+          right: "0",
+          transform: "translateX(150%)",
           transition: "all 0.3s ease",
+          background: "rgba(0,0,0,0.75)",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          cursor: "pointer",
+          textTransform: "uppercase",
+          fontWeight: "600",
+          fontSize: "0.8rem",
+          padding: "0.5rem 0",
         }}
       >
-        <p className="bg-[var(--blue)] text-white m-[1rem] text-center py-[0.5rem]">
-          Add
-        </p>
+        <span
+          style={{
+            fontSize: "1.5rem",
+            marginRight: "0.25rem",
+          }}
+        >
+          <BsPlus />
+        </span>
+        Wishlist
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { useEffect } from "react";
 //import { getMovies } from "@/redux/services/getMovies";
 
 // components
-import ShowCard from "@/components/ShowCard/ShowCard";
+import ShowCard from "@/components/Card/ShowCard/ShowCard";
 //import { useAppDispatch, RootState } from "@/redux/store";
 
 async function getTrendingShows() {
