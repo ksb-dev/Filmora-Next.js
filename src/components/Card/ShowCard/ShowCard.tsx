@@ -65,6 +65,10 @@ const ShowCard = ({ show }: any) => {
         onMouseOver={showWishlistBtn}
         onMouseLeave={hideWishlistBtn}
         className={"hover:brightness-90 " + (mode ? "whiteBg1" : "blackBg2")}
+        style={{
+          display: "block",
+          height: "100%",
+        }}
       >
         <div className="relative h-[260px]">
           <Image
@@ -120,9 +124,7 @@ const ShowCard = ({ show }: any) => {
           right: "0",
           transform: "translateX(150%)",
           transition: "all 0.3s ease-in-out",
-          //background: "var(--blue)",
         }}
-        //className={mode ? "lightAlpha" : "darkAlpha"}
       >
         <p
           style={{
@@ -138,17 +140,10 @@ const ShowCard = ({ show }: any) => {
             fontSize: "0.8rem",
             padding: "0.75rem 0",
             margin: "0.5rem",
-            //width: "40px",
-            //height: "40px",
           }}
-          //className={mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1"}
         >
           <span
             style={{
-              // position: "absolute",
-              // top: "50%",
-              // left: "50%",
-              // transform: "translate(-50%, -50%)",
               fontSize: "1rem",
               marginRight: "0.25rem",
             }}
