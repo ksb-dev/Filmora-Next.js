@@ -8,10 +8,12 @@
   --white-1: rgb(255, 255, 255);
   --white-2: rgb(245, 245, 245);
 
-  --black-1: #555;
-  --black-2: rgb(30, 30, 30);
+  --black-1: #333a45;
+  --black-2: #23272f;
 
   --blue: #4285f4;
+  --blue: #149eca;
+  /* --blue: #00acee; */
   --red: tomato;
   --green: #0f9d58;
   --orange: darkorange;
@@ -20,7 +22,7 @@
   --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   --lightBorder1: 4px solid #fff;
-  --darkBorder1: 4px solid rgb(30, 30, 30);
+  --darkBorder1: 4px solid #23272f;
 }
 
 * {
@@ -112,7 +114,7 @@ body {
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-  gap: 3rem;
+  gap: 2rem;
 }
 
 @media screen and (max-width: 1286px) {
@@ -125,14 +127,12 @@ body {
   }
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 2rem;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-    gap: 2rem;
   }
 }
 
@@ -151,7 +151,7 @@ body {
   }
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-    gap: 1rem 1rem;
+    gap: 1rem;
   }
 }
 
