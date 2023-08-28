@@ -15,7 +15,7 @@ const Login = () => {
   }, [session]);
 
   return (
-    <div className="pt-[10rem]">
+    <div className="">
       <button onClick={() => signIn("google")}>Google Login</button>
       <button onClick={() => signIn("github")}>Github Login</button>
     </div>

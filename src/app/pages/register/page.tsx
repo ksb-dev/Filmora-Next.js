@@ -1,5 +1,5 @@
 const Register = () => {
-  return <div className="pt-[10rem]">Register</div>;
+  return <div className="">Register</div>;
 };
 
 export default Register;
