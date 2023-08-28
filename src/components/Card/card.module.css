@@ -1,0 +1,95 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.3s ease;
+}
+
+.card_link {
+  display: block;
+  height: 100%;
+  transition: filter 0.3s ease;
+}
+
+.card_link:hover {
+  filter: brightness(90%);
+}
+
+.image_container {
+  position: relative;
+  height: 260px;
+}
+
+.image {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0, 0.5);
+}
+
+.vote {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  padding: 0.2rem;
+  bottom: -25px;
+  left: 1rem;
+}
+
+.vote_text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.title_date_div {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.title {
+  display: inline-block;
+  font-weight: 500;
+}
+
+.date {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.add_btn_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.add_btn {
+  position: relative;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.75rem 0;
+  margin: 0.5rem;
+  transition: letter-spacing 0.3s ease;
+}
+
+.add_btn:hover {
+  letter-spacing: 1px;
+}
+
+.add_btn_icon {
+  font-size: 1rem;
+  margin-right: 0.25rem;
+}

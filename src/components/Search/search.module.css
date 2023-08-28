@@ -1,0 +1,16 @@
+.search {
+  position: relative;
+  margin-right: 1rem;
+  width: 350px;
+  padding: 0.5rem 1rem;
+  color: #999;
+  cursor: pointer;
+}
+
+.search_icon {
+  position: absolute;
+  font-size: 1.25rem;
+  top: 0.65rem;
+  right: 0.5rem;
+  color: #999;
+}

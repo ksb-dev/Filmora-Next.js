@@ -53,27 +53,14 @@ const ShowCard = ({ show }: any) => {
   };
 
   return (
-    <div
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        transition: "filter 0.3s ease",
-        //boxShadow: "0 2px 2px rgba(0,0,0,0.2)",
-      }}
-      //className="hover:shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
-    >
+    <div className={styles.card}>
       <Link
-        href={`/pages/show_info/${id}`}
+        href={`/pages/movie_info/${id}`}
         onMouseOver={showWishlistBtn}
         onMouseLeave={hideWishlistBtn}
-        className={"hover:brightness-90 " + (mode ? "whiteBg1" : "blackBg2")}
-        style={{
-          display: "block",
-          height: "100%",
-          transition: "filter 0.3s ease",
-        }}
+        className={styles.card_link + (mode ? " whiteBg1" : " blackBg2")}
       >
-        <div className="relative h-[260px]">
+        <div className={styles.image_container}>
           <Image
             src={poster_path === null ? url : IMG_PATH + poster_path}
             alt={name}
@@ -81,12 +68,12 @@ const ShowCard = ({ show }: any) => {
             objectFit="cover"
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ boxShadow: "0 0 1px rgba(0,0,0,0.5)" }}
+            className={styles.image}
           />
           <div
             className={
-              "absolute h-[50px] w-[50px] rounded-[50%] p-[0.2rem] bottom-[-25px] left-[1rem] " +
-              (mode ? "lightBorder " : "darkBorder ") +
+              styles.vote +
+              (mode ? " lightBorder " : " darkBorder ") +
               getClassBg(vote_average)
             }
           >
@@ -97,20 +84,17 @@ const ShowCard = ({ show }: any) => {
                 pathColor: "#fff",
               })}
             />
-            <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-[0.8rem] font-medium">
+            <span className={styles.vote_text}>
               {Number(String(vote_average).substring(0, 3))}
             </span>
           </div>
         </div>
 
         <div
-          className={
-            "flex flex-col pt-[2rem] p-[1rem] " +
-            (mode ? "whiteBg1" : "blackBg2")
-          }
+          className={styles.title_date_div + (mode ? " whiteBg1" : " blackBg2")}
         >
-          <span className="inline-block font-medium">{name}</span>
-          <span className="inline-block mt-[0.5rem] text-[#777] text-[0.85rem]">
+          <span className={styles.title}>{name}</span>
+          <span className={styles.date}>
             {first_air_date && moment(first_air_date).format("Do MMM, YYYY")}
           </span>
         </div>
@@ -120,39 +104,10 @@ const ShowCard = ({ show }: any) => {
         onMouseOver={showWishlistBtn}
         onMouseLeave={hideWishlistBtn}
         ref={ref}
-        style={{
-          position: "absolute",
-          top: "0",
-          left: "0",
-          right: "0",
-          transform: "scale(0)",
-          transition: "all 0.3s ease-in-out",
-        }}
+        className={styles.add_btn_container}
       >
-        <p
-          style={{
-            position: "relative",
-            background: "rgba(0,0,0,0.75)",
-            color: "#fff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            textTransform: "uppercase",
-            fontWeight: "600",
-            fontSize: "0.8rem",
-            padding: "0.75rem 0",
-            margin: "0.5rem",
-            transition: "all 0.3s ease",
-          }}
-          className="hover:tracking-[1px]"
-        >
-          <span
-            style={{
-              fontSize: "1rem",
-              marginRight: "0.25rem",
-            }}
-          >
+        <p className={styles.add_btn}>
+          <span className={styles.add_btn_icon}>
             <HiPlus />
           </span>
           Wishlist

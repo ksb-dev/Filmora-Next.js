@@ -12,6 +12,9 @@ import { RootState } from "@/redux/store";
 import { BsSun, BsMoonStars } from "react-icons/bs";
 import { GiFilmSpool } from "react-icons/gi";
 
+// components
+import Search from "@/components/Search/Search";
+
 const Header = () => {
   const { data: session } = useSession();
   const dispatch = useDispatch();
@@ -42,9 +45,8 @@ const Header = () => {
           </Link>
         </div>
 
-        <div>Search</div>
-
         <div className="flex items-center">
+          <Search />
           <div className="mr-[1rem]" onClick={handleMode}>
             {mode ? (
               <span className="cursor-pointer text-[1.2rem]">
