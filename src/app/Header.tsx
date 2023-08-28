@@ -34,7 +34,7 @@ const Header = () => {
       <div className="flex items-center justify-between max-w-[1280px] w-[1280px]">
         <div>
           <Link
-            href="/"
+            href="/pages/movies/popular"
             className="link relative flex text-[2rem] font-bold text-[var(--blue)]"
           >
             <span className="text">Film</span>

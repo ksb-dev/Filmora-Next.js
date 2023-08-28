@@ -12,5 +12,5 @@ export default function Home() {
     router.push("/pages/movies/popular");
   }, []);
 
-  return <></>;
+  return <div>Loading...</div>;
 }
