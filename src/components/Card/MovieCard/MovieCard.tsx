@@ -45,11 +45,11 @@ const MovieCard = ({ movie }: any) => {
   };
 
   const showWishlistBtn = () => {
-    ref.current!.style.transform = "translateX(0%)";
+    ref.current!.style.transform = "scale(1)";
   };
 
   const hideWishlistBtn = () => {
-    ref.current!.style.transform = "translateX(150%)";
+    ref.current!.style.transform = "scale(0)";
   };
 
   return (
@@ -58,7 +58,9 @@ const MovieCard = ({ movie }: any) => {
         position: "relative",
         overflow: "hidden",
         transition: "filter 0.3s ease",
+        //boxShadow: "0 2px 2px rgba(0,0,0,0.2)",
       }}
+      //className="hover:shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
     >
       <Link
         href={`/pages/movie_info/${id}`}
@@ -68,6 +70,7 @@ const MovieCard = ({ movie }: any) => {
         style={{
           display: "block",
           height: "100%",
+          transition: "filter 0.3s ease",
         }}
       >
         <div className="relative h-[260px]">
@@ -122,8 +125,8 @@ const MovieCard = ({ movie }: any) => {
           top: "0",
           left: "0",
           right: "0",
-          transform: "translateX(150%)",
-          transition: "all 0.3s ease-in-out",
+          transform: "scale(0)",
+          transition: "all 0.3s ease",
         }}
       >
         <p
@@ -140,7 +143,9 @@ const MovieCard = ({ movie }: any) => {
             fontSize: "0.8rem",
             padding: "0.75rem 0",
             margin: "0.5rem",
+            transition: "all 0.3s ease",
           }}
+          className="hover:tracking-[1px]"
         >
           <span
             style={{

@@ -74,6 +74,7 @@ body {
   display: flex;
   max-width: 1280px;
   margin: 0 auto;
+  padding-top: 10rem;
   margin-bottom: 1rem;
 }
 
@@ -102,7 +103,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 10rem;
+  /* padding-top: 10rem; */
   padding-left: calc(200px + 0rem);
 }
 
@@ -120,8 +121,8 @@ body {
   }
   .container {
     padding: 0 2rem;
+    padding-top: 10rem;
   }
-
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 2rem;
@@ -139,16 +140,15 @@ body {
   .nav {
     display: none;
   }
-
   .header {
     height: 4rem;
   }
-
-  .main {
+  .container {
     padding-top: 6rem;
+  }
+  .main {
     padding-left: 0;
   }
-
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
     gap: 1rem 1rem;
@@ -161,13 +161,8 @@ body {
   }
   .container {
     padding: 0 1rem;
-  }
-
-  .main {
     padding-top: 6rem;
-    padding-left: 0;
   }
-
   .inner {
     grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
   }

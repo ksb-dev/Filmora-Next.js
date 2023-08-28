@@ -71,44 +71,6 @@ const Nav = () => {
       </div>
       <div className="categories">
         <p className="mb-[1rem] font-bold uppercase">Categories</p>
-        {/* <div
-          className={
-            "link flex items-center mb-[1rem] " +
-            (mode ? "blackColor1" : "whiteColor1")
-          }
-          onClick={() => getMoviesOrShows("popular", "movie")}
-        >
-          <span className="mr-[1rem]">
-            <BsGraphUpArrow />
-          </span>
-          Popular
-        </div>
-
-        <div
-          className={
-            "link flex items-center mb-[1rem] " +
-            (mode ? "blackColor1" : "whiteColor1")
-          }
-          onClick={() => getMoviesOrShows("trending", "movie")}
-        >
-          <span className="mr-[1rem]">
-            <BsGraphUpArrow />
-          </span>
-          Trending
-        </div>
-
-        <div
-          className={
-            "link flex items-center mb-[1rem] " +
-            (mode ? "blackColor1" : "whiteColor1")
-          }
-          onClick={() => getMoviesOrShows("top_rated", "movie")}
-        >
-          <span className="mr-[1rem]">
-            <BsGraphUpArrow />
-          </span>
-          Top Rated
-        </div> */}
 
         <Link
           href={
