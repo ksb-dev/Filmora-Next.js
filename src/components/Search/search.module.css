@@ -1,8 +1,9 @@
 .search {
   position: relative;
-  margin-right: 1rem;
+  margin-right: 2rem;
   width: 350px;
   padding: 0.5rem 1rem;
+  padding-left: 2.5rem;
   color: #999;
   cursor: pointer;
 }
@@ -11,6 +12,6 @@
   position: absolute;
   font-size: 1.25rem;
   top: 0.65rem;
-  right: 0.5rem;
+  left: 1rem;
   color: #999;
 }

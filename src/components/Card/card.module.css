@@ -1,18 +1,26 @@
 .card {
   position: relative;
   overflow: hidden;
-  transition: filter 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .card_link {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
   display: block;
   height: 100%;
   transition: filter 0.3s ease;
 }
 
-.card_link:hover {
+/* .card_link:hover {
   filter: brightness(90%);
-}
+} */
 
 .image_container {
   position: relative;
@@ -20,7 +28,7 @@
 }
 
 .image {
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0, 0.5);
 }
 
 .vote {

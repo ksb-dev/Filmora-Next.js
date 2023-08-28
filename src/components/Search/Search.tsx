@@ -18,9 +18,11 @@ const Search = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const showModal = () => {
+    //ref.current!.style.display = "flex";
+    ref.current!.style.height = "100%";
+    ref.current!.style.width = "100%";
     ref.current!.style.zIndex = "2";
     ref.current!.style.opacity = "1";
-    ref.current!.style.transform = "scale(1)";
   };
 
   return (
