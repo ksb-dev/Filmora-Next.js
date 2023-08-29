@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 // redux
 import { useSelector } from "react-redux";
@@ -66,6 +66,7 @@ const MovieCard = ({ movie }: any) => {
             alt={title}
             layout="fill"
             objectFit="cover"
+            // fill={true}
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={styles.image}

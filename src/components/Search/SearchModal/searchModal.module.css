@@ -1,13 +1,20 @@
 .search_modal {
   position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
+  left: 0;
 
-  display: none;
+  /* height: 0;
+  opacity: 0;
+  z-index: -1; */
+
+  display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  transform: scale(0);
+  transition: all 0.1s ease;
 }
 
 .search_container {
@@ -15,7 +22,6 @@
   height: 90%;
   padding: 2rem;
   margin: 2rem;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
 }
 
 .search_input_div {

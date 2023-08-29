@@ -1,7 +1,7 @@
 .card {
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.1s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -10,21 +10,14 @@
 }
 
 .card_link {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between; */
   display: block;
   height: 100%;
   transition: filter 0.3s ease;
 }
 
-/* .card_link:hover {
-  filter: brightness(90%);
-} */
-
 .image_container {
   position: relative;
-  height: 260px;
+  height: 250px;
 }
 
 .image {
@@ -74,7 +67,7 @@
   left: 0;
   right: 0;
   transform: scale(0);
-  transition: all 0.3s ease;
+  transition: all 0.1s ease;
 }
 
 .add_btn {

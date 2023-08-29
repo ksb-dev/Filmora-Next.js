@@ -46,8 +46,6 @@ body {
   min-height: 100vh;
 }
 
-/* ----- Header (Start) ----- */
-
 .header {
   position: fixed;
   top: 0;
@@ -70,8 +68,6 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* ----- Header (End) ----- */
-
 .container {
   display: flex;
   max-width: 1280px;
@@ -79,8 +75,6 @@ body {
   padding-top: 10rem;
   margin-bottom: 1rem;
 }
-
-/* ----- Nav (start) ----- */
 
 .nav {
   position: fixed;
@@ -99,13 +93,10 @@ body {
   text-decoration: none;
 }
 
-/* ----- Nav (end) ----- */
-
 .main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* padding-top: 10rem; */
   padding-left: calc(200px + 0rem);
 }
 
@@ -113,7 +104,8 @@ body {
   width: 100%;
 
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  align-items: stretch;
   gap: 2rem;
 }
 
@@ -124,15 +116,6 @@ body {
   .container {
     padding: 0 2rem;
     padding-top: 10rem;
-  }
-  .inner {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .inner {
-    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
   }
 }
 
@@ -149,10 +132,6 @@ body {
   .main {
     padding-left: 0;
   }
-  .inner {
-    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-    gap: 1rem;
-  }
 }
 
 @media screen and (max-width: 640px) {
@@ -163,8 +142,12 @@ body {
     padding: 0 1rem;
     padding-top: 6rem;
   }
+}
+
+@media screen and (max-width: 450px) {
   .inner {
-    grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
   }
 }
 

@@ -28,7 +28,7 @@ const Nav = () => {
       <div className="pb-[1rem] mb-[1rem]">
         <p className="mb-[1rem] font-bold uppercase">Options</p>
         <div className="cursor-pointer mb-[1rem] flex items-center">
-          {pathname.includes("/pages/movies/") ? (
+          {pathname.includes("/pages/movies/") || pathname === "/" ? (
             <div className="flex items-center">
               <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">

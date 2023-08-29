@@ -1,16 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-"use client";
+// lib
+import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
-import { useRouter } from "next/navigation";
+// components
+import MovieCard from "@/components/Card/MovieCard/MovieCard";
 
-import { useEffect } from "react";
+export default async function Home() {
+  const popularMovies = await getMoviesOrShows("popular", "movie");
 
-export default function Home() {
-  const router = useRouter();
+  if (!popularMovies) throw new Error("Failed to fetch data!");
 
-  useEffect(() => {
-    router.push("/pages/movies/popular");
-  }, []);
-
-  return <div>Loading...</div>;
+  return (
+    <main className="main">
+      <span className="mb-[2rem] max-w-fit uppercase font-bold">
+        Popular Movies
+      </span>
+      <div className="inner">
+        {popularMovies &&
+          popularMovies.map((movie: any, index: any) => (
+            <MovieCard key={index} movie={movie} />
+          ))}
+      </div>
+    </main>
+  );
 }
