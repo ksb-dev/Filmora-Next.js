@@ -195,11 +195,19 @@ body {
   color: #fff;
 }
 
-.lightAlpha {
+.lightAlpha1 {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.darkAlpha {
+.darkAlpha1 {
+  background: rgba(51, 58, 69, 0.9);
+}
+
+.lightAlpha2 {
+  background: rgba(240, 240, 241, 0.9);
+}
+
+.darkAlpha2 {
   background: rgba(35, 39, 47, 0.9);
 }
 

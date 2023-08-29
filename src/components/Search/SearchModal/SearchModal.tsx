@@ -14,6 +14,10 @@ import { IoClose } from "react-icons/io5";
 // styles
 import styles from "./searchModal.module.css";
 
+const search__movie__url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&adult = false`;
+
+const search__show__url = `https://api.themoviedb.org/3/search/tv?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&adult = false`;
+
 type Props = {};
 
 const SearchModal = forwardRef<HTMLDivElement, Props>(function (props, ref) {
@@ -29,11 +33,7 @@ const SearchModal = forwardRef<HTMLDivElement, Props>(function (props, ref) {
         ref1.current?.contains(e.target) &&
         !ref2.current?.contains(e.target)
       ) {
-        //ref1.current!.style.display = "none";
-        ref1.current!.style.height = "0%";
-        ref1.current!.style.width = "0%";
-        ref1.current!.style.zIndex = "-1";
-        ref1.current!.style.opacity = "0";
+        ref1.current!.style.display = "none";
       }
     };
 
@@ -45,31 +45,32 @@ const SearchModal = forwardRef<HTMLDivElement, Props>(function (props, ref) {
   }, []);
 
   const hideModal = () => {
-    //ref1.current!.style.display = "none";
-    ref1.current!.style.height = "0%";
-    ref1.current!.style.width = "0%";
-    ref1.current!.style.zIndex = "-1";
-    ref1.current!.style.opacity = "0";
+    ref1.current!.style.display = "none";
   };
 
   return (
     <div
       ref={ref1}
-      className={styles.search_modal + (mode ? " lightAlpha" : " darkAlpha")}
+      className={styles.search_modal + (mode ? " lightAlpha2" : " darkAlpha1")}
     >
-      <div className={styles.search_input_div} ref={ref2}>
-        <input
-          type="text"
-          placeholder="Search"
-          className={styles.search_input + (mode ? " whiteBg2" : " blackBg1")}
-        />
-        <span className={styles.search_icon}>
-          <BiSearch />
-        </span>
+      <div
+        ref={ref2}
+        className={styles.search_container + (mode ? " whiteBg1" : " blackBg2")}
+      >
+        <div className={styles.search_input_div}>
+          <input
+            type="text"
+            placeholder="Search"
+            className={styles.search_input + (mode ? " whiteBg2" : " blackBg1")}
+          />
+          <span className={styles.search_icon}>
+            <BiSearch />
+          </span>
 
-        <span className={styles.close_icon} onClick={hideModal}>
-          <IoClose />
-        </span>
+          <span className={styles.close_icon} onClick={hideModal}>
+            <IoClose />
+          </span>
+        </div>
       </div>
     </div>
   );
