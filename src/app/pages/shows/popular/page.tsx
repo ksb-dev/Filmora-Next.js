@@ -13,8 +13,8 @@ export default async function Popular() {
         Popular Shows
       </span>
       <div className="inner">
-        {popularShows.map((show: any, index: any) => (
-          <ShowCard key={index} show={show} />
+        {popularShows.map((show: Card) => (
+          <ShowCard key={show.id} show={show} />
         ))}
       </div>
     </main>

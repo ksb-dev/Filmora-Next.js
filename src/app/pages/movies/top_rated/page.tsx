@@ -13,8 +13,8 @@ export default async function TopRated() {
         Top Rated Movies
       </span>
       <div className="inner">
-        {topRatedMovies.map((movie: any, index: any) => (
-          <MovieCard key={index} movie={movie} />
+        {topRatedMovies.map((movie: Card) => (
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
     </main>

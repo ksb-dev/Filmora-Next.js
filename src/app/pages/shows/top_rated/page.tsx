@@ -13,8 +13,8 @@ export default async function TopRated() {
         Top Rated Shows
       </span>
       <div className="inner">
-        {topRatedShows.map((show: any, index: any) => (
-          <ShowCard key={index} show={show} />
+        {topRatedShows.map((show: Card) => (
+          <ShowCard key={show.id} show={show} />
         ))}
       </div>
     </main>

@@ -1,6 +1,6 @@
 "use client"; // Error components must be Client components
 
-import { useEffect } from "react";
+import ErrorComponent from "@/components/UI/ErrorComponent";
 
 export default function Error({
   error,
@@ -9,14 +9,9 @@ export default function Error({
   error: Error;
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
   return (
     <div className="main">
-      <h2>{error.message}</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <ErrorComponent error={error} reset={reset} />
     </div>
   );
 }

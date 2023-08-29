@@ -1,12 +1,13 @@
 .card {
   position: relative;
   overflow: hidden;
-  transition: box-shadow 0.1s ease;
+  transition: var(--transition);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .card:hover {
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+  /* transform: translateY(-3px); */
 }
 
 .card_link {
@@ -67,7 +68,7 @@
   left: 0;
   right: 0;
   transform: scale(0);
-  transition: all 0.1s ease;
+  transition: var(--transition);
 }
 
 .add_btn {
@@ -83,7 +84,7 @@
   font-size: 0.8rem;
   padding: 0.75rem 0;
   margin: 0.5rem;
-  transition: letter-spacing 0.3s ease;
+  transition: letter-spacing 0.1s ease;
 }
 
 .add_btn:hover {

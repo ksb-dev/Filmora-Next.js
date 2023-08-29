@@ -13,8 +13,8 @@ export default async function Trending() {
         Trending Shows
       </span>
       <div className="inner">
-        {trendingShows.map((show: any, index: any) => (
-          <ShowCard key={index} show={show} />
+        {trendingShows.map((show: Card) => (
+          <ShowCard key={show.id} show={show} />
         ))}
       </div>
     </main>

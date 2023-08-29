@@ -29,7 +29,12 @@ const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
-const MovieCard = ({ movie }: any) => {
+type Props = {
+  key: number;
+  movie: Card;
+};
+
+const MovieCard = ({ movie }: Props) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const { id, title, poster_path, vote_average, release_date } = movie;
   const ref = useRef<any>(null);

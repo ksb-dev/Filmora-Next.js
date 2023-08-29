@@ -6,7 +6,7 @@
   --border-radius-1: 7.5px;
 
   --white-1: rgb(255, 255, 255);
-  --white-2: rgb(240, 240, 241);
+  --white-2: rgb(235, 236, 240);
 
   --black-1: #333a45;
   --black-2: #23272f;
@@ -23,6 +23,8 @@
 
   --lightBorder1: 4px solid #fff;
   --darkBorder1: 4px solid #23272f;
+
+  --transition: all 0.1s ease;
 }
 
 * {
@@ -179,19 +181,19 @@ body {
 }
 
 .lightAlpha1 {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .darkAlpha1 {
-  background: rgba(51, 58, 69, 0.9);
+  background: rgba(51, 58, 69, 0.95);
 }
 
 .lightAlpha2 {
-  background: rgba(240, 240, 241, 0.9);
+  background: rgba(235, 236, 240, 0.95);
 }
 
 .darkAlpha2 {
-  background: rgba(35, 39, 47, 0.9);
+  background: rgba(35, 39, 47, 0.95);
 }
 
 .blueColor {
