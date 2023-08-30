@@ -6,13 +6,13 @@ import Image from "next/legacy/image";
 
 // redux
 import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 // moment
 import moment from "moment";
 
 // Circular progress bar
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import { RootState } from "@/redux/store";
 import Link from "next/link";
 
 // recat-icons
@@ -21,6 +21,11 @@ import { BiCheck } from "react-icons/bi";
 import { RiDeleteBinLine } from "react-icons/ri";
 import { FaPlus } from "react-icons/fa";
 import { HiPlus } from "react-icons/hi";
+
+// components
+import ProgressBar from "../ProgressBar";
+import CardImage from "../CardImage";
+import WishlistBtn from "../WishlistBtn";
 
 // styles
 import styles from "../card.module.css";
@@ -37,7 +42,7 @@ type Props = {
 const ShowCard = ({ show }: Props) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const { id, name, poster_path, vote_average, first_air_date } = show;
-  const ref = useRef<any>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const getClassBg = (vote: any) => {
     if (vote >= 7.5) {
@@ -66,34 +71,8 @@ const ShowCard = ({ show }: Props) => {
         className={styles.card_link + (mode ? " whiteBg1" : " blackBg2")}
       >
         <div className={styles.image_container}>
-          <Image
-            src={poster_path === null ? url : IMG_PATH + poster_path}
-            alt={name}
-            layout="fill"
-            objectFit="cover"
-            priority
-            //fill={true}
-            //sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className={styles.image}
-          />
-          <div
-            className={
-              styles.vote +
-              (mode ? " lightBorder " : " darkBorder ") +
-              getClassBg(vote_average)
-            }
-          >
-            <CircularProgressbar
-              value={vote_average * 10}
-              strokeWidth={5}
-              styles={buildStyles({
-                pathColor: "#fff",
-              })}
-            />
-            <span className={styles.vote_text}>
-              {Number(String(vote_average).substring(0, 3))}
-            </span>
-          </div>
+          <CardImage poster_path={poster_path} title={name} />
+          <ProgressBar vote_average={vote_average} />
         </div>
 
         <div
@@ -106,19 +85,11 @@ const ShowCard = ({ show }: Props) => {
         </div>
       </Link>
 
-      <div
-        onMouseOver={showWishlistBtn}
-        onMouseLeave={hideWishlistBtn}
+      <WishlistBtn
         ref={ref}
-        className={styles.add_btn_container}
-      >
-        <p className={styles.add_btn}>
-          <span className={styles.add_btn_icon}>
-            <HiPlus />
-          </span>
-          Wishlist
-        </p>
-      </div>
+        showWishlistBtn={showWishlistBtn}
+        hideWishlistBtn={hideWishlistBtn}
+      />
     </div>
   );
 };
