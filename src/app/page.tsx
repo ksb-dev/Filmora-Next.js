@@ -9,7 +9,7 @@ const Home = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/pages/movies/popular");
+    router.push("/pages/movies/popular/1");
   }, []);
   return <div>Loading...</div>;
 };

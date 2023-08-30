@@ -63,6 +63,21 @@ body {
   color: #fff;
 }
 
+.footer {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer_content {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .gradient {
   background: linear-gradient(to right, #01b4e4, #90cea1);
   background-clip: text;
@@ -75,7 +90,6 @@ body {
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 10rem;
-  margin-bottom: 1rem;
 }
 
 .nav {
@@ -83,7 +97,7 @@ body {
   top: 10rem;
   left: calc(100% -1280px);
   width: 200px;
-  height: calc(100vh - 55px - 80px);
+  /* height: calc(100vh - 55px - 80px); */
 }
 
 .categories {
@@ -97,6 +111,7 @@ body {
 
 .main {
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   padding-left: calc(200px + 0rem);

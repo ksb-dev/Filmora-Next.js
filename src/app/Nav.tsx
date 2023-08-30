@@ -40,7 +40,7 @@ const Nav = () => {
           ) : (
             <p
               className="flex items-center"
-              onClick={() => router.push("/pages/movies/popular")}
+              onClick={() => router.push("/pages/movies/popular/1")}
             >
               <span className="inline-block h-[20px] w-[20px] border border-[#999] mr-[0.5rem] rounded-[50%] "></span>
               <span>Movies</span>
@@ -61,7 +61,7 @@ const Nav = () => {
           ) : (
             <p
               className="flex items-center"
-              onClick={() => router.push("/pages/shows/popular")}
+              onClick={() => router.push("/pages/shows/popular/1")}
             >
               <span className="inline-block h-[20px] w-[20px] border border-[#999] mr-[0.5rem] rounded-[50%] "></span>
               <span>Shows</span>
@@ -75,8 +75,8 @@ const Nav = () => {
         <Link
           href={
             pathname.includes("movies")
-              ? "/pages/movies/popular"
-              : "/pages/shows/popular"
+              ? "/pages/movies/popular/1"
+              : "/pages/shows/popular/1"
           }
           className={
             "link flex items-center mb-[1rem] " +
@@ -92,8 +92,8 @@ const Nav = () => {
         <Link
           href={
             pathname.includes("movies")
-              ? "/pages/movies/trending"
-              : "/pages/shows/trending"
+              ? "/pages/movies/trending/1"
+              : "/pages/shows/trending/1"
           }
           className={
             "link flex items-center mb-[1rem] " +
@@ -109,8 +109,8 @@ const Nav = () => {
         <Link
           href={
             pathname.includes("movies")
-              ? "/pages/movies/top_rated"
-              : "/pages/shows/top_rated"
+              ? "/pages/movies/top_rated/1"
+              : "/pages/shows/top_rated/1"
           }
           className={
             "link flex items-center mb-[1rem] " +

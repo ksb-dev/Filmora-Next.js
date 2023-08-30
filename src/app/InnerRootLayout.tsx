@@ -9,6 +9,7 @@ import { RootState } from "@/redux/store";
 // components
 import Header from "./Header";
 import Nav from "./Nav";
+import Footer from "./Footer";
 
 const InnerRootLayout = ({ children }: { children: React.ReactNode }) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
@@ -28,8 +29,10 @@ const InnerRootLayout = ({ children }: { children: React.ReactNode }) => {
           pathname !== "/pages/about" &&
           !pathname.includes("/movie_info") &&
           !pathname.includes("/show_info") && <Nav />}
+
         {children}
       </div>
+      <Footer />
     </div>
   );
 };

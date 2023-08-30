@@ -3,20 +3,25 @@ import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
 // components
 import MovieCard from "@/components/Card/MovieCard/MovieCard";
+import Pagination from "@/components/Pagination/Pagination";
 
-export default async function TopRated() {
-  const topRatedMovies = await getMoviesOrShows("top_rated", "movie");
+export default async function Home({ params }: any) {
+  const popularMovies = await getMoviesOrShows("popular", "movie", params.page);
+
+  if (!popularMovies.results)
+    throw new Error("Failed to fetch popular movies!");
 
   return (
     <main className="main">
       <span className="mb-[2rem] max-w-fit uppercase font-bold">
-        Top Rated Movies
+        Popular Movies
       </span>
       <div className="inner">
-        {topRatedMovies.map((movie: Card) => (
+        {popularMovies.results.map((movie: Card) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
+      <Pagination />
     </main>
   );
 }

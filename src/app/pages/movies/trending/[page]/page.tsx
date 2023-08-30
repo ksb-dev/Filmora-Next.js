@@ -3,11 +3,17 @@ import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
 // components
 import MovieCard from "@/components/Card/MovieCard/MovieCard";
+import Pagination from "@/components/Pagination/Pagination";
 
-export default async function Trending() {
-  const trendingMovies = await getMoviesOrShows("trending", "movie");
+export default async function Trending({ params }: any) {
+  const trendingMovies = await getMoviesOrShows(
+    "trending",
+    "movie",
+    params.page
+  );
 
-  if (!trendingMovies) throw new Error("Failed to fetch trending movies!");
+  if (!trendingMovies.results)
+    throw new Error("Failed to fetch trending movies!");
 
   return (
     <main className="main">
@@ -15,10 +21,11 @@ export default async function Trending() {
         Trending Movies
       </span>
       <div className="inner">
-        {trendingMovies.map((movie: Card) => (
+        {trendingMovies.results.map((movie: Card) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
+      <Pagination />
     </main>
   );
 }
