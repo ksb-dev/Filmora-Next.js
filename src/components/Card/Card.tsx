@@ -23,32 +23,30 @@ import { FaPlus } from "react-icons/fa";
 import { HiPlus } from "react-icons/hi";
 
 // components
-import ProgressBar from "../ProgressBar";
-import CardImage from "../CardImage";
-import WishlistBtn from "../WishlistBtn";
+import ProgressBar from "./ProgressBar";
+import CardImage from "./CardImage";
+import WishlistBtn from "./WishlistBtn";
 
 // styles
-import styles from "../card.module.css";
+import styles from "./card.module.css";
 
 type Props = {
   key: number;
-  show: Card;
+  info: Card;
 };
 
-export default function ShowCard({ show }: Props) {
+export default function Card({ info }: Props) {
   const mode = useSelector((state: RootState) => state.mode.mode);
-  const { id, name, poster_path, vote_average, first_air_date } = show;
+  const {
+    id,
+    title,
+    poster_path,
+    vote_average,
+    release_date,
+    name,
+    first_air_date,
+  } = info;
   const ref = useRef<HTMLDivElement>(null);
-
-  const getClassBg = (vote: any) => {
-    if (vote >= 7.5) {
-      return "greenBg";
-    } else if (vote >= 5) {
-      return "orangeBg";
-    } else {
-      return "redBg";
-    }
-  };
 
   const showWishlistBtn = () => {
     ref.current!.style.transform = "scale(1)";
@@ -67,15 +65,16 @@ export default function ShowCard({ show }: Props) {
         className={styles.card_link + (mode ? " whiteBg1" : " blackBg2")}
       >
         <div className={styles.image_container}>
-          <CardImage poster_path={poster_path} title={name} />
+          <CardImage poster_path={poster_path} title={title ? title : name} />
           <ProgressBar vote_average={vote_average} />
         </div>
 
         <div
           className={styles.title_date_div + (mode ? " whiteBg1" : " blackBg2")}
         >
-          <span className={styles.title}>{name}</span>
+          <span className={styles.title}>{title ? title : name}</span>
           <span className={styles.date}>
+            {release_date && moment(release_date).format("Do MMM, YYYY")}
             {first_air_date && moment(first_air_date).format("Do MMM, YYYY")}
           </span>
         </div>

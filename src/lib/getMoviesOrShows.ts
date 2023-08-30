@@ -1,13 +1,17 @@
 export async function getMoviesOrShows(
   category: string,
   type: string,
-  page: number
+  page: string
 ) {
   let res, data;
 
   if (category === "trending") {
     const res = await fetch(
-      `https://api.themoviedb.org/3/${category}/${type}/day?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=${page}`
+      `https://api.themoviedb.org/3/${category}/${
+        type === "movies" ? "movie" : "tv"
+      }/day?api_key=${
+        process.env.NEXT_PUBLIC_TMDB_API_KEY
+      }&language=en-US&page=${page}`
     );
     const data = await res.json();
 
@@ -15,7 +19,11 @@ export async function getMoviesOrShows(
   }
 
   res = await fetch(
-    `https://api.themoviedb.org/3/${type}/${category}?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
+    `https://api.themoviedb.org/3/${
+      type === "movies" ? "movie" : "tv"
+    }/${category}?language=en-US&page=${page}&api_key=${
+      process.env.NEXT_PUBLIC_TMDB_API_KEY
+    }`
   );
 
   data = await res.json();
