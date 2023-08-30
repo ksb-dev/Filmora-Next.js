@@ -30,16 +30,12 @@ import WishlistBtn from "../WishlistBtn";
 // styles
 import styles from "../card.module.css";
 
-const url =
-  "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
-const IMG_PATH = "https://image.tmdb.org/t/p/w342";
-
 type Props = {
   key: number;
   show: Card;
 };
 
-const ShowCard = ({ show }: Props) => {
+export default function ShowCard({ show }: Props) {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const { id, name, poster_path, vote_average, first_air_date } = show;
   const ref = useRef<HTMLDivElement>(null);
@@ -92,6 +88,4 @@ const ShowCard = ({ show }: Props) => {
       />
     </div>
   );
-};
-
-export default ShowCard;
+}

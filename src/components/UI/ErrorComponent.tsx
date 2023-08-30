@@ -1,7 +1,7 @@
 // styles
 import styles from "./ui.module.css";
 
-const ErrorComponent = ({ error, reset }: ErrorMsg) => {
+export default function ErrorComponent({ error, reset }: ErrorMsg) {
   return (
     <div>
       <h2 className={styles.error_text}>{error.message}</h2>
@@ -13,6 +13,4 @@ const ErrorComponent = ({ error, reset }: ErrorMsg) => {
       </button>
     </div>
   );
-};
-
-export default ErrorComponent;
+}

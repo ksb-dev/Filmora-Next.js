@@ -11,7 +11,7 @@ import { usePagination } from "@/hooks/usePagination";
 import styles from "./pagination.module.css";
 import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
-const Pagination = () => {
+export default function Pagination() {
   const pathname = usePathname();
   const params = useParams();
   const router = useRouter();
@@ -76,6 +76,4 @@ const Pagination = () => {
       </span>
     </div>
   );
-};
-
-export default Pagination;
+}

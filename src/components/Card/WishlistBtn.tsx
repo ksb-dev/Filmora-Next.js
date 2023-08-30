@@ -14,7 +14,10 @@ type Props = {
   hideWishlistBtn: () => void;
 };
 
-const WishlistBtn = forwardRef<HTMLDivElement, Props>(function (props, ref) {
+export default forwardRef<HTMLDivElement, Props>(function WishlistBtn(
+  props,
+  ref
+) {
   const buttonRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
@@ -36,4 +39,4 @@ const WishlistBtn = forwardRef<HTMLDivElement, Props>(function (props, ref) {
   );
 });
 
-export default WishlistBtn;
+//export default WishlistBtn;

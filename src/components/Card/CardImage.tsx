@@ -4,7 +4,7 @@ const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
-const CardImage = ({ poster_path, title }: any) => {
+export default function CardImage({ poster_path, title }: any) {
   return (
     <>
       <Image
@@ -15,10 +15,7 @@ const CardImage = ({ poster_path, title }: any) => {
         // fill={true}
         priority
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        //className={styles.image}
       />
     </>
   );
-};
-
-export default CardImage;
+}

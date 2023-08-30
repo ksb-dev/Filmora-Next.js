@@ -30,29 +30,15 @@ import WishlistBtn from "../WishlistBtn";
 // styles
 import styles from "../card.module.css";
 
-const url =
-  "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
-const IMG_PATH = "https://image.tmdb.org/t/p/w342";
-
 type Props = {
   key: number;
   movie: Card;
 };
 
-const MovieCard = ({ movie }: Props) => {
+export default function MovieCard({ movie }: Props) {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const { id, title, poster_path, vote_average, release_date } = movie;
   const ref = useRef<HTMLDivElement>(null);
-
-  const getClassBg = (vote: any) => {
-    if (vote >= 7.5) {
-      return "greenBg";
-    } else if (vote >= 5) {
-      return "orangeBg";
-    } else {
-      return "redBg";
-    }
-  };
 
   const showWishlistBtn = () => {
     ref.current!.style.transform = "scale(1)";
@@ -92,6 +78,4 @@ const MovieCard = ({ movie }: Props) => {
       />
     </div>
   );
-};
-
-export default MovieCard;
+}

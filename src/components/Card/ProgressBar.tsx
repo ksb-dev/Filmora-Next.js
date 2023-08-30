@@ -8,7 +8,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 // styles
 import styles from "./card.module.css";
 
-const ProgressBar = ({ vote_average }: any) => {
+export default function ProgressBar({ vote_average }: any) {
   const mode = useSelector((state: RootState) => state.mode.mode);
 
   const getClassBg = (vote: any) => {
@@ -41,6 +41,6 @@ const ProgressBar = ({ vote_average }: any) => {
       </span>
     </div>
   );
-};
+}
 
-export default ProgressBar;
+//export default ProgressBar;

@@ -13,7 +13,7 @@ import styles from "./search.module.css";
 import { BiSearch } from "react-icons/bi";
 import SearchModal from "./SearchModal/SearchModal";
 
-const Search = () => {
+export default function Search() {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const buttonRef = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLDivElement>(null);
@@ -43,6 +43,4 @@ const Search = () => {
       <SearchModal ref={ref} />
     </>
   );
-};
-
-export default Search;
+}
