@@ -15,7 +15,7 @@ export async function getMoviesOrShows(
   }
 
   res = await fetch(
-    `https://api.themoviedb.org/3/${type}/${category}?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&language=en-US&page=${page}`
+    `https://api.themoviedb.org/3/${type}/${category}?language=en-US&page=${page}&api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}`
   );
 
   data = await res.json();

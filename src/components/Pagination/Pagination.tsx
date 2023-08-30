@@ -2,21 +2,27 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
 import { usePathname, useParams, useRouter } from "next/navigation";
 
-import { usePagination } from "@/hooks/usePagination";
+// redux
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
+// react icons
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 
 // styles
 import styles from "./pagination.module.css";
 import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
 export default function Pagination() {
+  const mode = useSelector((state: RootState) => state.mode.mode);
   const pathname = usePathname();
   const params = useParams();
   const router = useRouter();
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(Number(params.page));
   const [totalPages, setTotalPages] = useState(0);
 
   const path = pathname.split("/");
@@ -32,48 +38,96 @@ export default function Pagination() {
     }
 
     getMoviesOrShows(category, type1, Number(currentPage)).then((res) => {
+      console.log(res);
       setTotalPages(res.total_pages);
     });
   }, [currentPage]);
 
-  const paginationRange = usePagination({
-    currentPage,
-    totalCount: 20,
-    siblingCount: 2,
-    pageSize: 10,
-  });
-
-  // If there are less than 2 times in pagination range we shall not render the component
-  if (Number(currentPage) === 0 || paginationRange!.length < 2) {
-    return null;
+  function goToNextPage() {
+    router.push(`/pages/${type2}/${category}/${currentPage + 1}`);
   }
 
-  const onNext = () => {
-    setCurrentPage(Number(currentPage) + 1);
-  };
+  function goToPreviousPage() {
+    router.push(`/pages/${type2}/${category}/${currentPage - 1}`);
+  }
 
-  const onPrevious = () => {
-    setCurrentPage(Number(currentPage) - 1);
-  };
-
-  let lastPage = paginationRange![paginationRange!.length - 1];
-
-  const handleChange = (e: any) => {
+  function changePage(e: any) {
     setCurrentPage(e.target.textContent);
     router.push(`/pages/${type2}/${category}/${e.target.textContent}`);
+  }
+
+  const getPaginationGroup = () => {
+    let start = Math.floor((currentPage - 1) / 5) * 5;
+    return new Array(5).fill(start).map((_, idx) => start + idx + 1);
   };
 
   return (
     <div className={styles.paginate}>
-      <span onClick={handleChange} className="inline-block mr-[1rem]">
-        1
-      </span>
-      <span onClick={handleChange} className="inline-block mr-[1rem]">
-        2
-      </span>
-      <span onClick={handleChange} className="inline-block mr-[1rem]">
-        3
-      </span>
+      {currentPage === 1 ? (
+        <button
+          onClick={goToPreviousPage}
+          className={styles.btn + " " + styles.disable}
+        >
+          <span className={styles.icon + " " + styles.disable_icon}>
+            <MdNavigateBefore />
+          </span>
+        </button>
+      ) : (
+        <button
+          onClick={goToPreviousPage}
+          className={
+            styles.btn +
+            (mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
+          }
+        >
+          <span className={styles.icon}>
+            <MdNavigateBefore />
+          </span>
+        </button>
+      )}
+
+      {getPaginationGroup().map((item, index) => (
+        <button
+          key={index}
+          onClick={changePage}
+          className={
+            styles.btn +
+            " " +
+            `${
+              currentPage === item
+                ? styles.active
+                : mode
+                ? " whiteBg2 blackColor1"
+                : " blackBg1 whiteColor1"
+            }`
+          }
+        >
+          <span>{item}</span>
+        </button>
+      ))}
+
+      {currentPage >= totalPages ? (
+        <button
+          onClick={goToNextPage}
+          className={styles.btn + " " + styles.disable}
+        >
+          <span className={styles.icon + " " + styles.disable_icon}>
+            <GrFormNext />
+          </span>
+        </button>
+      ) : (
+        <button
+          onClick={goToNextPage}
+          className={
+            styles.btn +
+            (mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
+          }
+        >
+          <span className={styles.icon}>
+            <MdNavigateNext />
+          </span>
+        </button>
+      )}
     </div>
   );
 }

@@ -1,4 +1,36 @@
 .paginate {
   margin: 2rem 0;
   margin-bottom: 5rem;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin-right: 0.5rem;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+}
+
+.disable_icon {
+  color: #fff;
+}
+
+.active {
+  background: var(--blue);
+  color: #fff;
+}
+
+.disable {
+  pointer-events: none;
+  background: #999;
+  color: #fff !important;
 }

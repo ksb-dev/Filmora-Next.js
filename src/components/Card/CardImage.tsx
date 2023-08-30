@@ -13,7 +13,8 @@ export default function CardImage({ poster_path, title }: any) {
         layout="fill"
         objectFit="cover"
         // fill={true}
-        priority
+        // priority
+        loading="eager"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </>
