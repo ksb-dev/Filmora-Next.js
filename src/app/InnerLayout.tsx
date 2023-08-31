@@ -7,13 +7,15 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // components
-import Header from "./Header";
+//import Header from "./Header";
+import Header from "@/components/Header/Header";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
 const InnerRootLayout = ({ children }: { children: React.ReactNode }) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const pathname = usePathname();
+  const id = pathname.split("/")[5];
 
   return (
     <div
@@ -27,8 +29,7 @@ const InnerRootLayout = ({ children }: { children: React.ReactNode }) => {
           pathname !== "/pages/login" &&
           pathname !== "/pages/register" &&
           pathname !== "/pages/about" &&
-          !pathname.includes("/movie_info") &&
-          !pathname.includes("/show_info") && <Nav />}
+          !pathname.includes(`${id}`) && <Nav />}
 
         {children}
       </div>

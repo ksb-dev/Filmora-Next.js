@@ -11,9 +11,14 @@ import { RootState } from "@/redux/store";
 // react-icons
 import { BsSun, BsMoonStars } from "react-icons/bs";
 import { GiFilmSpool } from "react-icons/gi";
+import { ImFilm } from "react-icons/im";
+import { PiMonitor } from "react-icons/pi";
 
 // components
 import Search from "@/components/Search/Search";
+
+// styles
+import styles from "./header.module.css";
 
 const Header = () => {
   const { data: session } = useSession();
@@ -27,12 +32,12 @@ const Header = () => {
   return (
     <div
       className={
-        "header shadow-[0_2px_15px_rgba(0,0,0,0.1)] " +
-        (mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1")
+        styles.header +
+        (mode ? " whiteBg1 blackColor1" : " blackBg2 whiteColor1")
       }
     >
-      <div className="flex items-center justify-between max-w-[1280px] w-[1280px]">
-        <div>
+      <div className={styles.header_inner}>
+        <div className={styles.part + " flex items-center"}>
           <Link
             href="/pages/movies/popular/1"
             className="link relative flex text-[2rem] font-bold text-[var(--blue)]"
@@ -43,10 +48,37 @@ const Header = () => {
             </span>
             <span className="ml-[2.85rem]">ra</span>
           </Link>
+
+          {/* <span className="ml-[2rem] mr-[1rem] cursor-pointer font-semibold">
+            Movies
+          </span>
+
+          <span className="ml-[1rem] cursor-pointer font-semibold">
+            TV Shows
+          </span> */}
         </div>
 
-        <div className="flex items-center">
+        {/* <div className={styles.part + " flex justify-center"}>
+          <span className="mr-[1rem] cursor-pointer font-semibold">Movies</span>
+
+          <span className="ml-[1rem] cursor-pointer font-semibold">
+            TV Shows
+          </span>
+        </div> */}
+
+        {/* <span
+          className={
+            styles.part + " flex items-center justify-center cursor-pointer"
+          }
+        >
           <Search />
+        </span> */}
+
+        <div className={styles.part + " flex items-center justify-end"}>
+          <span className="mr-[1rem] cursor-pointer">
+            <Search />
+          </span>
+
           <div className="mr-[1rem]" onClick={handleMode}>
             {mode ? (
               <span className="cursor-pointer text-[1.2rem]">
@@ -60,13 +92,16 @@ const Header = () => {
           </div>
 
           {session ? (
-            <button onClick={() => signOut()}>Logout</button>
+            <button onClick={() => signOut()} className="font-semibold">
+              Logout
+            </button>
           ) : (
             <>
               <Link
                 href="/pages/login"
                 className={
-                  "link mr-[1rem] " + (mode ? "blackColor1" : "whiteColor1")
+                  "link mr-[1rem] font-semibold " +
+                  (mode ? "blackColor1" : "whiteColor1")
                 }
               >
                 Login
@@ -74,7 +109,8 @@ const Header = () => {
               <Link
                 href="/pages/register"
                 className={
-                  "link mr-[1rem] " + (mode ? "blackColor1" : "whiteColor1")
+                  "link mr-[1rem] font-semibold " +
+                  (mode ? "blackColor1" : "whiteColor1")
                 }
               >
                 Register
@@ -84,7 +120,9 @@ const Header = () => {
 
           <Link
             href="/pages/about"
-            className={"link " + (mode ? "blackColor1" : "whiteColor1")}
+            className={
+              "link font-semibold " + (mode ? "blackColor1" : "whiteColor1")
+            }
           >
             About
           </Link>

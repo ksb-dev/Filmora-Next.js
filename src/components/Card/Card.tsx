@@ -3,6 +3,7 @@
 import { useRef } from "react";
 
 import Image from "next/legacy/image";
+import { usePathname } from "next/navigation";
 
 // redux
 import { useSelector } from "react-redux";
@@ -47,6 +48,7 @@ export default function Card({ info }: Props) {
     first_air_date,
   } = info;
   const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const showWishlistBtn = () => {
     ref.current!.style.transform = "scale(1)";
@@ -59,7 +61,8 @@ export default function Card({ info }: Props) {
   return (
     <div className={styles.card}>
       <Link
-        href={`/pages/movie_info/${id}`}
+        //href={`${pathname.substring(0, pathname.length - 2)}/detail/${id}`}
+        href={`${pathname}/${id}`}
         onMouseOver={showWishlistBtn}
         onMouseLeave={hideWishlistBtn}
         className={styles.card_link + (mode ? " whiteBg1" : " blackBg2")}

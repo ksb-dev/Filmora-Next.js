@@ -1,15 +1,21 @@
 .paginate {
-  margin: 2rem 0;
-  margin-bottom: 5rem;
+  margin: 5rem 0;
   display: flex;
   align-items: center;
+  /* justify-content: center; */
 }
 
 .btn {
   position: relative;
-  height: 30px;
-  width: 30px;
+  height: 35px;
+  width: 35px;
   margin-right: 0.5rem;
+  border-radius: var(--border-radius-1);
+}
+
+.btn:hover {
+  filter: brightness(90%);
+  transition: filter 0.1s ease;
 }
 
 .icon {
@@ -17,7 +23,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .disable_icon {

@@ -3,11 +3,11 @@
   overflow: hidden;
   transition: var(--transition);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius-1);
 }
 
 .card:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-  /* transform: translateY(-3px); */
 }
 
 .card_link {
@@ -19,6 +19,24 @@
 .image_container {
   position: relative;
   height: 250px;
+}
+
+/* @media screen and (max-width: 1024px) {
+  .image_container {
+    height: 275px;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .image_container {
+    height: 250px;
+  }
+} */
+
+@media screen and (max-width: 450px) {
+  .image_container {
+    height: 225px;
+  }
 }
 
 .image {

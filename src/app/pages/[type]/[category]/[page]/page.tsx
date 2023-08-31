@@ -11,7 +11,7 @@ interface Params {
   params: {
     type: string;
     category: string;
-    page: string;
+    page: number;
   };
 }
 
@@ -35,9 +35,13 @@ export default async function Home({ params }: Params) {
 
   return (
     <main className="main">
-      <span className="mb-[2rem] max-w-fit uppercase font-bold">
-        Popular Movies
-      </span>
+      <div className="flex items-center justify-between mb-[2rem]">
+        <p className="max-w-fit uppercase font-bold">Popular Movies</p>
+        <div className="flex items-center">
+          <p className="mr-[2rem]">Genres</p>
+          <p>Sort</p>
+        </div>
+      </div>
       <div className="inner">
         {data.results.map((info: Card) => (
           <Card key={info.id} info={info} />

@@ -29,7 +29,7 @@ export default forwardRef<HTMLDivElement, Props>(function WishlistBtn(
       ref={buttonRef}
       className={styles.add_btn_container}
     >
-      <p className={styles.add_btn}>
+      <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
         <span className={styles.add_btn_icon}>
           <HiPlus />
         </span>

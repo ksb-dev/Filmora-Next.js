@@ -75,8 +75,8 @@ export default function Pagination() {
         <button
           onClick={goToPreviousPage}
           className={
-            styles.btn +
-            (mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
+            styles.btn + " " + styles.active
+            // (mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
           }
         >
           <span className={styles.icon}>
@@ -118,8 +118,8 @@ export default function Pagination() {
         <button
           onClick={goToNextPage}
           className={
-            styles.btn +
-            (mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
+            styles.btn + " " + styles.active
+            //(mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
           }
         >
           <span className={styles.icon}>

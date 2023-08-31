@@ -40,6 +40,9 @@ export default function Search() {
           Search
         </div>
       </div>
+      {/* <span ref={buttonRef} className={styles.search_icon} onClick={showModal}>
+        <BiSearch />
+      </span>*/}
       <SearchModal ref={ref} />
     </>
   );

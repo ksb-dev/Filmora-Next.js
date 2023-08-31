@@ -5,8 +5,7 @@ import { Inter } from "next/font/google";
 import SessionProvider from "./SessionProvider";
 
 import ReduxProvider from "./ReduxProvider";
-
-import InnerRootLayout from "./InnerRootLayout";
+import InnerLayout from "./InnerLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +24,7 @@ export default function RootLayout({
       <SessionProvider>
         <body suppressHydrationWarning={true}>
           <ReduxProvider>
-            <InnerRootLayout>{children}</InnerRootLayout>
+            <InnerLayout>{children}</InnerLayout>
           </ReduxProvider>
         </body>
       </SessionProvider>

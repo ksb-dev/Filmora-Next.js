@@ -1,7 +1,7 @@
 export async function getMoviesOrShows(
   category: string,
   type: string,
-  page: string
+  page: number
 ) {
   let res, data;
 
