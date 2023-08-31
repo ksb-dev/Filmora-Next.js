@@ -92,6 +92,7 @@
 .add_btn {
   position: relative;
   background: rgba(0, 0, 0, 0.75);
+  /* background: var(--blue); */
   color: #fff;
   display: flex;
   align-items: center;

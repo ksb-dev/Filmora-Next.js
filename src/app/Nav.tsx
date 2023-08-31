@@ -49,26 +49,27 @@ const Nav = () => {
         </div>
 
         <div className="cursor-pointer mb-[0.5rem] flex items-center">
-          {pathname.includes("/pages/shows/") ? (
+          {pathname.includes("/pages/tv/") ? (
             <div className="flex items-center">
               <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
                 </span>
               </p>
-              <span>Shows</span>
+              <span>Tv Shows</span>
             </div>
           ) : (
             <p
               className="flex items-center"
-              onClick={() => router.push("/pages/shows/popular/1")}
+              onClick={() => router.push("/pages/tv/popular/1")}
             >
               <span className="inline-block h-[20px] w-[20px] border border-[#999] mr-[0.5rem] rounded-[50%] "></span>
-              <span>Shows</span>
+              <span>Tv Shows</span>
             </p>
           )}
         </div>
       </div>
+
       <div className="categories">
         <p className="mb-[1rem] font-bold uppercase">Categories</p>
 
@@ -76,7 +77,7 @@ const Nav = () => {
           href={
             pathname.includes("movies")
               ? "/pages/movies/popular/1"
-              : "/pages/shows/popular/1"
+              : "/pages/tv/popular/1"
           }
           className={
             "link flex items-center mb-[1rem] " +
@@ -93,7 +94,7 @@ const Nav = () => {
           href={
             pathname.includes("movies")
               ? "/pages/movies/trending/1"
-              : "/pages/shows/trending/1"
+              : "/pages/tv/trending/1"
           }
           className={
             "link flex items-center mb-[1rem] " +
@@ -110,7 +111,7 @@ const Nav = () => {
           href={
             pathname.includes("movies")
               ? "/pages/movies/top_rated/1"
-              : "/pages/shows/top_rated/1"
+              : "/pages/tv/top_rated/1"
           }
           className={
             "link flex items-center mb-[1rem] " +
