@@ -40,3 +40,9 @@
   background: #999;
   color: #fff !important;
 }
+
+@media screen and (max-width: 786px) {
+  .paginate {
+    justify-content: center;
+  }
+}

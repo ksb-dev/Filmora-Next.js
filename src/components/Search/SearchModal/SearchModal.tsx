@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/display-name */
 "use client";
 
@@ -9,9 +10,14 @@ import {
   useImperativeHandle,
 } from "react";
 
+import { usePathname } from "next/navigation";
+
 // redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+
+// lib
+import { getSearchResults } from "@/lib/getSearchResults";
 
 // react-icons
 import { BiSearch } from "react-icons/bi";
@@ -20,10 +26,6 @@ import { IoClose } from "react-icons/io5";
 // styles
 import styles from "./searchModal.module.css";
 
-const search__movie__url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&adult = false`;
-
-const search__show__url = `https://api.themoviedb.org/3/search/tv?api_key=${process.env.NEXT_PUBLIC_TMDB_API_KEY}&adult = false`;
-
 type Props = {};
 
 export default forwardRef<HTMLDivElement, Props>(function SearchModal(
@@ -31,8 +33,12 @@ export default forwardRef<HTMLDivElement, Props>(function SearchModal(
   ref
 ) {
   const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  console.log(searchResults);
 
   const mode = useSelector((state: RootState) => state.mode.mode);
 
@@ -55,6 +61,18 @@ export default forwardRef<HTMLDivElement, Props>(function SearchModal(
       document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
+
+  useEffect(() => {
+    if (pathname.includes("movies") && query.length) {
+      getSearchResults("movie", query)
+        .then((res) => res.results)
+        .then((data) => setSearchResults(data));
+    } else {
+      getSearchResults("tv", query)
+        .then((res) => res.results)
+        .then((data) => setSearchResults(data));
+    }
+  }, [query]);
 
   return (
     <div
