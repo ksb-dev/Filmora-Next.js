@@ -1,6 +1,5 @@
 .search {
   position: relative;
-  /* margin-right: 2rem; */
   max-width: 350px;
   width: 350px;
   padding: 0.5rem 1rem;
@@ -11,11 +10,25 @@
   border-radius: var(--border-radius-1);
 }
 
-.search_icon {
+.search_icon_1 {
   position: absolute;
   font-size: 1.25rem;
   top: 0.65rem;
   left: 1rem;
   color: #999;
-  /* font-size: 1.25rem; */
+}
+
+.search_icon_2 {
+  font-size: 1.25rem;
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .search {
+    display: none;
+  }
+
+  .search_icon_2 {
+    display: flex;
+  }
 }

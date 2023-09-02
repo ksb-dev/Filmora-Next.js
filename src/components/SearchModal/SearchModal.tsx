@@ -23,44 +23,28 @@ import { getSearchResults } from "@/lib/getSearchResults";
 import { BiSearch } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
 
+// hooks
+import { useOutsideClick } from "@/hooks/useOutsideClick";
+
 // styles
 import styles from "./searchModal.module.css";
 
 type Props = {};
 
-export default forwardRef<HTMLDivElement, Props>(function SearchModal(
-  props,
-  ref
-) {
+export type Ref = HTMLDivElement;
+
+export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
+
   const pathname = usePathname();
-
-  console.log(searchResults);
-
   const mode = useSelector((state: RootState) => state.mode.mode);
 
   useImperativeHandle(ref, () => ref1.current as HTMLDivElement);
-
-  useEffect(() => {
-    const handleOutsideClick = (e: any) => {
-      if (
-        ref1.current?.contains(e.target) &&
-        !ref2.current?.contains(e.target)
-      ) {
-        ref1.current!.style.transform = "scale(0)";
-        setQuery("");
-      }
-    };
-
-    document.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    };
-  }, []);
+  useOutsideClick(setQuery, ref1, ref2);
 
   useEffect(() => {
     if (pathname.includes("movies") && query.length) {

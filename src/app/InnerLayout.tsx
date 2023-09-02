@@ -9,7 +9,7 @@ import { RootState } from "@/redux/store";
 // components
 //import Header from "./Header";
 import Header from "@/components/Header/Header";
-import Nav from "./Nav";
+import Nav from "@/components/Nav/Nav";
 import Footer from "./Footer";
 
 const InnerRootLayout = ({ children }: { children: React.ReactNode }) => {

@@ -11,7 +11,7 @@ import styles from "./search.module.css";
 
 // react-icons
 import { BiSearch } from "react-icons/bi";
-import SearchModal from "./SearchModal/SearchModal";
+import SearchModal from "../SearchModal/SearchModal";
 
 export default function Search() {
   const mode = useSelector((state: RootState) => state.mode.mode);
@@ -19,10 +19,6 @@ export default function Search() {
   const ref = useRef<HTMLDivElement>(null);
 
   const showModal = () => {
-    //ref.current!.style.display = "flex";
-    // ref.current!.style.zIndex = "2";
-    // ref.current!.style.opacity = "1";
-    // ref.current!.style.height = "100vh";
     ref.current!.style.transform = "scale(1)";
   };
 
@@ -34,15 +30,19 @@ export default function Search() {
           className={styles.search + (mode ? " whiteBg2" : " blackBg1")}
           onClick={showModal}
         >
-          <span className={styles.search_icon}>
+          <span className={styles.search_icon_1}>
             <BiSearch />
           </span>
           Search
         </div>
       </div>
-      {/* <span ref={buttonRef} className={styles.search_icon} onClick={showModal}>
+      <span
+        ref={buttonRef}
+        className={styles.search_icon_2}
+        onClick={showModal}
+      >
         <BiSearch />
-      </span>*/}
+      </span>
       <SearchModal ref={ref} />
     </>
   );

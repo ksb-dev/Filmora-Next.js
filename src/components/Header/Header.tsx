@@ -1,5 +1,7 @@
 "use client";
 
+import { useRef } from "react";
+
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
@@ -13,6 +15,7 @@ import { BsSun, BsMoonStars } from "react-icons/bs";
 import { GiFilmSpool } from "react-icons/gi";
 import { ImFilm } from "react-icons/im";
 import { PiMonitor } from "react-icons/pi";
+import { LiaUserCircle } from "react-icons/lia";
 
 // components
 import Search from "@/components/Search/Search";
@@ -20,10 +23,11 @@ import Search from "@/components/Search/Search";
 // styles
 import styles from "./header.module.css";
 
-const Header = () => {
+const Header: React.FC = () => {
   const { data: session } = useSession();
   const dispatch = useDispatch();
   const mode = useSelector((state: RootState) => state.mode.mode);
+  const userRef = useRef<HTMLDivElement>(null);
 
   const handleMode = () => {
     dispatch(toggleMode());
@@ -48,75 +52,18 @@ const Header = () => {
             </span>
             <span className="ml-[2.85rem]">ra</span>
           </Link>
-
-          {/* <span className="ml-[2rem] mr-[1rem] cursor-pointer font-semibold">
-            Movies
-          </span>
-
-          <span className="ml-[1rem] cursor-pointer font-semibold">
-            TV Shows
-          </span> */}
         </div>
-
-        {/* <div className={styles.part + " flex justify-center"}>
-          <span className="mr-[1rem] cursor-pointer font-semibold">Movies</span>
-
-          <span className="ml-[1rem] cursor-pointer font-semibold">
-            TV Shows
-          </span>
-        </div> */}
-
-        {/* <span
-          className={
-            styles.part + " flex items-center justify-center cursor-pointer"
-          }
-        >
-          <Search />
-        </span> */}
 
         <div className={styles.part + " flex items-center justify-end"}>
           <span className="mr-[1rem] cursor-pointer">
             <Search />
           </span>
 
-          <div className="mr-[1rem]" onClick={handleMode}>
-            {mode ? (
-              <span className="cursor-pointer text-[1.2rem]">
-                <BsMoonStars />
-              </span>
-            ) : (
-              <span className="cursor-pointer text-[1.2rem]">
-                <BsSun />
-              </span>
-            )}
-          </div>
-
-          {session ? (
-            <button onClick={() => signOut()} className="font-semibold">
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link
-                href="/pages/login"
-                className={
-                  "link mr-[1rem] font-semibold " +
-                  (mode ? "blackColor1" : "whiteColor1")
-                }
-              >
-                Login
-              </Link>
-              <Link
-                href="/pages/register"
-                className={
-                  "link mr-[1rem] font-semibold " +
-                  (mode ? "blackColor1" : "whiteColor1")
-                }
-              >
-                Register
-              </Link>
-            </>
-          )}
+          <p className="cursor-pointer">
+            <span className="inline-block mr-[1rem] text-[1.5rem] mt-[0.35rem]">
+              <LiaUserCircle />
+            </span>
+          </p>
 
           <Link
             href="/pages/about"

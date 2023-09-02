@@ -37,7 +37,7 @@ export default function Pagination() {
       type1 = "tv";
     }
 
-    getMoviesOrShows(category, type1, String(currentPage)).then((res) => {
+    getMoviesOrShows(category, type1, currentPage).then((res) => {
       setTotalPages(res.total_pages);
     });
   }, [currentPage]);
