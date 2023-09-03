@@ -100,7 +100,7 @@ const Header: React.FC = () => {
             <span className="text-[0.75rem] font-bold uppercase">about</span>
           </Link>
 
-          <p className="relative">
+          <div className="relative">
             <p
               ref={profileRef}
               onMouseOver={showUserModal}
@@ -142,13 +142,24 @@ const Header: React.FC = () => {
 
               {session ? (
                 <div className="flex flex-col justify-center">
-                  <Link href="#" className="mb-[0.5rem] hover:font-semibold">
+                  <Link
+                    href="#"
+                    className="mb-[0.5rem] hover:font-semibold w-min"
+                  >
                     Account
                   </Link>
-                  <Link href="#" className="mb-[0.5rem] hover:font-semibold">
+                  <Link
+                    href="#"
+                    className="mb-[0.5rem] hover:font-semibold w-min"
+                  >
                     Wishlist
                   </Link>
-                  <span className="hover:font-semibold">Logout</span>
+                  <span
+                    className="inline-block hover:font-semibold cursor-pointer w-min"
+                    onClick={() => signOut()}
+                  >
+                    Logout
+                  </span>
                 </div>
               ) : (
                 <div className="flex items-center justify-evenly">
@@ -169,7 +180,7 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
-          </p>
+          </div>
         </div>
       </div>
     </div>

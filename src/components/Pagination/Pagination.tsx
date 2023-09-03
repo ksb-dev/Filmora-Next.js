@@ -96,14 +96,7 @@ export default function Pagination() {
       ))}
 
       {currentPage >= totalPages ? (
-        <button
-          onClick={goToNextPage}
-          className={styles.btn + " " + styles.disable}
-        >
-          <span className={styles.icon + " " + styles.disable_icon}>
-            <GrFormNext />
-          </span>
-        </button>
+        ""
       ) : (
         <button
           onClick={goToNextPage}

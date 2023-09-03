@@ -25,19 +25,6 @@ export default function Search() {
 
   return (
     <>
-      {/* <div>
-        <div
-          ref={buttonRef}
-          className={styles.search + (mode ? " whiteBg2" : " blackBg1")}
-          onClick={showModal}
-        >
-          <span className={styles.search_icon_1}>
-            <BiSearch />
-          </span>
-          Search
-        </div>
-      </div> */}
-
       <p
         ref={buttonRef}
         onClick={showModal}
