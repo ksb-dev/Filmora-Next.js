@@ -125,7 +125,7 @@ const Header: React.FC = () => {
               ref={profileModalRef}
               className={
                 styles.border_top +
-                " absolute p-[2rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] top-[-11rem] md:top-auto " +
+                " absolute p-[1rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] bottom-[4.25rem] md:bottom-auto " +
                 (mode ? "whiteBg1" : "blackBg1")
               }
             >
