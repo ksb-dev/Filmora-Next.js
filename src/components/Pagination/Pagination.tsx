@@ -63,21 +63,11 @@ export default function Pagination() {
   return (
     <div className={styles.paginate}>
       {currentPage === 1 ? (
-        <button
-          onClick={goToPreviousPage}
-          className={styles.btn + " " + styles.disable}
-        >
-          <span className={styles.icon + " " + styles.disable_icon}>
-            <MdNavigateBefore />
-          </span>
-        </button>
+        ""
       ) : (
         <button
           onClick={goToPreviousPage}
-          className={
-            styles.btn + " " + styles.active
-            // (mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
-          }
+          className={styles.btn + " " + styles.active}
         >
           <span className={styles.icon}>
             <MdNavigateBefore />
@@ -117,10 +107,7 @@ export default function Pagination() {
       ) : (
         <button
           onClick={goToNextPage}
-          className={
-            styles.btn + " " + styles.active
-            //(mode ? " whiteBg2 blackColor1" : " blackBg1 whiteColor1")
-          }
+          className={styles.btn + " " + styles.active}
         >
           <span className={styles.icon}>
             <MdNavigateNext />

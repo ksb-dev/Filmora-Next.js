@@ -11,6 +11,7 @@ import styles from "./search.module.css";
 
 // react-icons
 import { BiSearch } from "react-icons/bi";
+import { TfiSearch } from "react-icons/tfi";
 import SearchModal from "../SearchModal/SearchModal";
 
 export default function Search() {
@@ -24,7 +25,7 @@ export default function Search() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <div
           ref={buttonRef}
           className={styles.search + (mode ? " whiteBg2" : " blackBg1")}
@@ -35,14 +36,19 @@ export default function Search() {
           </span>
           Search
         </div>
-      </div>
-      <span
+      </div> */}
+
+      <p
         ref={buttonRef}
-        className={styles.search_icon_2}
         onClick={showModal}
+        className="flex  flex-col items-center justify-center"
       >
-        <BiSearch />
-      </span>
+        <span className="inline-block mb-[0.25rem]">
+          <TfiSearch />
+        </span>
+        <span className="text-[0.75rem] font-bold uppercase">Search</span>
+      </p>
+
       <SearchModal ref={ref} />
     </>
   );

@@ -2,13 +2,7 @@
 /* eslint-disable react/display-name */
 "use client";
 
-import {
-  useState,
-  useEffect,
-  useRef,
-  forwardRef,
-  useImperativeHandle,
-} from "react";
+import { useState, useRef, forwardRef, useImperativeHandle } from "react";
 
 import { usePathname } from "next/navigation";
 
@@ -25,6 +19,7 @@ import { IoClose } from "react-icons/io5";
 
 // hooks
 import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { useGetSearchResults } from "@/hooks/useGetSearchResults";
 
 // styles
 import styles from "./searchModal.module.css";
@@ -44,19 +39,11 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   const mode = useSelector((state: RootState) => state.mode.mode);
 
   useImperativeHandle(ref, () => ref1.current as HTMLDivElement);
-  useOutsideClick(setQuery, ref1, ref2);
 
-  useEffect(() => {
-    if (pathname.includes("movies") && query.length) {
-      getSearchResults("movie", query)
-        .then((res) => res.results)
-        .then((data) => setSearchResults(data));
-    } else {
-      getSearchResults("tv", query)
-        .then((res) => res.results)
-        .then((data) => setSearchResults(data));
-    }
-  }, [query]);
+  // Handle outside click
+  useOutsideClick(setQuery, ref1, ref2);
+  // Get search results
+  useGetSearchResults(query, pathname, setSearchResults);
 
   return (
     <div
@@ -79,10 +66,7 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
             <BiSearch />
           </span>
 
-          <span
-            className={styles.close_icon}
-            //onClick={hideModal}
-          >
+          <span className={styles.close_icon}>
             <IoClose />
           </span>
         </div>
