@@ -35,16 +35,17 @@
   .header {
     padding: 0 2rem;
   }
+
+  .part {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 786px) {
   .header {
     height: 4rem;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .header {
+    top: unset;
+    bottom: 0;
     padding: 0 1rem;
   }
 }

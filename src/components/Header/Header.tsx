@@ -17,6 +17,7 @@ import {
   BsBookmarkPlus,
   BsInfoCircle,
 } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
 import { GiFilmSpool } from "react-icons/gi";
 import { ImFilm } from "react-icons/im";
 import { PiMonitor } from "react-icons/pi";
@@ -59,7 +60,7 @@ const Header: React.FC = () => {
       }
     >
       <div className={styles.header_inner}>
-        <div className={styles.part + " flex items-center"}>
+        <div className={styles.part + " hidden md:flex items-center"}>
           <Link
             href="/pages/movies/popular/1"
             className="link relative flex text-[2rem] font-bold text-[var(--blue)]"
@@ -72,7 +73,22 @@ const Header: React.FC = () => {
           </Link>
         </div>
 
-        <div className={styles.part + " flex items-center justify-end"}>
+        <div
+          className={
+            styles.part + " flex items-center md:justify-end justify-between"
+          }
+        >
+          <p
+            className={
+              "mr-[1rem] cursor-pointer md:hidden flex flex-col items-center justify-center"
+            }
+          >
+            <span className="inline-block mb-[0.25rem]">
+              <AiOutlineMenu />
+            </span>
+            <span className="text-[0.75rem] font-bold uppercase">Menu</span>
+          </p>
+
           <span className="cursor-pointer">
             <Search />
           </span>
@@ -87,18 +103,6 @@ const Header: React.FC = () => {
             </span>
             <span className="text-[0.75rem] font-bold uppercase">Wishlist</span>
           </p>
-
-          <Link
-            href="#"
-            className={
-              "ml-[1rem] cursor-pointer flex flex-col items-center justify-center"
-            }
-          >
-            <span className="inline-block mb-[0.25rem]">
-              <BsInfoCircle />
-            </span>
-            <span className="text-[0.75rem] font-bold uppercase">about</span>
-          </Link>
 
           <div className="relative">
             <p
@@ -121,7 +125,7 @@ const Header: React.FC = () => {
               ref={profileModalRef}
               className={
                 styles.border_top +
-                " absolute p-[2rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] " +
+                " absolute p-[2rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] top-[-11rem] md:top-auto " +
                 (mode ? "whiteBg1" : "blackBg1")
               }
             >
