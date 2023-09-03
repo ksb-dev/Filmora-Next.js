@@ -70,8 +70,63 @@ const Nav = () => {
         </div>
       </div>
 
-      <div className="categories">
+      <div className="categories mb-[1rem]">
         <p className="mb-[1rem] font-bold uppercase">Categories</p>
+
+        <Link
+          href={
+            pathname.includes("movies")
+              ? "/pages/movies/popular/1"
+              : "/pages/tv/popular/1"
+          }
+          className={
+            "link flex items-center mb-[1rem] " +
+            (mode ? "blackColor1" : "whiteColor1")
+          }
+        >
+          <span className="mr-[1rem]">
+            <BsGraphUpArrow />
+          </span>
+          Popular
+        </Link>
+
+        <Link
+          href={
+            pathname.includes("movies")
+              ? "/pages/movies/trending/1"
+              : "/pages/tv/trending/1"
+          }
+          className={
+            "link flex items-center mb-[1rem] " +
+            (mode ? "blackColor1" : "whiteColor1")
+          }
+        >
+          <span className="mr-[1rem]">
+            <AiOutlineFire />
+          </span>
+          Trending
+        </Link>
+
+        <Link
+          href={
+            pathname.includes("movies")
+              ? "/pages/movies/top_rated/1"
+              : "/pages/tv/top_rated/1"
+          }
+          className={
+            "link flex items-center mb-[1rem] " +
+            (mode ? "blackColor1" : "whiteColor1")
+          }
+        >
+          <span className="mr-[1rem]">
+            <BsStar />
+          </span>
+          Top Rated
+        </Link>
+      </div>
+
+      <div className="categories">
+        <p className="mb-[1rem] font-bold uppercase">Genres</p>
 
         <Link
           href={

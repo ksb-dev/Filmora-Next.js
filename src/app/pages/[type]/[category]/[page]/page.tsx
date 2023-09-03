@@ -37,10 +37,7 @@ export default async function Home({ params }: Params) {
     <main className="main">
       <div className="flex items-center justify-between mb-[2rem]">
         <p className="max-w-fit uppercase font-bold">Popular Movies</p>
-        <div className="flex items-center">
-          <p className="mr-[2rem]">Genres</p>
-          <p>Sort</p>
-        </div>
+        <p>Sort</p>
       </div>
       <div className="inner">
         {data.results.map((info: Card) => (
