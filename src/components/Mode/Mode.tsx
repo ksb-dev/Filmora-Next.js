@@ -40,7 +40,7 @@ const Mode = () => {
         onClick={handleMode}
         className={
           styles.moon +
-          (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
+          (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
         }
       >
         <span ref={moonRef} className={styles.moon_icon}>

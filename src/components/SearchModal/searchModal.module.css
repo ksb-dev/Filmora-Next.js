@@ -11,7 +11,7 @@
   justify-content: center;
 
   transform: scale(0);
-  transition: var(--transition);
+  /* transition: var(--transition); */
   border-radius: var(--border-radius-1);
   cursor: default;
 }

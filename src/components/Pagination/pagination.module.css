@@ -10,12 +10,12 @@
   width: 35px;
   margin-right: 0.5rem;
   border-radius: var(--border-radius-1);
-  transition: all 0.3s ease;
+  /* transition: var(--transition); */
 }
 
 .btn:hover {
   filter: brightness(90%);
-  transition: filter 0.1s ease;
+  transition: var(--transition);
 }
 
 .icon {

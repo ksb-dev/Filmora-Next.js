@@ -13,7 +13,7 @@
 .card_link {
   display: block;
   height: 100%;
-  transition: all 0.3s ease;
+  /* transition: var(--transition); */
 }
 
 .image_container {
@@ -39,7 +39,7 @@
   padding: 0.2rem;
   bottom: -25px;
   left: 1rem;
-  transition: all 0.3s ease;
+  /* transition: var(--transition); */
 }
 
 .vote_text {
@@ -55,7 +55,7 @@
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem 1rem 1rem;
-  transition: all 0.3s ease;
+  /* transition: var(--transition); */
 }
 
 .title {
@@ -82,7 +82,6 @@
 .add_btn {
   position: relative;
   background: rgba(0, 0, 0, 0.75);
-  /* background: var(--blue); */
   color: #fff;
   display: flex;
   align-items: center;
@@ -93,7 +92,7 @@
   font-size: 0.8rem;
   padding: 0.75rem 0;
   margin: 0.5rem;
-  transition: letter-spacing 0.1s ease;
+  transition: letter-spacing 0.3s ease;
 }
 
 .add_btn:hover {

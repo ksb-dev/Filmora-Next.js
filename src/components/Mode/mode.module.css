@@ -9,8 +9,8 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  /* overflow: hidden; */
-  transition: all 0.3s ease;
+  /* transition: var(--transition); */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sun_icon,
