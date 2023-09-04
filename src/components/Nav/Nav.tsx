@@ -18,49 +18,31 @@ import { BiCheck } from "react-icons/bi";
 import styles from "./nav.module.css";
 
 interface NavProp {
-  forwardedRef: RefObject<HTMLDivElement>;
+  forwardedRef?: RefObject<HTMLDivElement>;
 }
 
 const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const pathname = usePathname();
   const router = useRouter();
-  const navInnerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (
-        forwardedRef.current?.contains(e.target as Node) &&
-        !navInnerRef.current?.contains(e.target as Node)
-      ) {
-        forwardedRef.current!.style.transform = "translateX(-100%)";
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [forwardedRef]);
 
   const hideNav = () => {
-    forwardedRef.current!.style.transform = "translateX(-100%)";
+    forwardedRef!.current!.style.transform = "translateX(-100%)";
   };
 
   return (
-    <div
-      ref={navInnerRef}
-      className={
-        styles.nav_inner +
-        (mode ? " whiteBg1 blackColor1" : " blackBg2 whiteColor1")
-      }
-    >
+    <div>
       <div className="pb-[1rem] mb-[1rem]">
         <p className="mb-[1rem] font-bold uppercase">Options</p>
         <div className="cursor-pointer mb-[1rem] flex items-center">
           {pathname.includes("/pages/movies/") || pathname === "/" ? (
-            <div className="flex items-center" onClick={hideNav}>
+            <div
+              className="flex items-center hover:font-semibold"
+              onClick={() => {
+                router.push("/pages/movies/popular/1");
+                hideNav();
+              }}
+            >
               <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
@@ -70,7 +52,7 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
             </div>
           ) : (
             <p
-              className="flex items-center"
+              className="flex items-center hover:font-semibold"
               onClick={() => {
                 router.push("/pages/movies/popular/1");
                 hideNav();
@@ -84,7 +66,13 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
 
         <div className="cursor-pointer mb-[0.5rem] flex items-center">
           {pathname.includes("/pages/tv/") ? (
-            <div className="flex items-center" onClick={hideNav}>
+            <div
+              className="flex items-center hover:font-semibold"
+              onClick={() => {
+                router.push("/pages/movies/popular/1");
+                hideNav();
+              }}
+            >
               <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
@@ -94,7 +82,7 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
             </div>
           ) : (
             <p
-              className="flex items-center"
+              className="flex items-center hover:font-semibold"
               onClick={() => {
                 router.push("/pages/tv/popular/1");
                 hideNav();
@@ -117,7 +105,7 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
               : "/pages/tv/popular/1"
           }
           className={
-            "link flex items-center mb-[1rem] " +
+            "link flex items-center mb-[1rem] hover:font-semibold " +
             (mode ? "blackColor1" : "whiteColor1")
           }
           onClick={hideNav}
@@ -135,7 +123,7 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
               : "/pages/tv/trending/1"
           }
           className={
-            "link flex items-center mb-[1rem] " +
+            "link flex items-center mb-[1rem] hover:font-semibold " +
             (mode ? "blackColor1" : "whiteColor1")
           }
           onClick={hideNav}
@@ -153,7 +141,7 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
               : "/pages/tv/top_rated/1"
           }
           className={
-            "link flex items-center mb-[1rem] " +
+            "link flex items-center mb-[1rem] hover:font-semibold " +
             (mode ? "blackColor1" : "whiteColor1")
           }
           onClick={hideNav}
@@ -167,57 +155,6 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
 
       <div className="categories">
         <p className="mb-[1rem] font-bold uppercase">Genres</p>
-
-        <Link
-          href={
-            pathname.includes("movies")
-              ? "/pages/movies/popular/1"
-              : "/pages/tv/popular/1"
-          }
-          className={
-            "link flex items-center mb-[1rem] " +
-            (mode ? "blackColor1" : "whiteColor1")
-          }
-        >
-          <span className="mr-[1rem]">
-            <BsGraphUpArrow />
-          </span>
-          Popular
-        </Link>
-
-        <Link
-          href={
-            pathname.includes("movies")
-              ? "/pages/movies/trending/1"
-              : "/pages/tv/trending/1"
-          }
-          className={
-            "link flex items-center mb-[1rem] " +
-            (mode ? "blackColor1" : "whiteColor1")
-          }
-        >
-          <span className="mr-[1rem]">
-            <AiOutlineFire />
-          </span>
-          Trending
-        </Link>
-
-        <Link
-          href={
-            pathname.includes("movies")
-              ? "/pages/movies/top_rated/1"
-              : "/pages/tv/top_rated/1"
-          }
-          className={
-            "link flex items-center mb-[1rem] " +
-            (mode ? "blackColor1" : "whiteColor1")
-          }
-        >
-          <span className="mr-[1rem]">
-            <BsStar />
-          </span>
-          Top Rated
-        </Link>
       </div>
     </div>
   );

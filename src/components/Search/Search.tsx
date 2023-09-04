@@ -28,7 +28,7 @@ export default function Search() {
       <p
         ref={buttonRef}
         onClick={showModal}
-        className="flex  flex-col items-center justify-center"
+        className="ml-[1rem] flex flex-col items-center justify-center"
       >
         <span className="inline-block mb-[0.25rem]">
           <TfiSearch />

@@ -33,16 +33,16 @@ export default async function Home({ params }: Params) {
   let title = "";
 
   category === "top_rated"
-    ? (title = "TOP RATED")
-    : (title = category.toLocaleUpperCase());
+    ? (title = "Top Rated")
+    : (title = category.charAt(0).toUpperCase() + category.substring(1));
 
   if (!data.results) throw new Error(`Failed to fetch ${title} movies!`);
 
   return (
     <main className="main">
       <div className="flex items-center justify-between mb-[2rem]">
-        <p className="max-w-fit uppercase font-bold">
-          {title} {type === "movies" ? "MOVIES" : "SHOWS"}
+        <p className="max-w-fit font-bold uppercase">
+          {title} {type === "movies" ? "Movies" : "Shows"}
         </p>
         <p>Sort</p>
       </div>

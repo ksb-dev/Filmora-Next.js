@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { usePathname } from "next/navigation";
 
@@ -26,6 +26,24 @@ const InnerRootLayout: React.FC<Children> = ({
   const pathname = usePathname();
   const id = pathname.split("/")[5];
   const navRef = useRef<HTMLDivElement | null>(null);
+  const navInnerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (
+        navRef.current?.contains(e.target as Node) &&
+        !navInnerRef.current?.contains(e.target as Node)
+      ) {
+        navRef.current!.style.transform = "translateX(-100%)";
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [navRef]);
 
   return (
     <div
@@ -42,20 +60,22 @@ const InnerRootLayout: React.FC<Children> = ({
           pathname !== "/pages/about" &&
           !pathname.includes(`${id}`) && (
             <div className="w-[200px] hidden md:flex">
-              <Nav forwardedRef={navRef} />
+              <Nav />
             </div>
           )}
 
         <div
           className={
             "nav w-[100vw] flex md:hidden fixed top-0 left-0 z-[2] " +
-            (mode ? "lightAlpha2" : "darkAlpha2")
+            (mode ? "lightAlpha2" : "darkAlpha1")
           }
           ref={navRef}
         >
           <div
+            ref={navInnerRef}
             className={
-              "min-h-[100vh] p-[2rem] " + (mode ? "whiteBg1" : "darkBg1")
+              "min-w-[250px] min-h-[100vh] p-[2rem] " +
+              (mode ? " whiteBg1" : " blackBg2")
             }
           >
             <Nav forwardedRef={navRef} />

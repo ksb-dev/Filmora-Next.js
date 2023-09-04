@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
         >
           <p
             className={
-              "mr-[1rem] cursor-pointer md:hidden flex flex-col items-center justify-center"
+              "cursor-pointer md:hidden flex flex-col items-center justify-center"
             }
             onClick={() => showNav()}
           >
