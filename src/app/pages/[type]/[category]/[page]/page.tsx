@@ -30,13 +30,20 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function Home({ params }: Params) {
   const { type, category, page } = params;
   const data = await getMoviesOrShows(category, type, page);
+  let title = "";
 
-  if (!data.results) throw new Error(`Failed to fetch ${category} movies!`);
+  category === "top_rated"
+    ? (title = "TOP RATED")
+    : (title = category.toLocaleUpperCase());
+
+  if (!data.results) throw new Error(`Failed to fetch ${title} movies!`);
 
   return (
     <main className="main">
       <div className="flex items-center justify-between mb-[2rem]">
-        <p className="max-w-fit uppercase font-bold">Popular Movies</p>
+        <p className="max-w-fit uppercase font-bold">
+          {title} {type === "movies" ? "MOVIES" : "SHOWS"}
+        </p>
         <p>Sort</p>
       </div>
       <div className="inner">

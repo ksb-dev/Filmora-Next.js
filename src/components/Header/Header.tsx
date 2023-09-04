@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { RefObject, useRef } from "react";
 
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
@@ -29,7 +29,11 @@ import Search from "@/components/Search/Search";
 // styles
 import styles from "./header.module.css";
 
-const Header: React.FC = () => {
+interface HeaderProp {
+  forwardedRef: RefObject<HTMLDivElement>;
+}
+
+const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
   const { data: session } = useSession();
   const dispatch = useDispatch();
   const mode = useSelector((state: RootState) => state.mode.mode);
@@ -50,6 +54,10 @@ const Header: React.FC = () => {
     profileRef.current!.style.borderBottom = "none";
     profileRef.current!.style.padding = "20px 0";
     profileModalRef.current!.style.display = "none";
+  };
+
+  const showNav = () => {
+    forwardedRef.current!.style.transform = "translateX(0%)";
   };
 
   return (
@@ -82,6 +90,7 @@ const Header: React.FC = () => {
             className={
               "mr-[1rem] cursor-pointer md:hidden flex flex-col items-center justify-center"
             }
+            onClick={() => showNav()}
           >
             <span className="inline-block mb-[0.25rem]">
               <AiOutlineMenu />

@@ -77,10 +77,6 @@ body {
   margin: 10rem auto 5rem auto;
 }
 
-.nav {
-  width: 200px;
-}
-
 .categories {
   display: flex;
   flex-direction: column;
@@ -115,10 +111,7 @@ body {
   }
 }
 
-@media screen and (max-width: 786px) {
-  .nav {
-    display: none;
-  }
+@media screen and (max-width: 768px) {
   .container {
     margin-top: 8rem;
   }
@@ -269,4 +262,9 @@ body {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: #999;
+}
+
+.nav {
+  transform: translateX(-100%);
+  transition: transform 0.1s ease-in-out;
 }

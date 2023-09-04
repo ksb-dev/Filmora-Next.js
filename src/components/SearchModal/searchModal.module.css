@@ -4,7 +4,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 1;
 
   display: flex;
   align-items: flex-start;
@@ -13,6 +13,7 @@
   transform: scale(0);
   transition: var(--transition);
   border-radius: var(--border-radius-1);
+  cursor: default;
 }
 
 .search_container {
@@ -20,7 +21,6 @@
   height: 90%;
   padding: 2rem;
   margin: 2rem;
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
   border-radius: var(--border-radius-1);
 }
 
@@ -36,7 +36,6 @@
   width: 100%;
   padding: 0.5rem 1rem;
   padding-left: 2.5rem;
-  /* margin-right: 1rem; */
   border-radius: var(--border-radius-1);
 }
 

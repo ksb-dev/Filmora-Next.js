@@ -1,6 +1,6 @@
 "use client";
 
-import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
+import { useEffect, useRef, RefObject } from "react";
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -14,22 +14,53 @@ import { BsGraphUpArrow, BsStar } from "react-icons/bs";
 import { AiOutlineFire } from "react-icons/ai";
 import { BiCheck } from "react-icons/bi";
 
-const Nav = () => {
+// styles
+import styles from "./nav.module.css";
+
+interface NavProp {
+  forwardedRef: RefObject<HTMLDivElement>;
+}
+
+const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const pathname = usePathname();
   const router = useRouter();
+  const navInnerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      if (
+        forwardedRef.current?.contains(e.target as Node) &&
+        !navInnerRef.current?.contains(e.target as Node)
+      ) {
+        forwardedRef.current!.style.transform = "translateX(-100%)";
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [forwardedRef]);
+
+  const hideNav = () => {
+    forwardedRef.current!.style.transform = "translateX(-100%)";
+  };
 
   return (
     <div
+      ref={navInnerRef}
       className={
-        "nav  " + (mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1")
+        styles.nav_inner +
+        (mode ? " whiteBg1 blackColor1" : " blackBg2 whiteColor1")
       }
     >
       <div className="pb-[1rem] mb-[1rem]">
         <p className="mb-[1rem] font-bold uppercase">Options</p>
         <div className="cursor-pointer mb-[1rem] flex items-center">
           {pathname.includes("/pages/movies/") || pathname === "/" ? (
-            <div className="flex items-center">
+            <div className="flex items-center" onClick={hideNav}>
               <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
@@ -40,7 +71,10 @@ const Nav = () => {
           ) : (
             <p
               className="flex items-center"
-              onClick={() => router.push("/pages/movies/popular/1")}
+              onClick={() => {
+                router.push("/pages/movies/popular/1");
+                hideNav();
+              }}
             >
               <span className="inline-block h-[20px] w-[20px] border border-[#999] mr-[0.5rem] rounded-[50%] "></span>
               <span>Movies</span>
@@ -50,7 +84,7 @@ const Nav = () => {
 
         <div className="cursor-pointer mb-[0.5rem] flex items-center">
           {pathname.includes("/pages/tv/") ? (
-            <div className="flex items-center">
+            <div className="flex items-center" onClick={hideNav}>
               <p className="relative inline-block h-[21px] w-[21px] mr-[0.5rem] text-white rounded-[50%] bg-[var(--blue)]">
                 <span className="absolute bottom-[3px] left-[2px] ">
                   <BiCheck />
@@ -61,7 +95,10 @@ const Nav = () => {
           ) : (
             <p
               className="flex items-center"
-              onClick={() => router.push("/pages/tv/popular/1")}
+              onClick={() => {
+                router.push("/pages/tv/popular/1");
+                hideNav();
+              }}
             >
               <span className="inline-block h-[20px] w-[20px] border border-[#999] mr-[0.5rem] rounded-[50%] "></span>
               <span>Tv Shows</span>
@@ -83,6 +120,7 @@ const Nav = () => {
             "link flex items-center mb-[1rem] " +
             (mode ? "blackColor1" : "whiteColor1")
           }
+          onClick={hideNav}
         >
           <span className="mr-[1rem]">
             <BsGraphUpArrow />
@@ -100,6 +138,7 @@ const Nav = () => {
             "link flex items-center mb-[1rem] " +
             (mode ? "blackColor1" : "whiteColor1")
           }
+          onClick={hideNav}
         >
           <span className="mr-[1rem]">
             <AiOutlineFire />
@@ -117,6 +156,7 @@ const Nav = () => {
             "link flex items-center mb-[1rem] " +
             (mode ? "blackColor1" : "whiteColor1")
           }
+          onClick={hideNav}
         >
           <span className="mr-[1rem]">
             <BsStar />
