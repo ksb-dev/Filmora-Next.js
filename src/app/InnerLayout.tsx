@@ -11,7 +11,7 @@ import { RootState } from "@/redux/store";
 // components
 import Header from "@/components/Header/Header";
 import Nav from "@/components/Nav/Nav";
-import Footer from "./Footer";
+import Footer from "@/components/Footer/Footer";
 
 interface Children {
   children: React.ReactNode;
@@ -48,7 +48,7 @@ const InnerRootLayout: React.FC<Children> = ({
   return (
     <div
       className={
-        "layout " + (mode ? "whiteBg1 blackColor1" : "blackBg2 whiteColor1")
+        "layout " + (mode ? "whiteBg1 blackColor1" : "blackBg1 whiteColor1")
       }
     >
       <Header forwardedRef={navRef} />
@@ -67,7 +67,7 @@ const InnerRootLayout: React.FC<Children> = ({
         <div
           className={
             "nav w-[100vw] flex md:hidden fixed top-0 left-0 z-[2] " +
-            (mode ? "lightAlpha2" : "darkAlpha1")
+            (mode ? "lightAlpha2" : "darkAlpha2")
           }
           ref={navRef}
         >
@@ -75,7 +75,7 @@ const InnerRootLayout: React.FC<Children> = ({
             ref={navInnerRef}
             className={
               "min-w-[250px] min-h-[100vh] p-[2rem] " +
-              (mode ? " whiteBg1" : " blackBg2")
+              (mode ? " whiteBg1" : " blackBg1")
             }
           >
             <Nav forwardedRef={navRef} />

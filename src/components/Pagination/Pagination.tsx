@@ -87,7 +87,7 @@ export default function Pagination() {
                 ? styles.active
                 : mode
                 ? " whiteBg2 blackColor1"
-                : " blackBg1 whiteColor1"
+                : " blackBg2 whiteColor1"
             }`
           }
         >

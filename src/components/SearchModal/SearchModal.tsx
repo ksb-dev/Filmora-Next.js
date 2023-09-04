@@ -48,17 +48,17 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   return (
     <div
       ref={ref1}
-      className={styles.search_modal + (mode ? " lightAlpha2" : " darkAlpha1")}
+      className={styles.search_modal + (mode ? " lightAlpha2" : " darkAlpha2")}
     >
       <div
         ref={ref2}
-        className={styles.search_container + (mode ? " whiteBg1" : " blackBg2")}
+        className={styles.search_container + (mode ? " whiteBg1" : " blackBg1")}
       >
         <div className={styles.search_input_div}>
           <input
             type="text"
             placeholder="Search"
-            className={styles.search_input + (mode ? " whiteBg2" : " blackBg1")}
+            className={styles.search_input + (mode ? " whiteBg2" : " blackBg2")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />

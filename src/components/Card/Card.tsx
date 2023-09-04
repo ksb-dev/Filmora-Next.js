@@ -65,7 +65,7 @@ export default function Card({ info }: Props) {
         href={`${pathname}/${id}`}
         onMouseOver={showWishlistBtn}
         onMouseLeave={hideWishlistBtn}
-        className={styles.card_link + (mode ? " whiteBg1" : " blackBg2")}
+        className={styles.card_link + (mode ? " whiteBg1" : " blackBg1")}
       >
         <div className={styles.image_container}>
           <CardImage poster_path={poster_path} title={title ? title : name} />
@@ -73,7 +73,7 @@ export default function Card({ info }: Props) {
         </div>
 
         <div
-          className={styles.title_date_div + (mode ? " whiteBg1" : " blackBg2")}
+          className={styles.title_date_div + (mode ? " whiteBg1" : " blackBg1")}
         >
           <span className={styles.title}>{title ? title : name}</span>
           <span className={styles.date}>

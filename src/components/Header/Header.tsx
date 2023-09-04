@@ -6,8 +6,7 @@ import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 
 // redux
-import { useSelector, useDispatch } from "react-redux";
-import { toggleMode } from "@/redux/services/getMode";
+import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // react-icons
@@ -25,6 +24,7 @@ import { SlUser } from "react-icons/sl";
 
 // components
 import Search from "@/components/Search/Search";
+import Mode from "../Mode/Mode";
 
 // styles
 import styles from "./header.module.css";
@@ -35,14 +35,9 @@ interface HeaderProp {
 
 const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
   const { data: session } = useSession();
-  const dispatch = useDispatch();
   const mode = useSelector((state: RootState) => state.mode.mode);
   const profileRef = useRef<HTMLDivElement>(null);
   const profileModalRef = useRef<HTMLDivElement>(null);
-
-  const handleMode = () => {
-    dispatch(toggleMode());
-  };
 
   const showUserModal = () => {
     profileRef.current!.style.borderBottom = "4px solid var(--blue)";
@@ -64,7 +59,7 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
     <div
       className={
         styles.header +
-        (mode ? " whiteBg1 blackColor1" : " blackBg2 whiteColor1")
+        (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
       }
     >
       <div className={styles.header_inner}>
@@ -79,6 +74,8 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
             </span>
             <span className="ml-[2.85rem]">ra</span>
           </Link>
+
+          <Mode />
         </div>
 
         <div

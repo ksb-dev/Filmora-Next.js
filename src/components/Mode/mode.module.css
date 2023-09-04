@@ -1,0 +1,24 @@
+.mode {
+  margin-left: 2rem;
+}
+
+.sun,
+.moon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* overflow: hidden; */
+  transition: all 0.3s ease;
+}
+
+.sun_icon,
+.moon_icon {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.3s ease-in-out;
+}

@@ -4,15 +4,19 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
+// styles
+import styles from "./footer.module.css";
+
 const Footer = () => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   return (
     <div
       className={
-        "footer " + (mode ? "whiteBg2 blackColor1" : "blackBg1 whiteColor1")
+        styles.footer +
+        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
       }
     >
-      <div className="footer_content">Footer</div>
+      <div className={styles.footer_content}>Footer</div>
     </div>
   );
 };
