@@ -45,6 +45,17 @@ const InnerRootLayout: React.FC<Children> = ({
     };
   }, [navRef]);
 
+  const getPathnames = (): boolean => {
+    return pathname !== "/" &&
+      pathname !== "/pages/login" &&
+      pathname !== "/pages/register" &&
+      pathname !== "/pages/about" &&
+      pathname !== "/pages/wishlist" &&
+      !pathname.includes(`${id}`)
+      ? true
+      : false;
+  };
+
   return (
     <div
       className={
@@ -54,15 +65,11 @@ const InnerRootLayout: React.FC<Children> = ({
       <Header forwardedRef={navRef} />
 
       <div className="container">
-        {pathname !== "/" &&
-          pathname !== "/pages/login" &&
-          pathname !== "/pages/register" &&
-          pathname !== "/pages/about" &&
-          !pathname.includes(`${id}`) && (
-            <div className="w-[200px] hidden md:flex">
-              <Nav />
-            </div>
-          )}
+        {getPathnames() && (
+          <div className="w-[200px] hidden md:flex">
+            <Nav />
+          </div>
+        )}
 
         <div
           className={

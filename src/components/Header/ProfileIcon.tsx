@@ -1,21 +1,12 @@
 import { useRef } from "react";
 
-import Link from "next/link";
-import { useSession, signOut } from "next-auth/react";
-
-// redux
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-
 // react-icons
 import { SlUser } from "react-icons/sl";
 
-// styles
-import styles from "./header.module.css";
+// components
+import ProfileModal from "./ProfileModal";
 
 const ProfileIcon: React.FC = (): JSX.Element => {
-  const mode = useSelector((state: RootState) => state.mode.mode);
-  const { data: session } = useSession();
   const profileRef = useRef<HTMLDivElement>(null);
   const profileModalRef = useRef<HTMLDivElement>(null);
 
@@ -45,64 +36,11 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         <span className="text-[0.75rem] font-bold uppercase">Profile</span>
       </p>
 
-      <div
-        onMouseOver={showUserModal}
-        onMouseLeave={hideUserModal}
+      <ProfileModal
         ref={profileModalRef}
-        className={
-          styles.border_top +
-          " absolute p-[1rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] bottom-[4.25rem] md:bottom-auto " +
-          (mode ? "whiteBg1" : "blackBg1")
-        }
-      >
-        <p className="font-bold">
-          Welcome {session ? <span>{session.user?.name}</span> : ""}
-        </p>
-        <p className="w-max">
-          {session ? "" : <span>To access account and manage wishlist</span>}
-        </p>
-        <p
-          className="pt-[1rem] mb-[1rem]"
-          style={{ borderBottom: "1px solid #cdcdcd" }}
-        ></p>
-
-        {session ? (
-          <div className="flex flex-col justify-center">
-            <Link href="#" className="mb-[0.5rem] hover:font-semibold w-min">
-              Account
-            </Link>
-
-            <Link href="#" className="mb-[0.5rem] hover:font-semibold w-min">
-              Wishlist
-            </Link>
-
-            <span
-              className="inline-block hover:font-semibold cursor-pointer w-min"
-              onClick={() => signOut()}
-            >
-              Logout
-            </span>
-          </div>
-        ) : (
-          <div className="flex items-center justify-evenly">
-            <Link
-              href="/pages/login"
-              className="py-[0.5rem] bg-[var(--blue)] text-white mr-[1rem] w-[50%] text-center hover:brightness-90"
-              onClick={hideUserModal}
-            >
-              Login
-            </Link>
-
-            <Link
-              href="/pages/register"
-              className="py-[0.5rem] bg-[var(--blue)] text-white w-[50%] text-center hover:brightness-90"
-              onClick={hideUserModal}
-            >
-              Register
-            </Link>
-          </div>
-        )}
-      </div>
+        showUserModal={showUserModal}
+        hideUserModal={hideUserModal}
+      />
     </div>
   );
 };

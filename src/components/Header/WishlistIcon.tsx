@@ -6,7 +6,7 @@ import { BsBookmarkPlus } from "react-icons/bs";
 const WishlistIcon: React.FC = (): JSX.Element => {
   return (
     <Link
-      href="#"
+      href="/pages/wishlist"
       className={
         "ml-[1rem] cursor-pointer flex flex-col items-center justify-center"
       }

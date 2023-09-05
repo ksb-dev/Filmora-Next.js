@@ -10,9 +10,6 @@ import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
-// lib
-import { getSearchResults } from "@/lib/getSearchResults";
-
 // react-icons
 import { BiSearch } from "react-icons/bi";
 import { IoClose } from "react-icons/io5";
