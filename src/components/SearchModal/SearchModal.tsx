@@ -67,6 +67,19 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
             <IoClose />
           </span>
         </div>
+
+        <div className="p-[1rem]">
+          <p>
+            {searchResults.length ? (
+              <>
+                <span>Search results for </span>
+                <span className="font-bold">{query}</span>
+              </>
+            ) : (
+              ""
+            )}
+          </p>
+        </div>
       </div>
     </div>
   );
