@@ -10,7 +10,6 @@
   width: 35px;
   margin-right: 0.5rem;
   border-radius: var(--border-radius-1);
-  /* transition: var(--transition); */
 }
 
 .btn:hover {

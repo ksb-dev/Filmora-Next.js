@@ -13,7 +13,6 @@
 .card_link {
   display: block;
   height: 100%;
-  /* transition: var(--transition); */
 }
 
 .image_container {
@@ -39,7 +38,6 @@
   padding: 0.2rem;
   bottom: -25px;
   left: 1rem;
-  /* transition: var(--transition); */
 }
 
 .vote_text {
@@ -55,7 +53,6 @@
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem 1rem 1rem;
-  /* transition: var(--transition); */
 }
 
 .title {

@@ -9,8 +9,6 @@
   height: 40px;
   border-radius: 50%;
   cursor: pointer;
-  /* transition: var(--transition); */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .sun_icon,
@@ -20,5 +18,5 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.3s ease-in-out;
+  transition: var(--transition);
 }

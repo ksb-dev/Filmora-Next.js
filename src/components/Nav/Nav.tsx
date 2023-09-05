@@ -27,7 +27,9 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
   const router = useRouter();
 
   const hideNav = () => {
-    forwardedRef!.current!.style.transform = "translateX(-100%)";
+    if (forwardedRef && forwardedRef.current) {
+      forwardedRef.current!.style.transform = "translateX(-100%)";
+    }
   };
 
   return (

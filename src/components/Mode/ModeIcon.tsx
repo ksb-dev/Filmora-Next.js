@@ -12,7 +12,7 @@ import { PiSunLight, PiMoonStarsLight } from "react-icons/pi";
 // styles
 import styles from "./mode.module.css";
 
-const Mode = () => {
+const ModeIcon: React.FC = (): JSX.Element => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const dispatch = useDispatch();
   const sunRef = useRef<HTMLSpanElement>(null)!;
@@ -40,7 +40,7 @@ const Mode = () => {
         onClick={handleMode}
         className={
           styles.moon +
-          (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+          (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
         }
       >
         <span ref={moonRef} className={styles.moon_icon}>
@@ -54,4 +54,4 @@ const Mode = () => {
   );
 };
 
-export default Mode;
+export default ModeIcon;

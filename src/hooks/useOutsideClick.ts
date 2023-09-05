@@ -12,7 +12,7 @@ export const useOutsideClick = (
         ref1.current?.contains(e.target as Node) &&
         !ref2.current?.contains(e.target as Node)
       ) {
-        ref1.current!.style.transform = "scale(0)";
+        ref1.current!.style.display = "none";
         setQuery("");
       }
     };
