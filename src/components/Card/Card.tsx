@@ -49,6 +49,12 @@ export default function Card({ info }: Props) {
   } = info;
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const type = pathname.split("/")[2];
+
+  let path =
+    type === "movies"
+      ? `/pages/movies/movie_detail/${id}`
+      : `/pages/tv/tv_detail/${id}`;
 
   const showWishlistBtn = () => {
     ref.current!.style.transform = "scale(1)";
@@ -61,8 +67,7 @@ export default function Card({ info }: Props) {
   return (
     <div className={styles.card}>
       <Link
-        //href={`${pathname.substring(0, pathname.length - 2)}/detail/${id}`}
-        href={`${pathname}/${id}`}
+        href={path}
         onMouseOver={showWishlistBtn}
         onMouseLeave={hideWishlistBtn}
         className={styles.card_link + (mode ? " whiteBg1" : " blackBg1")}

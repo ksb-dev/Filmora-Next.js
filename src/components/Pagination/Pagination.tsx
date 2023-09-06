@@ -4,17 +4,18 @@
 import { useState, useEffect } from "react";
 import { usePathname, useParams, useRouter } from "next/navigation";
 
+// lib
+import { getMoviesOrTv } from "@/lib/getMoviesOrTv";
+
 // redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // react icons
-import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { MdNavigateBefore, MdNavigateNext } from "react-icons/md";
 
 // styles
 import styles from "./pagination.module.css";
-import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
 
 export default function Pagination() {
   const mode = useSelector((state: RootState) => state.mode.mode);
@@ -27,32 +28,36 @@ export default function Pagination() {
 
   const path = pathname.split("/");
   const category = path[path.length - 2];
-  let type1 = path[path.length - 3];
-  let type2 = path[path.length - 3];
+  let type = path[path.length - 3];
 
   useEffect(() => {
-    if (type1 === "movies") {
-      type1 = "movie";
+    let title = "";
+    category === "top_rated"
+      ? (title = "Top Rated")
+      : (title = category.charAt(0).toUpperCase() + category.substring(1));
+
+    if (type === "movies") {
+      type = "movie";
     } else {
-      type1 = "tv";
+      type = "tv";
     }
 
-    getMoviesOrShows(category, type1, currentPage).then((res) => {
+    getMoviesOrTv(category, currentPage, type, title).then((res) => {
       setTotalPages(res.total_pages);
     });
   }, [currentPage]);
 
   function goToNextPage() {
-    router.push(`/pages/${type2}/${category}/${currentPage + 1}`);
+    router.push(`/pages/${type}/${category}/${currentPage + 1}`);
   }
 
   function goToPreviousPage() {
-    router.push(`/pages/${type2}/${category}/${currentPage - 1}`);
+    router.push(`/pages/${type}/${category}/${currentPage - 1}`);
   }
 
   function changePage(e: any) {
     setCurrentPage(e.target.textContent);
-    router.push(`/pages/${type2}/${category}/${e.target.textContent}`);
+    router.push(`/pages/${type}/${category}/${e.target.textContent}`);
   }
 
   const getPaginationGroup = () => {

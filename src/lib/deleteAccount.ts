@@ -1,10 +1,10 @@
 import { Session } from "next-auth";
 import { signOut } from "next-auth/react";
 
-export const useDeleteAccount = async (
+export async function deleteAccount(
   session: Session | null,
   setLoading: (value: boolean) => void
-) => {
+) {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -17,4 +17,4 @@ export const useDeleteAccount = async (
     signOut();
     setLoading(false);
   }
-};
+}

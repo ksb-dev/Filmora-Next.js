@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 // lib
-import { getMoviesOrShows } from "@/lib/getMoviesOrShows";
+import { getMoviesOrTv } from "@/lib/getMoviesOrTv";
 
 // components
 import Card from "@/components/Card/Card";
@@ -24,19 +24,20 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   let category =
     params.category.charAt(0).toUpperCase() + params.category.substring(1);
 
-  return { title: `Filmora | ${category} ${type}` };
+  return {
+    title: `Filmora | ${category} ${type === "Movies" ? "Movies" : "Shows"}`,
+  };
 }
 
 export default async function Home({ params }: Params) {
   const { type, category, page } = params;
-  const data = await getMoviesOrShows(category, type, page);
-  let title = "";
 
+  let title = "";
   category === "top_rated"
     ? (title = "Top Rated")
     : (title = category.charAt(0).toUpperCase() + category.substring(1));
 
-  if (!data.results) throw new Error(`Failed to fetch ${title} movies!`);
+  const data = await getMoviesOrTv(category, page, type, title);
 
   return (
     <main className="main">
