@@ -47,11 +47,17 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
 
       {session ? (
         <div className="flex flex-col justify-center">
-          <Link href="#" className="mb-[0.5rem] hover:font-semibold w-min">
+          <Link
+            href="/pages/account"
+            className="mb-[0.5rem] hover:font-semibold w-min"
+          >
             Account
           </Link>
 
-          <Link href="#" className="mb-[0.5rem] hover:font-semibold w-min">
+          <Link
+            href="/pages/wishlist"
+            className="mb-[0.5rem] hover:font-semibold w-min"
+          >
             Wishlist
           </Link>
 
