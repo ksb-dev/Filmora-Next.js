@@ -1,6 +1,6 @@
 interface Props {
   page: number;
-  results: Movie[];
+  results: Card[];
   total_pages: number;
   total_results: number;
 }
