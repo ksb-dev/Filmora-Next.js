@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 // react-icons
 import { TfiSearch } from "react-icons/tfi";
+import { ImSearch } from "react-icons/im";
 import SearchModal from "../SearchModal/SearchModal";
 
 const SearchIcon: React.FC = (): JSX.Element => {
@@ -19,10 +20,10 @@ const SearchIcon: React.FC = (): JSX.Element => {
       <p
         ref={buttonRef}
         onClick={showModal}
-        className="ml-[1rem] flex flex-col items-center justify-center cursor-pointer"
+        className="ml-[1rem] flex items-center justify-center cursor-pointer"
       >
-        <span className="inline-block mb-[0.25rem]">
-          <TfiSearch />
+        <span className="inline-block mr-[0.5rem]">
+          <ImSearch />
         </span>
         <span className="text-[0.75rem] font-bold uppercase">Search</span>
       </p>

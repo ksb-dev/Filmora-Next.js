@@ -7,7 +7,14 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleMode } from "@/redux/services/getMode";
 
 // react-icons
-import { PiSunLight, PiMoonStarsLight } from "react-icons/pi";
+import {
+  PiSunLight,
+  PiMoonStarsLight,
+  PiMoonStarsFill,
+  PiSunFill,
+} from "react-icons/pi";
+import { RiMoonClearFill } from "react-icons/ri";
+import { BsFillSunFill, BsMoonStarsFill, BsSun } from "react-icons/bs";
 
 // styles
 import styles from "./mode.module.css";
@@ -35,7 +42,7 @@ const ModeIcon: React.FC = (): JSX.Element => {
           </span>
         ) : (
           <span className={styles.sun_icon}>
-            <PiSunLight />
+            <BsSun />
           </span>
         )}
       </p>

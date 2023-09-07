@@ -4,9 +4,10 @@
 
 .sun,
 .moon {
+  margin-top: 0.5rem;
   position: relative;
-  width: 40px;
-  height: 40px;
+  /* width: 40px;
+  height: 40px; */
   border-radius: 50%;
   cursor: pointer;
 }
@@ -18,4 +19,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.sun_icon {
+  font-size: 1.4rem;
+  color: rgb(255, 222, 34);
 }

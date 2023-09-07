@@ -6,14 +6,17 @@
   --border-radius-1: 0px;
 
   --white-1: rgb(255, 255, 255);
-  --white-2: rgb(235, 236, 240);
+  --white-2: rgb(240, 240, 240);
 
   --black-1: #333a45;
+  /* --black-1: #393e46; */
   --black-2: #23272f;
 
   --blue: #4285f4;
   --blue: #149eca;
-  /* --blue: #00acee; */
+  --blue: #1da1f2;
+  /* --blue: #61dafb; */
+  /* --blue: cornflowerblue; */
   --red: tomato;
   --green: #0f9d58;
   --orange: darkorange;
@@ -21,8 +24,10 @@
 
   --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-  --lightBorder1: 4px solid #fff;
-  --darkBorder1: 4px solid #333a45;
+  --lightBorder1: 4px solid var(--white-1);
+  --darkBorder1: 4px solid var(--black-1);
+  --lightBorder2: 4px solid var(--white-2);
+  --darkBorder2: 4px solid var(--black-2);
 
   --transition: all 0.1s ease;
 }
@@ -100,7 +105,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   align-items: stretch;
-  gap: 2rem;
+  gap: 2rem 2rem;
 }
 
 @media screen and (max-width: 1286px) {
@@ -170,6 +175,7 @@ body {
 
 .darkAlpha1 {
   background: rgba(51, 58, 69, 0.95);
+  /* background: rgba(57, 62, 70, 0.95); */
 }
 
 .lightAlpha2 {

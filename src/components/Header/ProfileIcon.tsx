@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 // react-icons
 import { SlUser } from "react-icons/sl";
+import { FaRegUserCircle } from "react-icons/fa";
 
 // components
 import ProfileModal from "./ProfileModal";
@@ -11,14 +12,14 @@ const ProfileIcon: React.FC = (): JSX.Element => {
   const profileModalRef = useRef<HTMLDivElement>(null);
 
   const showUserModal = () => {
-    profileRef.current!.style.borderBottom = "4px solid var(--blue)";
-    profileRef.current!.style.padding = "20px 0 17px 0";
+    // profileRef.current!.style.borderBottom = "4px solid var(--blue)";
+    // profileRef.current!.style.padding = "20px 0 17px 0";
     profileModalRef.current!.style.display = "flex";
   };
 
   const hideUserModal = () => {
-    profileRef.current!.style.padding = "20px 0";
-    profileRef.current!.style.borderBottom = "none";
+    // profileRef.current!.style.padding = "20px 0";
+    // profileRef.current!.style.borderBottom = "none";
     profileModalRef.current!.style.display = "none";
   };
 
@@ -28,10 +29,10 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         ref={profileRef}
         onMouseOver={showUserModal}
         onMouseLeave={hideUserModal}
-        className="ml-[1rem] cursor-pointer flex flex-col items-center justify-center py-[20px]"
+        className="ml-[2rem] cursor-pointer flex items-center justify-center py-[20px]"
       >
-        <span className="inline-block mb-[0.25rem]">
-          <SlUser />
+        <span className="inline-block mr-[0.5rem] text-[1.1rem]">
+          <FaRegUserCircle />
         </span>
         <span className="text-[0.75rem] font-bold uppercase">Profile</span>
       </p>

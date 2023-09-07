@@ -30,7 +30,7 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
       ref={profileModalRef}
       className={
         styles.border_top +
-        " absolute p-[1rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] bottom-[4.25rem] md:bottom-auto " +
+        " absolute p-[1rem] flex-col right-[0rem] shadow-[0_4px_15px_rgba(0,0,0,0.2)] hidden min-w-[250px] bottom-[3.25rem] md:bottom-auto " +
         (mode ? "whiteBg1" : "blackBg1")
       }
     >
