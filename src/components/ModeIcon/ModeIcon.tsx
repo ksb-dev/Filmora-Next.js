@@ -29,13 +29,7 @@ const ModeIcon: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.mode}>
-      <p
-        onClick={handleMode}
-        className={
-          styles.moon +
-          (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
-        }
-      >
+      <p onClick={handleMode} className={styles.moon}>
         {mode ? (
           <span className={styles.moon_icon}>
             <PiMoonStarsLight />

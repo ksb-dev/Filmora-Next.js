@@ -23,8 +23,8 @@ import { PiMonitor } from "react-icons/pi";
 import { SlUser } from "react-icons/sl";
 
 // components
-import Title from "./Title";
-import ModeIcon from "../Mode/ModeIcon";
+import Title from "../Title/Title";
+import ModeIcon from "../ModeIcon/ModeIcon";
 import SearchIcon from "./SearchIcon";
 import WishlistIcon from "./WishlistIcon";
 import ProfileIcon from "./ProfileIcon";

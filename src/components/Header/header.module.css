@@ -30,6 +30,11 @@
   width: 33.33%;
 }
 
+.profile_modal {
+  transform: scale(0);
+  transition: transform 0.1s ease;
+}
+
 @media screen and (max-width: 1286px) {
   .header {
     padding: 0 2rem;

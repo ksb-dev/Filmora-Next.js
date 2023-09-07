@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // components
-import Title from "../Header/Title";
-import ModeIcon from "../Mode/ModeIcon";
+import Title from "../Title/Title";
+import ModeIcon from "../ModeIcon/ModeIcon";
 
 // styles
 import styles from "./smallHeader.module.css";

@@ -12,15 +12,11 @@ const ProfileIcon: React.FC = (): JSX.Element => {
   const profileModalRef = useRef<HTMLDivElement>(null);
 
   const showUserModal = () => {
-    // profileRef.current!.style.borderBottom = "4px solid var(--blue)";
-    // profileRef.current!.style.padding = "20px 0 17px 0";
-    profileModalRef.current!.style.display = "flex";
+    profileModalRef.current!.style.transform = "scale(1)";
   };
 
   const hideUserModal = () => {
-    // profileRef.current!.style.padding = "20px 0";
-    // profileRef.current!.style.borderBottom = "none";
-    profileModalRef.current!.style.display = "none";
+    profileModalRef.current!.style.transform = "scale(0)";
   };
 
   return (
@@ -29,7 +25,7 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         ref={profileRef}
         onMouseOver={showUserModal}
         onMouseLeave={hideUserModal}
-        className="md:ml-[2rem] cursor-pointer flex flex-col md:flex-row items-center justify-center py-[12px]"
+        className="md:ml-[2rem] cursor-pointer flex flex-col md:flex-row items-center justify-center py-[12px] md:py-[20px]"
       >
         <span className="inline-block mr-0 md:mr-[0.5rem] text-[1.1rem]">
           <FaRegUserCircle />
