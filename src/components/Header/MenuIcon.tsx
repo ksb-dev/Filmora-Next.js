@@ -1,5 +1,6 @@
 // react-icons
 import { AiOutlineMenu } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 interface Prop {
   showNav: () => void;
@@ -13,8 +14,8 @@ const MenuIcon: React.FC<Prop> = ({ showNav }): JSX.Element => {
       }
       onClick={() => showNav()}
     >
-      <span className="inline-block mb-[0.25rem]">
-        <AiOutlineMenu />
+      <span className="inline-block">
+        <GiHamburgerMenu />
       </span>
       <span className="text-[0.75rem] font-bold uppercase">Menu</span>
     </p>

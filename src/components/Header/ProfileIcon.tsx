@@ -29,9 +29,9 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         ref={profileRef}
         onMouseOver={showUserModal}
         onMouseLeave={hideUserModal}
-        className="ml-[2rem] cursor-pointer flex items-center justify-center py-[20px]"
+        className="md:ml-[2rem] cursor-pointer flex flex-col md:flex-row items-center justify-center py-[12px]"
       >
-        <span className="inline-block mr-[0.5rem] text-[1.1rem]">
+        <span className="inline-block mr-0 md:mr-[0.5rem] text-[1.1rem]">
           <FaRegUserCircle />
         </span>
         <span className="text-[0.75rem] font-bold uppercase">Profile</span>

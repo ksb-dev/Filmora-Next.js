@@ -12,3 +12,9 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+@media screen and (max-width: 786px) {
+  .footer {
+    margin-bottom: 4rem;
+  }
+}

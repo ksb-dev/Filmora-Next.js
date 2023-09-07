@@ -105,7 +105,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
   align-items: stretch;
-  gap: 2rem 2rem;
+  gap: 4rem 2rem;
 }
 
 @media screen and (max-width: 1286px) {
@@ -119,10 +119,14 @@ body {
 
 @media screen and (max-width: 768px) {
   .container {
-    margin-top: 8rem;
+    margin-top: 6rem;
   }
   .main {
     padding-left: 0;
+  }
+
+  .inner {
+    gap: 2rem;
   }
 }
 

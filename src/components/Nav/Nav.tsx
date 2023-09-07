@@ -33,7 +33,7 @@ const Nav: React.FC<NavProp> = ({ forwardedRef }) => {
   };
 
   return (
-    <div className={styles.nav}>
+    <div>
       <div className="pb-[1rem] mb-[1rem]">
         <p className="mb-[1rem] font-bold uppercase">Options</p>
         <div className="cursor-pointer mb-[1rem] flex items-center">

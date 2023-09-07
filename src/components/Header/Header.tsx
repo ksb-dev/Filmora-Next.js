@@ -57,7 +57,11 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
           <ModeIcon />
         </div>
 
-        <div className={"flex items-center md:justify-end justify-between"}>
+        <div
+          className={
+            "flex items-center md:justify-end justify-between md:w-[100%] w-auto"
+          }
+        >
           <MenuIcon showNav={showNav} />
           <SearchIcon />
           <WishlistIcon />
