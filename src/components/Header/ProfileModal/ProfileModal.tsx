@@ -17,7 +17,7 @@ interface Props {
 type Ref = HTMLDivElement;
 
 export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
-  const mode = useSelector((state: RootState) => state.mode.mode);
+  const mode: boolean = useSelector((state: RootState) => state.mode.mode);
   const { showUserModal, hideUserModal } = props;
   const { data: session } = useSession();
   const profileModalRef = useRef<HTMLDivElement>(null);

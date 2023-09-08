@@ -15,10 +15,12 @@ const ProfileIcon: React.FC = (): JSX.Element => {
 
   const showUserModal = () => {
     profileModalRef.current!.style.transform = "scale(1)";
+    profileModalRef.current!.style.opacity = "1";
   };
 
   const hideUserModal = () => {
     profileModalRef.current!.style.transform = "scale(0)";
+    profileModalRef.current!.style.opacity = "0";
   };
 
   return (

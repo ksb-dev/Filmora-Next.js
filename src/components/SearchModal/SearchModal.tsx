@@ -10,13 +10,16 @@ import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
-// react-icons
-import { BiSearch } from "react-icons/bi";
-import { IoClose } from "react-icons/io5";
-
 // hooks
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 import { useGetSearchResults } from "@/hooks/useGetSearchResults";
+
+// components
+import SearchResults from "./SearchResults/SearchResults";
+
+// react-icons
+import { BiSearch } from "react-icons/bi";
+import { IoClose } from "react-icons/io5";
 
 // styles
 import styles from "./searchModal.module.css";
@@ -28,6 +31,8 @@ export type Ref = HTMLDivElement;
 export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
+
+  console.log(searchResults);
 
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
@@ -68,12 +73,13 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
           </span>
         </div>
 
-        <div className="p-[1rem]">
+        <div className="mt-[1rem]">
           <p>
             {searchResults.length ? (
               <>
                 <span>Search results for </span>
                 <span className="font-bold">{query}</span>
+                <SearchResults searchResults={searchResults} />
               </>
             ) : (
               ""

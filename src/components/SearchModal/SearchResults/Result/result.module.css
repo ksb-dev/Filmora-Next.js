@@ -1,0 +1,10 @@
+.result {
+  display: block;
+  height: min-content;
+  display: flex;
+  padding: 0.5rem;
+}
+
+.result:hover {
+  filter: brightness(95%);
+}

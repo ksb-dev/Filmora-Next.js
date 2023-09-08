@@ -20,6 +20,7 @@
   padding: 2rem;
   margin: 2rem;
   border-radius: var(--border-radius-1);
+  overflow: scroll;
 }
 
 .search_input_div {

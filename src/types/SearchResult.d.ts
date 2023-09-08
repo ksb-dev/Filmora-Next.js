@@ -8,8 +8,10 @@ interface SearchResult {
   overview: string;
   popularity: number;
   poster_path: string;
-  release_date: string;
-  title: string;
+  release_date?: string;
+  title?: string;
+  first_air_date?: string;
+  name?: string;
   video: string;
   vote_average: number;
   vote_count: number;
