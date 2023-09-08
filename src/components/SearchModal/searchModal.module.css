@@ -23,6 +23,42 @@
   overflow: scroll;
 }
 
+.search_options {
+  width: fit-content;
+  position: relative;
+  margin-top: 1rem;
+  border-radius: 50px;
+  background: var(--blue);
+  color: #fff;
+}
+
+.search_option {
+  display: inline-block;
+  width: 45px;
+  text-align: center;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.search_option:hover {
+  filter: brightness(90%);
+}
+
+.cover {
+  position: absolute;
+  top: 0.1rem;
+  /* right: 0.1rem; */
+  width: 45px;
+  padding: 0.175rem 0;
+  background: #fff;
+  color: transparent;
+  transform: translateX(-46.5px);
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-size: 0.75rem;
+}
+
 .search_input_div {
   position: relative;
 

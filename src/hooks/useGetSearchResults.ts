@@ -6,16 +6,12 @@ import { getSearchResults } from "@/lib/getSearchResults";
 
 export const useGetSearchResults = (
   query: string,
-  pathname: string,
+  mediaType: string,
   setSearchResults: Dispatch<SetStateAction<SearchResult[]>>
 ) => {
   useEffect(() => {
-    if (pathname.includes("movies") && query.length) {
-      getSearchResults("movie", query)
-        .then((res) => res.results)
-        .then((data) => setSearchResults(data));
-    } else {
-      getSearchResults("tv", query)
+    if (query.length) {
+      getSearchResults(mediaType, query)
         .then((res) => res.results)
         .then((data) => setSearchResults(data));
     }

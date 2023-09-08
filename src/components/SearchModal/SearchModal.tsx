@@ -30,20 +30,34 @@ export type Ref = HTMLDivElement;
 
 export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   const [query, setQuery] = useState("");
+  const [mediaType, setMediaType] = useState("movie");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
+  const coverRef = useRef<HTMLSpanElement>(null);
 
   const pathname = usePathname();
-  const mode = useSelector((state: RootState) => state.mode.mode);
+  const mode: boolean = useSelector((state: RootState) => state.mode.mode);
 
   useImperativeHandle(ref, () => ref1.current as HTMLDivElement);
 
   // Handle outside click
   useOutsideClick(setQuery, ref1, ref2);
   // Get search results
-  useGetSearchResults(query, pathname, setSearchResults);
+  useGetSearchResults(query, mediaType, setSearchResults);
+
+  const toggleOption = (value: string) => {
+    setQuery("");
+    setSearchResults([]);
+    value === "movie" ? setMediaType("tv") : setMediaType("movie");
+
+    if (value === "movie") {
+      coverRef.current!.style.transform = "translateX(-89px)";
+    } else {
+      coverRef.current!.style.transform = "translateX(-46.5px)";
+    }
+  };
 
   return (
     <div
@@ -68,6 +82,24 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
 
           <span className={styles.close_icon}>
             <IoClose />
+          </span>
+        </div>
+
+        <div className={styles.search_options}>
+          <span
+            className={styles.search_option}
+            onClick={() => toggleOption("movie")}
+          >
+            Movie
+          </span>
+          <span
+            className={styles.search_option}
+            onClick={() => toggleOption("tv")}
+          >
+            Tv
+          </span>
+          <span ref={coverRef} className={styles.cover}>
+            cover
           </span>
         </div>
 
