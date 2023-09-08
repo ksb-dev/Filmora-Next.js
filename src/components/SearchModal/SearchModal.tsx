@@ -50,9 +50,9 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
     value === "movie" ? setMediaType("tv") : setMediaType("movie");
 
     if (value === "movie") {
-      coverRef.current!.style.transform = "translateX(-89px)";
+      coverRef.current!.style.transform = "translateX(-98px)";
     } else {
-      coverRef.current!.style.transform = "translateX(-46.5px)";
+      coverRef.current!.style.transform = "translateX(-51.5px)";
     }
   };
 
@@ -76,11 +76,18 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
           <span className={styles.search_icon}>
             <BiSearch />
           </span>
-
-          <span className={styles.close_icon}>
-            <IoClose />
-          </span>
         </div>
+
+        <span
+          className={styles.close_icon}
+          onClick={() => {
+            setQuery("");
+            setSearchResults([]);
+            ref1.current!.style.display = "none";
+          }}
+        >
+          <IoClose />
+        </span>
 
         <div className={styles.search_options}>
           <span
