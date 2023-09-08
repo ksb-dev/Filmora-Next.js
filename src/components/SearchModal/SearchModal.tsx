@@ -4,8 +4,6 @@
 
 import { useState, useRef, forwardRef, useImperativeHandle } from "react";
 
-import { usePathname } from "next/navigation";
-
 // redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -37,13 +35,12 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   const ref2 = useRef<HTMLDivElement>(null);
   const coverRef = useRef<HTMLSpanElement>(null);
 
-  const pathname = usePathname();
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
 
   useImperativeHandle(ref, () => ref1.current as HTMLDivElement);
 
   // Handle outside click
-  useOutsideClick(setQuery, ref1, ref2);
+  useOutsideClick(setQuery, ref1, ref2, setSearchResults);
   // Get search results
   useGetSearchResults(query, mediaType, setSearchResults);
 
@@ -109,7 +106,13 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
               <>
                 <span>Search results for </span>
                 <span className="font-bold">{query}</span>
-                <SearchResults searchResults={searchResults} />
+                <SearchResults
+                  searchResults={searchResults}
+                  mediaType={mediaType}
+                  ref1={ref1}
+                  setQuery={setQuery}
+                  setSearchResults={setSearchResults}
+                />
               </>
             ) : (
               ""

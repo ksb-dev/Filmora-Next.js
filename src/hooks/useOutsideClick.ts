@@ -4,7 +4,8 @@ import { useEffect } from "react";
 export const useOutsideClick = (
   setQuery: React.Dispatch<React.SetStateAction<string>>,
   ref1: any,
-  ref2: any
+  ref2: any,
+  setSearchResults: (value: SearchResult[]) => void
 ) => {
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
@@ -14,6 +15,7 @@ export const useOutsideClick = (
       ) {
         ref1.current!.style.display = "none";
         setQuery("");
+        setSearchResults([]);
       }
     };
 
