@@ -29,6 +29,7 @@
   margin-top: 1rem;
   background: var(--blue);
   color: #fff;
+  border-radius: 50px;
 }
 
 .search_option {
@@ -46,14 +47,15 @@
 
 .cover {
   position: absolute;
-  top: 0.1rem;
+  top: 0.125rem;
   width: 50px;
-  padding: 0.4rem 0;
+  padding: 0.375rem 0;
   background: #fff;
   color: transparent;
-  transform: translateX(-51.5px);
+  transform: translateX(-53px);
   transition: all 0.3s ease;
   font-size: 0.75rem;
+  border-radius: 50px;
 }
 
 .search_input_div {

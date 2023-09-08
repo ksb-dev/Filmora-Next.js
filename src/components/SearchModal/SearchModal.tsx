@@ -50,9 +50,9 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
     value === "movie" ? setMediaType("tv") : setMediaType("movie");
 
     if (value === "movie") {
-      coverRef.current!.style.transform = "translateX(-98px)";
+      coverRef.current!.style.transform = "translateX(-97.5px)";
     } else {
-      coverRef.current!.style.transform = "translateX(-51.5px)";
+      coverRef.current!.style.transform = "translateX(-53px)";
     }
   };
 
