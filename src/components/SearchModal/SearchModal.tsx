@@ -32,8 +32,6 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
-  console.log(searchResults);
-
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
 

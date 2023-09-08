@@ -25,10 +25,10 @@ import { SlUser } from "react-icons/sl";
 // components
 import Title from "../Title/Title";
 import ModeIcon from "../ModeIcon/ModeIcon";
-import SearchIcon from "./SearchIcon/SearchIcon";
-import WishlistIcon from "./WishlistIcon/WishlistIcon";
-import ProfileIcon from "./ProfileIcon/ProfileIcon";
-import MenuIcon from "./MenuIcon/MenuIcon";
+import SearchIcon from "./SearchIcon";
+import WishlistIcon from "./WishlistIcon";
+import ProfileIcon from "./ProfileIcon";
+import MenuIcon from "./MenuIcon";
 
 // styles
 import styles from "./header.module.css";

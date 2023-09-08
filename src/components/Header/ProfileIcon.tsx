@@ -1,13 +1,15 @@
 import { useRef } from "react";
 
 // react-icons
+import { SlUser } from "react-icons/sl";
+import { PiUserCircleFill } from "react-icons/pi";
 import { FaRegUserCircle } from "react-icons/fa";
 
 // components
-import ProfileModal from "../ProfileModal/ProfileModal";
+import ProfileModal from "./ProfileModal";
 
 // styles
-import styles from "./profileIcon.module.css";
+import styles from "./header.module.css";
 
 const ProfileIcon: React.FC = (): JSX.Element => {
   const profileRef = useRef<HTMLDivElement>(null);
@@ -32,7 +34,7 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         className={styles.profile}
       >
         <span className={styles.profile_icon}>
-          <FaRegUserCircle />
+          <SlUser />
         </span>
         <span className={styles.profile_text}>Profile</span>
       </p>

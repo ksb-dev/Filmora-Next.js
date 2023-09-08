@@ -1,8 +1,9 @@
 // react-icons
 import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineMenu } from "react-icons/ai";
 
 // styles
-import styles from "./menuIcon.module.css";
+import styles from "./header.module.css";
 
 interface Prop {
   showNav: () => void;
@@ -12,7 +13,7 @@ const MenuIcon: React.FC<Prop> = ({ showNav }): JSX.Element => {
   return (
     <p className={styles.menu} onClick={() => showNav()}>
       <span className={styles.menu_icon}>
-        <GiHamburgerMenu />
+        <AiOutlineMenu />
       </span>
       <span className={styles.menu_text}>Menu</span>
     </p>

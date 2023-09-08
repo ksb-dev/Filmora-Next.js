@@ -8,10 +8,11 @@ import { RootState } from "@/redux/store";
 
 // react-icons
 import { ImSearch } from "react-icons/im";
-import SearchModal from "../../SearchModal/SearchModal";
+import { IoIosSearch } from "react-icons/io";
+import SearchModal from "../SearchModal/SearchModal";
 
 // styles
-import styles from "./searchIcon.module.css";
+import styles from "./header.module.css";
 
 const SearchIcon: React.FC = (): JSX.Element => {
   const mode = useSelector((state: RootState) => state.mode.mode);
@@ -30,14 +31,14 @@ const SearchIcon: React.FC = (): JSX.Element => {
         className={styles.search_1 + (mode ? " whiteBg2" : " blackBg2")}
       >
         <span className={styles.search_icon_1}>
-          <ImSearch />
+          <IoIosSearch />
         </span>
         Search
       </div>
 
       <p ref={buttonRef} onClick={showModal} className={styles.search_2}>
         <span className={styles.search_icon_2}>
-          <ImSearch />
+          <IoIosSearch />
         </span>
         <span className={styles.search_text_2}>Search</span>
       </p>

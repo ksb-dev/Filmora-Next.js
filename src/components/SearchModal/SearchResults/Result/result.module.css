@@ -8,3 +8,25 @@
 .result:hover {
   filter: brightness(95%);
 }
+
+.img {
+  width: 50px;
+  height: 80px;
+  margin-right: 1rem;
+}
+
+.title_date_div {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  color: #999;
+}

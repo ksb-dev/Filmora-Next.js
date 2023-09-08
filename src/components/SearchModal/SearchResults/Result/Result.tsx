@@ -35,18 +35,14 @@ const Result: React.FC<Props> = ({ result }) => {
     >
       <div>
         <img
+          className={styles.img}
           src={poster_path === null ? url : IMG_PATH + poster_path}
           alt={title}
-          style={{
-            width: "50px",
-            height: "80px",
-            marginRight: "1rem",
-          }}
         />
       </div>
-      <div className="flex flex-col">
-        <span className="inline-block mb-[0.25rem] font-medium">{title}</span>
-        <span className="text-[0.8rem] text-[#999]">
+      <div className={styles.title_date_div}>
+        <span className={styles.title}>{title}</span>
+        <span className={styles.date}>
           {date && moment(date).format("Do MMM, YYYY")}
         </span>
       </div>

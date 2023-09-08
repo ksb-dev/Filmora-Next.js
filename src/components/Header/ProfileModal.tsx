@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // styles
-import styles from "./profileModal.module.css";
+import styles from "./header.module.css";
 
 interface Props {
   showUserModal: () => void;
@@ -31,41 +31,36 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
       ref={profileModalRef}
       className={styles.modal + (mode ? " whiteBg1" : " blackBg1")}
     >
-      <p className="font-bold">
-        Welcome {session ? <span>{session.user?.name}</span> : ""}
+      <p className="font-semibold w-max">
+        Welcome{" "}
+        {session ? <span>{session.user?.name?.split(" ")[0]}!</span> : ""}
       </p>
       <p className="w-max">
         {session ? "" : <span>To access account and manage wishlist</span>}
       </p>
-      <p
-        className="pt-[1rem] mb-[1rem]"
-        style={{ borderBottom: "1px solid #cdcdcd" }}
-      ></p>
+      <p className={styles.line}></p>
 
       {session ? (
-        <div className="flex flex-col justify-center">
-          <Link href="/pages/account" className={styles.account}>
+        <div className={styles.account_logout_div}>
+          <Link href="/pages/account" className={styles.account_link}>
             Account
-          </Link>
-          <Link href="/pages/wishlist" className={styles.wishlist}>
-            Wishlist
           </Link>
           <span className={styles.logout} onClick={() => signOut()}>
             Logout
           </span>
         </div>
       ) : (
-        <div className="flex items-center justify-evenly">
+        <div className={styles.login_register_div}>
           <Link
             href="/pages/login"
-            className={styles.login}
+            className={styles.login_link}
             onClick={hideUserModal}
           >
             Login
           </Link>
           <Link
             href="/pages/register"
-            className={styles.register}
+            className={styles.register_link}
             onClick={hideUserModal}
           >
             Register
