@@ -27,8 +27,8 @@ export default function Pagination() {
   const [totalPages, setTotalPages] = useState(0);
 
   const path = pathname.split("/");
-  const category = path[path.length - 2];
-  let type = path[path.length - 3];
+  const category = path[path.length - 2]!;
+  let type = path[path.length - 3]!;
 
   useEffect(() => {
     let title = "";

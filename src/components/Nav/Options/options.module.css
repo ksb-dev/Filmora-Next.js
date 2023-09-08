@@ -1,0 +1,47 @@
+.options_container {
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.options_heading {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.option_div {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.option_div:hover {
+  font-weight: 500;
+}
+
+.checked_div {
+  position: relative;
+  display: inline-block;
+  height: 21px;
+  width: 21px;
+  margin-right: 0.5rem;
+  color: #fff;
+  border-radius: 50%;
+  background: var(--blue);
+}
+
+.checked_icon {
+  position: absolute;
+  bottom: 3px;
+  left: 2px;
+}
+
+.not_checked_icon {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-right: 0.5rem;
+  border: 1px solid #999;
+  border-radius: 50%;
+}

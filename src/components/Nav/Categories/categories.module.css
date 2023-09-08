@@ -1,0 +1,9 @@
+.categories_container {
+  margin-bottom: 1rem;
+}
+
+.categories_heading {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

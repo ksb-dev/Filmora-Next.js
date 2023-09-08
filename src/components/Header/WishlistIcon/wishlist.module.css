@@ -1,0 +1,27 @@
+.wishlist {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: 2rem;
+}
+.wishlist_icon {
+  display: inline-block;
+  margin-right: 0.25rem;
+  font-size: 1.25rem;
+}
+.wishlist_text {
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 768px) {
+  .wishlist {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .wishlist_icon {
+    margin-right: 0;
+  }
+}

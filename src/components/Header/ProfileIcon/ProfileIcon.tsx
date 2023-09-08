@@ -1,11 +1,13 @@
 import { useRef } from "react";
 
 // react-icons
-import { SlUser } from "react-icons/sl";
 import { FaRegUserCircle } from "react-icons/fa";
 
 // components
-import ProfileModal from "./ProfileModal";
+import ProfileModal from "../ProfileModal/ProfileModal";
+
+// styles
+import styles from "./profileIcon.module.css";
 
 const ProfileIcon: React.FC = (): JSX.Element => {
   const profileRef = useRef<HTMLDivElement>(null);
@@ -25,12 +27,12 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         ref={profileRef}
         onMouseOver={showUserModal}
         onMouseLeave={hideUserModal}
-        className="md:ml-[2rem] cursor-pointer flex flex-col md:flex-row items-center justify-center py-[12px] md:py-[20px]"
+        className={styles.profile}
       >
-        <span className="inline-block mr-0 md:mr-[0.5rem] text-[1.1rem]">
+        <span className={styles.profile_icon}>
           <FaRegUserCircle />
         </span>
-        <span className="text-[0.75rem] font-bold uppercase">Profile</span>
+        <span className={styles.profile_text}>Profile</span>
       </p>
 
       <ProfileModal

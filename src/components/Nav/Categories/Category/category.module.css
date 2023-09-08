@@ -1,0 +1,14 @@
+.category {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.category:hover {
+  font-weight: 500;
+}
+
+.category_icon {
+  margin-right: 1rem;
+}

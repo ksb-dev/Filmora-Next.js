@@ -25,10 +25,10 @@ import { SlUser } from "react-icons/sl";
 // components
 import Title from "../Title/Title";
 import ModeIcon from "../ModeIcon/ModeIcon";
-import SearchIcon from "./SearchIcon";
-import WishlistIcon from "./WishlistIcon";
-import ProfileIcon from "./ProfileIcon";
-import MenuIcon from "./MenuIcon";
+import SearchIcon from "./SearchIcon/SearchIcon";
+import WishlistIcon from "./WishlistIcon/WishlistIcon";
+import ProfileIcon from "./ProfileIcon/ProfileIcon";
+import MenuIcon from "./MenuIcon/MenuIcon";
 
 // styles
 import styles from "./header.module.css";
@@ -38,7 +38,7 @@ interface HeaderProp {
 }
 
 const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
-  const mode = useSelector((state: RootState) => state.mode.mode);
+  const mode: boolean = useSelector((state: RootState) => state.mode.mode);
 
   const showNav = () => {
     forwardedRef.current!.style.transform = "translateX(0%)";
@@ -52,16 +52,12 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
       }
     >
       <div className={styles.header_inner}>
-        <div className={"hidden md:flex items-center"}>
+        <div className={styles.header_title_mode}>
           <Title />
           <ModeIcon />
         </div>
 
-        <div
-          className={
-            "flex items-center md:justify-end justify-between md:w-[100%] w-auto"
-          }
-        >
+        <div className={styles.header_options}>
           <MenuIcon showNav={showNav} />
           <SearchIcon />
           <WishlistIcon />
