@@ -1,26 +1,10 @@
 "use client";
 
-import { RefObject, useRef } from "react";
-
-import { useSession, signOut } from "next-auth/react";
-import Link from "next/link";
+import { RefObject } from "react";
 
 // redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-
-// react-icons
-import {
-  BsSun,
-  BsMoonStars,
-  BsBookmarkPlus,
-  BsInfoCircle,
-} from "react-icons/bs";
-import { AiOutlineMenu } from "react-icons/ai";
-import { GiFilmSpool } from "react-icons/gi";
-import { ImFilm } from "react-icons/im";
-import { PiMonitor } from "react-icons/pi";
-import { SlUser } from "react-icons/sl";
 
 // components
 import Title from "../Title/Title";

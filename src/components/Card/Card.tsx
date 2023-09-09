@@ -50,11 +50,11 @@ export default function Card({ info }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const type = pathname.split("/")[2];
-
-  let path =
+  const path =
     type === "movies"
       ? `/pages/movies/movie_detail/${id}`
       : `/pages/tv/tv_detail/${id}`;
+  const mediaType = type === "movies" ? "movie" : "tv";
 
   const showWishlistBtn = () => {
     ref.current!.style.transform = "scale(1)";
@@ -92,6 +92,8 @@ export default function Card({ info }: Props) {
         ref={ref}
         showWishlistBtn={showWishlistBtn}
         hideWishlistBtn={hideWishlistBtn}
+        id={String(id)}
+        mediaType={mediaType}
       />
     </div>
   );

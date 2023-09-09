@@ -1,9 +1,6 @@
 //import { deleteImageFromCloudinaty } from "@/utils/deleteImage";
-import { PrismaClient } from "@prisma/client";
-
+import { prisma } from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
-
-const prisma = new PrismaClient();
 
 export async function POST(request: NextRequest) {
   const { user } = await request.json();

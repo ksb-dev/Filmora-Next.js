@@ -21,6 +21,7 @@ model User {
   updatedAt      DateTime  @updatedAt
 
   accounts       Account[]
+  wishlist       Wishlist[]
   movies         Movie[]
   shows          TvShow[]         
 }
@@ -45,16 +46,26 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
+model Wishlist {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  cardId        String
+  mediaType     String
+  user          User      @relation(fields:[userId], references: [id], onDelete: Cascade)
+  userId        String    @db.ObjectId
+}
+
 model Movie {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  type         String
+  cardId        String
+  mediaType     String
   user          User      @relation(fields:[userId], references: [id], onDelete: Cascade)
   userId        String    @db.ObjectId
 }
 
 model TvShow {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-  type         String
+  cardId        String
+  mediaType     String
   user          User      @relation(fields:[userId], references: [id], onDelete: Cascade)
   userId        String    @db.ObjectId
 }
