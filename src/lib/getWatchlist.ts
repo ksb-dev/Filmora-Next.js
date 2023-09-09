@@ -1,8 +1,11 @@
-export async function getWishlist() {
+export async function getWatchlist() {
   try {
-    const response = await fetch("http://localhost:3000/api/all_wishlist_api", {
-      cache: "no-store",
-    });
+    const response = await fetch(
+      "http://localhost:3000/api/get_watchlist_api",
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!response.ok) {
       throw new Error(`Failed to fetch wishlist! ${response.status}`);

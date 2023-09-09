@@ -5,32 +5,15 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 // lib
-import { getWishlist } from "@/lib/getWishlist";
-
-// import { prisma } from "@/lib/prisma";
-// import { revalidatePath } from "next/cache";
-
-// import { getServerSession } from "next-auth";
-// import { authOptions } from "@/lib/getAuthOptions";
-
-// async function getWishlist() {
-//   "use server";
-
-//   revalidatePath("http://localhost:3000/pages/wishlist/all");
-
-//   return await prisma.wishlist.findMany();
-// }
+import { getWatchlist } from "@/lib/getWatchlist";
 
 export default function Wishlist() {
   const { data: session } = useSession();
-  const [wishlist, setWishlist] = useState([]);
+  const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
-    session && getWishlist().then((res) => setWishlist(res));
+    session && getWatchlist().then((res) => setWatchlist(res));
   }, []);
 
-  //const session = await getServerSession(authOptions);
-  //const wishlist = session && (await getWishlist());
-
-  return <div>{wishlist.length}</div>;
+  return <div>{watchlist.length}</div>;
 }

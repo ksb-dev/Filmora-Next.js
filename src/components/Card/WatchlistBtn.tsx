@@ -1,12 +1,17 @@
 /* eslint-disable react/display-name */
 "use client";
 
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import {
+  forwardRef,
+  useImperativeHandle,
+  useRef,
+  useEffect,
+  useState,
+} from "react";
 import { useSession } from "next-auth/react";
 
-// redux
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
+// lib
+import { getWatchlist } from "@/lib/getWatchlist";
 
 // react-icons
 import { HiPlus } from "react-icons/hi";
@@ -15,24 +20,26 @@ import { HiPlus } from "react-icons/hi";
 import styles from "./card.module.css";
 
 type Props = {
-  showWishlistBtn: () => void;
-  hideWishlistBtn: () => void;
+  showWatchlistBtn: () => void;
+  hideWatchlistBtn: () => void;
   id: string;
   mediaType: string;
 };
 
-export default forwardRef<HTMLDivElement, Props>(function WishlistBtn(
+export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
   props,
   ref
 ) {
-  const mode: boolean = useSelector((state: RootState) => state.mode.mode);
+  const [watchlist, setwatchlist] = useState([]);
   const buttonRef = useRef<HTMLDivElement>(null);
-
   useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
-
   const { data: session } = useSession();
 
-  const addWishlist = async () => {
+  useEffect(() => {
+    session && getWatchlist().then((res) => setwatchlist(res));
+  }, []);
+
+  const addWatchlist = async () => {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -44,29 +51,29 @@ export default forwardRef<HTMLDivElement, Props>(function WishlistBtn(
     };
 
     if (session) {
-      const response = await fetch("/api/add_wishlist_api", requestOptions);
+      const response = await fetch("/api/add_watchlist_api", requestOptions);
       console.log(response);
     } else {
-      console.log("Login to add wishlist");
+      console.log("Login to add watchlist");
     }
   };
 
   return (
     <div
-      onMouseOver={props.showWishlistBtn}
-      onMouseLeave={props.hideWishlistBtn}
+      onMouseOver={props.showWatchlistBtn}
+      onMouseLeave={props.hideWatchlistBtn}
       ref={buttonRef}
       className={styles.add_btn_container}
-      onClick={addWishlist}
+      onClick={addWatchlist}
     >
       <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
         <span className={styles.add_btn_icon}>
           <HiPlus />
         </span>
-        Wishlist
+        Watchlist
       </p>
     </div>
   );
 });
 
-//export default WishlistBtn;
+//export default watchlistBtn;

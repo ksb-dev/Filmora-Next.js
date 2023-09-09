@@ -26,7 +26,7 @@ import { HiPlus } from "react-icons/hi";
 // components
 import ProgressBar from "./ProgressBar";
 import CardImage from "./CardImage";
-import WishlistBtn from "./WishlistBtn";
+import WatchlistBtn from "./WatchlistBtn";
 
 // styles
 import styles from "./card.module.css";
@@ -56,11 +56,11 @@ export default function Card({ info }: Props) {
       : `/pages/tv/tv_detail/${id}`;
   const mediaType = type === "movies" ? "movie" : "tv";
 
-  const showWishlistBtn = () => {
+  const showWatchlistBtn = () => {
     ref.current!.style.transform = "scale(1)";
   };
 
-  const hideWishlistBtn = () => {
+  const hideWatchlistBtn = () => {
     ref.current!.style.transform = "scale(0)";
   };
 
@@ -68,8 +68,8 @@ export default function Card({ info }: Props) {
     <div className={styles.card}>
       <Link
         href={path}
-        onMouseOver={showWishlistBtn}
-        onMouseLeave={hideWishlistBtn}
+        onMouseOver={showWatchlistBtn}
+        onMouseLeave={hideWatchlistBtn}
         className={styles.card_link + (mode ? " whiteBg1" : " blackBg1")}
       >
         <div className={styles.image_container}>
@@ -88,10 +88,10 @@ export default function Card({ info }: Props) {
         </div>
       </Link>
 
-      <WishlistBtn
+      <WatchlistBtn
         ref={ref}
-        showWishlistBtn={showWishlistBtn}
-        hideWishlistBtn={hideWishlistBtn}
+        showWatchlistBtn={showWatchlistBtn}
+        hideWatchlistBtn={hideWatchlistBtn}
         id={String(id)}
         mediaType={mediaType}
       />
