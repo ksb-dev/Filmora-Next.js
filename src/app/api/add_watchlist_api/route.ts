@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
         email: email,
       },
     })
-    .then((user) => user?.id);
+    .then((user: any) => user?.id);
 
   // const movie = await prisma.movie.create({
   //   data: {

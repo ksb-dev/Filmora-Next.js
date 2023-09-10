@@ -57,7 +57,7 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
     if (session) {
       const response = await fetch("/api/add_watchlist_api", requestOptions);
       if (response) {
-        getWatchlist().then((res) => setwatchlist(res));
+        getWatchlist().then((res: any) => setwatchlist(res));
       }
       console.log(response);
     } else {

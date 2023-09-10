@@ -12,7 +12,7 @@ export default function Wishlist() {
   const [watchlist, setWatchlist] = useState([]);
 
   useEffect(() => {
-    session && getWatchlist().then((res) => setWatchlist(res));
+    session && getWatchlist().then((res: any) => setWatchlist(res));
   }, []);
 
   return <div>{watchlist.length}</div>;
