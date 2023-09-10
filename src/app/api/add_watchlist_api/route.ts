@@ -34,14 +34,5 @@ export async function POST(request: NextRequest) {
       { status: 400 }
     );
   }
-  return NextResponse.json(
-    { message: "Wishlist Added." },
-    {
-      headers: {
-        "Access-Control-Allow-Origin": origin || "*",
-        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      },
-    }
-  );
+  return NextResponse.json({ message: "Wishlist Added." }, { status: 201 });
 }
