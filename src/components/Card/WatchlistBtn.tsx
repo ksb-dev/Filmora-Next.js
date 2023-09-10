@@ -86,8 +86,25 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
       )}
 
       {/* ADD-BUTTON */}
+      {session && watchlist.length === 0 && (
+        <div
+          onMouseOver={props.showWatchlistBtn}
+          onMouseLeave={props.hideWatchlistBtn}
+          ref={buttonRef}
+          className={styles.add_btn_container}
+          onClick={addWatchlist}
+        >
+          <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
+            <span className={styles.add_btn_icon}>
+              <HiPlus />
+            </span>
+            Watchlist
+          </p>
+        </div>
+      )}
+
+      {/* ADD-BUTTON */}
       {session &&
-        watchlist &&
         watchlist.length > 0 &&
         watchlist.every((item: any, index) => item.cardId !== props.id) && (
           <div
