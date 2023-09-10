@@ -1,4 +1,4 @@
-export async function getWatchlist() {
+export async function getWatchlist(): Promise<Watchlist[]> {
   try {
     const response = await fetch(
       "http://localhost:3000/api/get_watchlist_api",

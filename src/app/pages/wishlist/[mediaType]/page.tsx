@@ -9,10 +9,10 @@ import { getWatchlist } from "@/lib/getWatchlist";
 
 export default function Wishlist() {
   const { data: session } = useSession();
-  const [watchlist, setWatchlist] = useState([]);
+  const [watchlist, setWatchlist] = useState<Watchlist[]>([]);
 
   useEffect(() => {
-    session && getWatchlist().then((res: any) => setWatchlist(res));
+    session && getWatchlist().then((res: Watchlist[]) => setWatchlist(res));
   }, []);
 
   return <div>{watchlist.length}</div>;
