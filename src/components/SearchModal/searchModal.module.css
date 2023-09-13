@@ -53,7 +53,7 @@
   background: #fff;
   color: transparent;
   transform: translateX(-53px);
-  transition: all 0.1s ease;
+  transition: all 0.3s ease;
   font-size: 0.75rem;
   border-radius: 50px;
 }

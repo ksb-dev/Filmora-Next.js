@@ -42,10 +42,20 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
 
       {session ? (
         <div className={styles.account_logout_div}>
-          <Link href="/pages/account" className={styles.account_link}>
+          <Link
+            href="/pages/account"
+            className={styles.account_link}
+            onClick={hideUserModal}
+          >
             Account
           </Link>
-          <span className={styles.logout} onClick={() => signOut()}>
+          <span
+            className={styles.logout}
+            onClick={() => {
+              signOut();
+              hideUserModal();
+            }}
+          >
             Logout
           </span>
         </div>

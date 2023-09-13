@@ -1,7 +1,7 @@
 export async function getWatchlist(): Promise<Watchlist[]> {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/get_watchlist_api",
+      `${process.env.NEXT_PUBLIC_URL}/api/get_watchlist_api`,
       {
         cache: "no-store",
       }
