@@ -21,7 +21,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 // styles
 import styles from "./card.module.css";
-import Loading from "@/app/pages/watchlist/[mediaType]/loading";
 
 type Props = {
   showWatchlistBtn: () => void;
@@ -40,12 +39,6 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
   useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
   const { data: session } = useSession();
   const router = useRouter();
-
-  console.log(watchlist);
-
-  useEffect(() => {
-    session && getWatchlist().then((res) => setwatchlist(res));
-  }, []);
 
   useEffect(() => {
     session && getWatchlist().then((res) => setwatchlist(res));
