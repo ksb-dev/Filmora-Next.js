@@ -43,6 +43,10 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
 
   useEffect(() => {
     session && getWatchlist().then((res) => setwatchlist(res));
+  }, []);
+
+  useEffect(() => {
+    session && getWatchlist().then((res) => setwatchlist(res));
   }, [session]);
 
   const addWatchlist = async () => {
