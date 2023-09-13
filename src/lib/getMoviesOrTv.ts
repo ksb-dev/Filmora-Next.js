@@ -28,7 +28,6 @@ export async function getMoviesOrTv(
     const response = await fetch(url);
 
     if (!response.ok) {
-      //throw new Error(`Failed to fetch ${title} ${type}! ${response.status}`);
       throw new Error(`Failed to fetch ${title} ${type}! ${response.status}`);
     }
 

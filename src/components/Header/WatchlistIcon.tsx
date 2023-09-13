@@ -1,5 +1,3 @@
-import { useTransition } from "react";
-
 import Link from "next/link";
 
 // react-icons
@@ -10,7 +8,7 @@ import styles from "./header.module.css";
 
 const WishlistIcon: React.FC = (): JSX.Element => {
   return (
-    <Link href="/pages/wishlist/all" className={styles.wishlist_link}>
+    <Link href="/pages/watchlist/all" className={styles.wishlist_link}>
       <span className={styles.wishlist_icon}>
         <BsBookmarkPlus />
       </span>

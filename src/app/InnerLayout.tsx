@@ -51,11 +51,10 @@ const InnerRootLayout: React.FC<Children> = ({
       pathname !== "/pages/login" &&
       pathname !== "/pages/register" &&
       pathname !== "/pages/about" &&
-      pathname !== "/pages/wishlist" &&
       pathname !== "/pages/account" &&
       !pathname.includes(`movie_detail`) &&
       !pathname.includes(`tv_detail`) &&
-      !pathname.includes(`wishlist`)
+      !pathname.includes(`watchlist`)
       ? true
       : false;
   };

@@ -10,7 +10,7 @@ import { RootState } from "@/redux/store";
 import Title from "../Title/Title";
 import ModeIcon from "../ModeIcon/ModeIcon";
 import SearchIcon from "./SearchIcon";
-import WishlistIcon from "./WishlistIcon";
+import WatchlistIcon from "./WatchlistIcon";
 import ProfileIcon from "./ProfileIcon";
 import MenuIcon from "./MenuIcon";
 
@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
         <div className={styles.header_options}>
           <MenuIcon showNav={showNav} />
           <SearchIcon />
-          <WishlistIcon />
+          <WatchlistIcon />
           <ProfileIcon />
         </div>
       </div>

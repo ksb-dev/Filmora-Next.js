@@ -21,6 +21,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 
 // styles
 import styles from "./card.module.css";
+import Loading from "@/app/pages/watchlist/[mediaType]/loading";
 
 type Props = {
   showWatchlistBtn: () => void;
@@ -34,6 +35,7 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
   ref
 ) {
   const [watchlist, setwatchlist] = useState<Watchlist[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const buttonRef = useRef<HTMLDivElement>(null);
   useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
   const { data: session } = useSession();
@@ -41,9 +43,11 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
 
   useEffect(() => {
     session && getWatchlist().then((res) => setwatchlist(res));
-  }, []);
+  }, [session]);
 
   const addWatchlist = async () => {
+    setLoading(true);
+
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -56,13 +60,15 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
 
     if (session) {
       const response = await fetch("/api/add_watchlist_api", requestOptions);
+
       if (response) {
         getWatchlist().then((res: Watchlist[]) => {
           setwatchlist(res);
+          setLoading(false);
         });
       }
-      console.log(response);
     } else {
+      setLoading(false);
       console.log("Login to add watchlist");
     }
   };
@@ -75,7 +81,6 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
           onMouseLeave={props.hideWatchlistBtn}
           ref={buttonRef}
           className={styles.add_btn_container}
-          //onClick={addWatchlist}
           onClick={() => router.push("/pages/login")}
         >
           <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
@@ -97,10 +102,16 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
           onClick={addWatchlist}
         >
           <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
-            <span className={styles.add_btn_icon}>
-              <HiPlus />
-            </span>
-            Watchlist
+            {loading ? (
+              "Loading..."
+            ) : (
+              <>
+                <span className={styles.add_btn_icon}>
+                  <HiPlus />
+                </span>
+                Watchlist
+              </>
+            )}
           </p>
         </div>
       )}
@@ -117,10 +128,16 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
             onClick={addWatchlist}
           >
             <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
-              <span className={styles.add_btn_icon}>
-                <HiPlus />
-              </span>
-              Watchlist
+              {loading ? (
+                "Loading..."
+              ) : (
+                <>
+                  <span className={styles.add_btn_icon}>
+                    <HiPlus />
+                  </span>
+                  Watchlist
+                </>
+              )}
             </p>
           </div>
         )}
