@@ -11,6 +11,8 @@ export default function Wishlist() {
   const { data: session } = useSession();
   const [watchlist, setWatchlist] = useState<Watchlist[]>([]);
 
+  useEffect(() => {}, [watchlist]);
+
   useEffect(() => {
     session && getWatchlist().then((res: Watchlist[]) => setWatchlist(res));
   }, []);

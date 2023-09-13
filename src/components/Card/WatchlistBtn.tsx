@@ -41,6 +41,8 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
   const { data: session } = useSession();
   const router = useRouter();
 
+  useEffect(() => {}, [watchlist]);
+
   useEffect(() => {
     session && getWatchlist().then((res) => setwatchlist(res));
   }, []);
