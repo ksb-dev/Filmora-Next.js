@@ -11,10 +11,19 @@ export async function deleteAccount(
     body: JSON.stringify(session),
   };
 
-  const response = await fetch("/api/delete_account_api", requestOptions);
+  try {
+    const response = await fetch("/api/delete_account_api", requestOptions);
 
-  if (response.ok) {
-    signOut();
-    setLoading(false);
+    if (!response.ok) {
+      throw new Error(`Failed to delete account! ${response.status}`);
+    }
+
+    if (response.ok) {
+      signOut();
+      setLoading(false);
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
   }
 }

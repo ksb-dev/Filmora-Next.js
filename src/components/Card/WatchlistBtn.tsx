@@ -35,10 +35,13 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
 ) {
   const [watchlist, setwatchlist] = useState<Watchlist[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
   const buttonRef = useRef<HTMLDivElement>(null);
-  useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
+
   const { data: session } = useSession();
   const router = useRouter();
+
+  useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
 
   useEffect(() => {
     session && getWatchlist().then((res) => setwatchlist(res));
@@ -65,6 +68,35 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
           setwatchlist(res);
           setLoading(false);
         });
+      }
+    } else {
+      setLoading(false);
+      console.log("Login to add watchlist");
+    }
+  };
+
+  const deleteWatchlist = async () => {
+    setLoading(true);
+
+    const requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        cardId: props.id,
+        mediaType: props.mediaType,
+        email: session?.user?.email,
+      }),
+    };
+
+    if (session) {
+      const response = await fetch("/api/delete_watchlist_api", requestOptions);
+
+      if (response) {
+        getWatchlist().then((res: Watchlist[]) => {
+          setwatchlist(res);
+          setLoading(false);
+        });
+        console.log(response);
       }
     } else {
       setLoading(false);
@@ -154,17 +186,23 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
                 onMouseLeave={props.hideWatchlistBtn}
                 ref={buttonRef}
                 className={styles.add_btn_container}
-                //onClick={addWatchlist}
+                onClick={deleteWatchlist}
               >
                 <p
                   className={
                     styles.add_btn + " rounded-[var(--border-radius-1)]"
                   }
                 >
-                  <span className={styles.add_btn_icon}>
-                    <RiDeleteBin6Line />
-                  </span>
-                  Watchlist
+                  {loading ? (
+                    "Loading..."
+                  ) : (
+                    <>
+                      <span className={styles.add_btn_icon}>
+                        <RiDeleteBin6Line />
+                      </span>
+                      Watchlist
+                    </>
+                  )}
                 </p>
               </div>
             );

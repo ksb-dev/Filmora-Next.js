@@ -29,7 +29,7 @@
   margin-top: 1rem;
   background: var(--blue);
   color: #fff;
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 
 .search_option {
@@ -39,6 +39,7 @@
   padding: 0.5rem 0;
   cursor: pointer;
   font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .search_option:hover {
@@ -55,7 +56,8 @@
   transform: translateX(-53px);
   transition: all 0.3s ease;
   font-size: 0.75rem;
-  border-radius: 50px;
+  /* border-radius: 50px; */
+  cursor: pointer;
 }
 
 .search_input_div {

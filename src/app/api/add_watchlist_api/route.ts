@@ -12,13 +12,32 @@ export async function POST(request: NextRequest): Promise<Response> {
     })
     .then((user: any) => user?.id);
 
-  // const movie = await prisma.movie.create({
-  //   data: {
-  //     cardId: cardId,
-  //     mediaType: mediaType,
-  //     userId: String(currentUser),
-  //   },
-  // });
+  if (mediaType === "movie") {
+    const response = await addMovie(currentUser, cardId, mediaType);
+    return response;
+  } else {
+    const response = await addTv(currentUser, cardId, mediaType);
+    return response;
+  }
+
+  return NextResponse.json(
+    { message: "Internal server error" },
+    { status: 500 }
+  );
+}
+
+const addMovie = async (
+  currentUser: string,
+  cardId: string,
+  mediaType: string
+) => {
+  const movie = await prisma.movie.create({
+    data: {
+      cardId: cardId,
+      mediaType: mediaType,
+      userId: String(currentUser),
+    },
+  });
 
   const wishlist = await prisma.wishlist.create({
     data: {
@@ -28,11 +47,41 @@ export async function POST(request: NextRequest): Promise<Response> {
     },
   });
 
-  if (!wishlist) {
+  if (!movie || !wishlist) {
     return NextResponse.json(
       { message: "Failed to add wishlist." },
       { status: 400 }
     );
   }
-  return NextResponse.json({ message: "Wishlist Added." }, { status: 201 });
-}
+  return NextResponse.json({ message: "Watchlist Added." }, { status: 201 });
+};
+
+const addTv = async (
+  currentUser: string,
+  cardId: string,
+  mediaType: string
+) => {
+  const tv = await prisma.tvShow.create({
+    data: {
+      cardId: cardId,
+      mediaType: mediaType,
+      userId: String(currentUser),
+    },
+  });
+
+  const wishlist = await prisma.wishlist.create({
+    data: {
+      cardId: cardId,
+      mediaType: mediaType,
+      userId: String(currentUser),
+    },
+  });
+
+  if (!tv || !wishlist) {
+    return NextResponse.json(
+      { message: "Failed to add watchlist." },
+      { status: 400 }
+    );
+  }
+  return NextResponse.json({ message: "Watchlist Added." }, { status: 201 });
+};

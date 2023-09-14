@@ -68,7 +68,9 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
         <div className={styles.search_input_div}>
           <input
             type="text"
-            placeholder="Search"
+            placeholder={`Search ${
+              mediaType.charAt(0).toUpperCase() + mediaType.substring(1)
+            }`}
             className={styles.search_input + (mode ? " whiteBg2" : " blackBg2")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -102,7 +104,11 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
           >
             Tv
           </span>
-          <span ref={coverRef} className={styles.cover}>
+          <span
+            ref={coverRef}
+            className={styles.cover}
+            onClick={() => toggleOption(mediaType === "movie" ? "movie" : "tv")}
+          >
             cover
           </span>
         </div>
