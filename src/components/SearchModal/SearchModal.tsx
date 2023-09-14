@@ -115,18 +115,20 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
 
         <div className="mt-[1rem]">
           <p>
-            {searchResults.length ? (
+            {query && (
               <>
                 <span>Search results for </span>
                 <span className="font-bold">{query}</span>
-                <SearchResults
-                  searchResults={searchResults}
-                  mediaType={mediaType}
-                  ref1={ref1}
-                  setQuery={setQuery}
-                  setSearchResults={setSearchResults}
-                />
               </>
+            )}
+            {searchResults.length ? (
+              <SearchResults
+                searchResults={searchResults}
+                mediaType={mediaType}
+                ref1={ref1}
+                setQuery={setQuery}
+                setSearchResults={setSearchResults}
+              />
             ) : (
               ""
             )}
