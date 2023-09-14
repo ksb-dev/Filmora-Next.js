@@ -36,7 +36,6 @@
 }
 .profile_modal {
   transform: scale(0);
-  transition: transform 0.1s ease;
 }
 
 @media screen and (max-width: 1286px) {
@@ -103,6 +102,7 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
   text-align: #999;
+  border-radius: var(--border-radius-1);
 }
 .search_icon_1 {
   position: absolute;
@@ -183,8 +183,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  padding: 20px 0;
   margin-left: 2rem;
+  border-bottom: 4px solid transparent;
+  margin-top: 20px;
+  padding-bottom: 1rem;
 }
 .profile_icon {
   display: inline-block;
@@ -221,6 +223,7 @@
   transform: scale(0);
   transition: opacity 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius-1);
 }
 .login_register_div {
   display: flex;
@@ -235,6 +238,7 @@
   margin-right: 1rem;
   width: 50%;
   text-align: center;
+  border-radius: var(--border-radius-1);
 }
 .register_link {
   margin-right: 0;
@@ -267,12 +271,12 @@
 .line {
   padding-top: 1rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid #999;
+  border-bottom: 0.5px solid #999;
 }
 
 @media screen and (max-width: 768px) {
   .modal {
-    bottom: 3.5rem;
+    bottom: 4rem;
   }
 }
 /* ----- Profile Modal (END) ----- */

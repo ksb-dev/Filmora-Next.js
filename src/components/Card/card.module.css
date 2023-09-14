@@ -2,13 +2,14 @@
   position: relative;
   overflow: hidden;
   transition: var(--transition);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  border-radius: var(--border-radius-1);
+  border-top-left-radius: var(--border-radius-1);
+  border-top-right-radius: var(--border-radius-1);
+  box-shadow: 0 0.5px 0 #999;
 }
 
-/* .card:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-} */
+.card:hover {
+  box-shadow: 0 2px 0 var(--blue);
+}
 
 .card_link {
   display: block;

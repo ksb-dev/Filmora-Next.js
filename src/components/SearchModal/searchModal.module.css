@@ -18,6 +18,7 @@
   width: 750px;
   height: 90%;
   padding: 2rem;
+  padding-right: 1.5rem;
   margin: 2rem;
   border-radius: var(--border-radius-1);
   overflow: scroll;
@@ -29,7 +30,7 @@
   margin-top: 1rem;
   background: var(--blue);
   color: #fff;
-  /* border-radius: 50px; */
+  border-radius: 50px;
 }
 
 .search_option {
@@ -54,9 +55,9 @@
   background: #fff;
   color: transparent;
   transform: translateX(-53px);
-  transition: all 0.3s ease;
+  transition: var(--transition);
   font-size: 0.75rem;
-  /* border-radius: 50px; */
+  border-radius: 50px;
   cursor: pointer;
 }
 
@@ -118,6 +119,7 @@
     height: 100%;
     margin: 0;
     padding: 1rem;
+    padding-right: 0.5rem;
   }
 
   .close_icon {
