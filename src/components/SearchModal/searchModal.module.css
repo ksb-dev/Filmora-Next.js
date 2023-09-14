@@ -6,12 +6,15 @@
   left: 0;
   z-index: 1;
 
-  display: none;
+  display: flex;
   align-items: flex-start;
   justify-content: center;
 
+  transform: scale(0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
   border-radius: var(--border-radius-1);
-  cursor: default;
 }
 
 .search_container {

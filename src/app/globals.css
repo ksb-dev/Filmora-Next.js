@@ -9,7 +9,6 @@
   --white-2: rgb(240, 240, 240);
 
   --black-1: #333a45;
-  /* --black-1: #393e46; */
   --black-2: #23272f;
 
   --blue: #4285f4;
@@ -179,7 +178,6 @@ body {
 
 .darkAlpha1 {
   background: rgba(51, 58, 69, 0.95);
-  /* background: rgba(57, 62, 70, 0.95); */
 }
 
 .lightAlpha2 {

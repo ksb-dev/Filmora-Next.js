@@ -20,7 +20,8 @@ const SearchIcon: React.FC = (): JSX.Element => {
   const ref = useRef<HTMLDivElement>(null);
 
   const showModal = () => {
-    ref.current!.style.display = "flex";
+    ref.current!.style.transform = "scale(1)";
+    ref.current!.style.opacity = "1";
   };
 
   return (
