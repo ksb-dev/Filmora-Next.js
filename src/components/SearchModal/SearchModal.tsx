@@ -50,9 +50,9 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
     value === "movie" ? setMediaType("tv") : setMediaType("movie");
 
     if (value === "movie") {
-      coverRef.current!.style.transform = "translateX(-97.5px)";
+      coverRef.current!.style.transform = "translateX(-95.5px)";
     } else {
-      coverRef.current!.style.transform = "translateX(-53px)";
+      coverRef.current!.style.transform = "translateX(-52.5px)";
     }
   };
 
@@ -63,7 +63,10 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
     >
       <div
         ref={ref2}
-        className={styles.search_container + (mode ? " whiteBg1" : " blackBg1")}
+        className={
+          styles.search_container +
+          (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+        }
       >
         <div className={styles.search_input_div}>
           <input
@@ -85,7 +88,8 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
           onClick={() => {
             setQuery("");
             setSearchResults([]);
-            ref1.current!.style.display = "none";
+            ref1.current!.style.transform = "scale(0)";
+            ref1.current!.style.opacity = "0";
           }}
         >
           <IoClose />

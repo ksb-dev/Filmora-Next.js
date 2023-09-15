@@ -2,6 +2,7 @@
   margin-top: 5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .btn {
@@ -38,10 +39,4 @@
   pointer-events: none;
   background: #999;
   color: #fff !important;
-}
-
-@media screen and (max-width: 768px) {
-  .paginate {
-    justify-content: center;
-  }
 }

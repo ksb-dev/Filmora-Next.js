@@ -15,9 +15,19 @@ export default function ProgressBar({ vote_average }: any) {
     if (vote >= 7.5) {
       return "greenBg";
     } else if (vote >= 5) {
-      return "orangeBg";
+      return "goldBg";
     } else {
       return "redBg";
+    }
+  };
+
+  const getClassColor = (vote: any) => {
+    if (vote >= 7.5) {
+      return "greenColor";
+    } else if (vote >= 5) {
+      return "orangeColor";
+    } else {
+      return "redColor";
     }
   };
 

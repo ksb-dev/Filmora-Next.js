@@ -50,7 +50,8 @@ const Result: React.FC<Props> = ({
       onClick={() => {
         setQuery("");
         setSearchResults([]);
-        ref1.current!.style.display = "none";
+        ref1.current!.style.transform = "scale(0)";
+        ref1.current!.style.opacity = "0";
       }}
     >
       <div>

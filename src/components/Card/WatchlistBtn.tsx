@@ -12,6 +12,10 @@ import {
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
+// redux
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+
 // lib
 import { getWatchlist } from "@/lib/getWatchlist";
 
@@ -33,6 +37,7 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
   props,
   ref
 ) {
+  const mode: boolean = useSelector((state: RootState) => state.mode.mode);
   const [watchlist, setwatchlist] = useState<Watchlist[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -108,17 +113,21 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
     <>
       {!session && (
         <div
-          onMouseOver={props.showWatchlistBtn}
-          onMouseLeave={props.hideWatchlistBtn}
+          //onMouseOver={props.showWatchlistBtn}
+          //onMouseLeave={props.hideWatchlistBtn}
           ref={buttonRef}
           className={styles.add_btn_container}
           onClick={() => router.push("/pages/login")}
         >
-          <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
+          <p
+            className={
+              styles.add_btn
+              //+ (mode ? " lightBorder" : " darkBorder")
+            }
+          >
             <span className={styles.add_btn_icon}>
               <HiPlus />
             </span>
-            Watchlist
           </p>
         </div>
       )}
@@ -126,21 +135,25 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
       {/* ADD-BUTTON */}
       {session && watchlist.length === 0 && (
         <div
-          onMouseOver={props.showWatchlistBtn}
-          onMouseLeave={props.hideWatchlistBtn}
+          //onMouseOver={props.showWatchlistBtn}
+          //onMouseLeave={props.hideWatchlistBtn}
           ref={buttonRef}
           className={styles.add_btn_container}
           onClick={addWatchlist}
         >
-          <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
+          <p
+            className={
+              styles.add_btn
+              //+ (mode ? " lightBorder" : " darkBorder")
+            }
+          >
             {loading ? (
-              "Loading..."
+              <span className={styles.add_btn_icon}>...</span>
             ) : (
               <>
                 <span className={styles.add_btn_icon}>
                   <HiPlus />
                 </span>
-                Watchlist
               </>
             )}
           </p>
@@ -152,21 +165,25 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
         watchlist.length > 0 &&
         watchlist.every((item: any, index) => item.cardId !== props.id) && (
           <div
-            onMouseOver={props.showWatchlistBtn}
-            onMouseLeave={props.hideWatchlistBtn}
+            //onMouseOver={props.showWatchlistBtn}
+            //onMouseLeave={props.hideWatchlistBtn}
             ref={buttonRef}
             className={styles.add_btn_container}
             onClick={addWatchlist}
           >
-            <p className={styles.add_btn + " rounded-[var(--border-radius-1)]"}>
+            <p
+              className={
+                styles.add_btn
+                //+ (mode ? " lightBorder" : " darkBorder")
+              }
+            >
               {loading ? (
-                "Loading..."
+                <span className={styles.add_btn_icon}>...</span>
               ) : (
                 <>
                   <span className={styles.add_btn_icon}>
                     <HiPlus />
                   </span>
-                  Watchlist
                 </>
               )}
             </p>
@@ -182,25 +199,25 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
             return (
               <div
                 key={index}
-                onMouseOver={props.showWatchlistBtn}
-                onMouseLeave={props.hideWatchlistBtn}
+                //onMouseOver={props.showWatchlistBtn}
+                //onMouseLeave={props.hideWatchlistBtn}
                 ref={buttonRef}
                 className={styles.add_btn_container}
                 onClick={deleteWatchlist}
               >
                 <p
                   className={
-                    styles.add_btn + " rounded-[var(--border-radius-1)]"
+                    styles.delete_btn
+                    //+ (mode ? " lightBorder" : " darkBorder")
                   }
                 >
                   {loading ? (
-                    "Loading..."
+                    <span className={styles.delete_btn_icon}>...</span>
                   ) : (
                     <>
-                      <span className={styles.add_btn_icon}>
+                      <span className={styles.delete_btn_icon}>
                         <RiDeleteBin6Line />
                       </span>
-                      Watchlist
                     </>
                   )}
                 </p>

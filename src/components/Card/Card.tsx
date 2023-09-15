@@ -68,8 +68,8 @@ export default function Card({ info }: Props) {
     <div className={styles.card}>
       <Link
         href={path}
-        onMouseOver={showWatchlistBtn}
-        onMouseLeave={hideWatchlistBtn}
+        //onMouseOver={showWatchlistBtn}
+        //onMouseLeave={hideWatchlistBtn}
         className={styles.card_link + (mode ? " whiteBg1" : " blackBg1")}
       >
         <div className={styles.image_container}>

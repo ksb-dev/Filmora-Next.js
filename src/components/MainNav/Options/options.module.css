@@ -1,0 +1,32 @@
+.options_container {
+  position: relative;
+  margin-right: 2rem;
+}
+.option_div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.option_text {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.down_icon {
+  display: inline-block;
+  margin-left: 0.25rem;
+  transition: transform 0.3s ease;
+}
+.options_modal {
+  position: absolute;
+  padding: 0.5rem 0;
+  width: 150px;
+  width: max-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transform: scale(0);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: var(--border-radius-1);
+}

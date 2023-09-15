@@ -29,7 +29,10 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
       onMouseOver={showUserModal}
       onMouseLeave={hideUserModal}
       ref={profileModalRef}
-      className={styles.modal + (mode ? " whiteBg1" : " blackBg1")}
+      className={
+        styles.modal +
+        (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+      }
     >
       <p className="font-semibold w-max">
         Welcome{" "}

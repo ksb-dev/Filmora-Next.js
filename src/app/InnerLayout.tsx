@@ -10,7 +10,7 @@ import { RootState } from "@/redux/store";
 
 // components
 import Header from "@/components/Header/Header";
-import Nav from "@/components/Nav/Nav";
+import MainNav from "@/components/MainNav/MainNav";
 import Footer from "@/components/Footer/Footer";
 import SmallHeader from "@/components/SmallHeader/SmallHeader";
 
@@ -47,8 +47,7 @@ const InnerRootLayout: React.FC<Children> = ({
   }, [navRef]);
 
   const getPathnames = (): boolean => {
-    return pathname !== "/" &&
-      pathname !== "/pages/login" &&
+    return pathname !== "/pages/login" &&
       pathname !== "/pages/register" &&
       pathname !== "/pages/about" &&
       pathname !== "/pages/account" &&
@@ -67,15 +66,10 @@ const InnerRootLayout: React.FC<Children> = ({
     >
       <Header forwardedRef={navRef} />
       <SmallHeader />
+      {getPathnames() && <MainNav />}
 
       <div className="container">
-        {getPathnames() && (
-          <div className="w-[200px] hidden md:flex">
-            <Nav />
-          </div>
-        )}
-
-        <div
+        {/* <div
           className={
             "nav w-[100vw] flex md:hidden fixed top-0 left-0 z-[2] " +
             (mode ? "lightAlpha2" : "darkAlpha2")
@@ -90,8 +84,8 @@ const InnerRootLayout: React.FC<Children> = ({
             }
           >
             <Nav forwardedRef={navRef} />
-          </div>
-        </div>
+          </div> 
+          </div>*/}
 
         {children}
       </div>

@@ -1,5 +1,8 @@
 import Image from "next/legacy/image";
 
+// styles
+import styles from "./card.module.css";
+
 const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
@@ -20,6 +23,7 @@ const CardImage: React.FC<Props> = ({ poster_path, title }): JSX.Element => {
       // priority
       loading="eager"
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      className={styles.image}
     />
   );
 };

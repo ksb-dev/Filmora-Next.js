@@ -1,9 +1,8 @@
 import { useRef } from "react";
 
 // react-icons
-import { SlUser } from "react-icons/sl";
-import { PiUserCircleFill } from "react-icons/pi";
 import { FaRegUserCircle } from "react-icons/fa";
+import { AiFillCaretDown } from "react-icons/ai";
 
 // components
 import ProfileModal from "./ProfileModal";
@@ -14,15 +13,16 @@ import styles from "./header.module.css";
 const ProfileIcon: React.FC = (): JSX.Element => {
   const profileRef = useRef<HTMLDivElement>(null);
   const profileModalRef = useRef<HTMLDivElement>(null);
+  const downIconRef = useRef<HTMLSpanElement>(null);
 
   const showUserModal = () => {
-    profileRef.current!.style.borderBottom = "4px solid var(--blue)";
+    downIconRef.current!.style.transform = "rotate(180deg)";
     profileModalRef.current!.style.transform = "scale(1)";
     profileModalRef.current!.style.opacity = "1";
   };
 
   const hideUserModal = () => {
-    profileRef.current!.style.borderBottom = "4px solid transparent";
+    downIconRef.current!.style.transform = "rotate(0deg)";
     profileModalRef.current!.style.transform = "scale(0)";
     profileModalRef.current!.style.opacity = "0";
   };
@@ -36,9 +36,16 @@ const ProfileIcon: React.FC = (): JSX.Element => {
         className={styles.profile}
       >
         <span className={styles.profile_icon}>
-          <SlUser />
+          <FaRegUserCircle />
         </span>
         <span className={styles.profile_text}>Profile</span>
+        <span
+          ref={downIconRef}
+          className="inline-block ml-[0.25rem]"
+          style={{ transition: "var(--transition)" }}
+        >
+          <AiFillCaretDown />
+        </span>
       </p>
 
       <ProfileModal

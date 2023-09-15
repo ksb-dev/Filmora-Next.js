@@ -2,11 +2,12 @@
   text-decoration: none;
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
 }
 
 .category:hover {
-  font-weight: 500;
+  filter: brightness(90%);
 }
 
 .category_icon {
