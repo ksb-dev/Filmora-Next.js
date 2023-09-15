@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 // redux
 import { useSelector } from "react-redux";
@@ -20,7 +19,6 @@ const Category: React.FC<Category> = ({
   hideOptionsModal,
 }) => {
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
-  const pathname = usePathname();
   return (
     <Link
       href={
@@ -34,7 +32,6 @@ const Category: React.FC<Category> = ({
       }
       onClick={hideOptionsModal}
     >
-      {/* <span className={styles.category_icon}>{icon}</span> */}
       {category === "top_rated"
         ? "Top Rated"
         : category.charAt(0).toUpperCase() + category.substring(1)}

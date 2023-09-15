@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --border-radius-1: 5px;
+  --border-radius-1: 0px;
 
   --white-1: rgb(255, 255, 255);
   --white-2: rgb(240, 240, 240);

@@ -1,7 +1,5 @@
 import { useRef } from "react";
 
-import { useRouter, usePathname } from "next/navigation";
-
 // redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
@@ -10,15 +8,13 @@ import { RootState } from "@/redux/store";
 import { AiFillCaretDown } from "react-icons/ai";
 
 // components
-import Categories from "../Categories/Categories";
+import Categories from "./Categories/Categories";
 
 // styles
-import styles from "./options.module.css";
+import styles from "./mediaTypeOption.module.css";
 
-const Options = ({ option }: any) => {
+const MediaTypeOption: React.FC<{ option: string }> = ({ option }) => {
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
-  const pathname = usePathname();
-  const router = useRouter();
   const downIconRef = useRef<HTMLSpanElement>(null);
   const optionsModalRef = useRef<HTMLDivElement>(null);
 
@@ -57,4 +53,4 @@ const Options = ({ option }: any) => {
   );
 };
 
-export default Options;
+export default MediaTypeOption;

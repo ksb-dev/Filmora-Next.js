@@ -23,7 +23,7 @@
   position: absolute;
   padding: 0.5rem 0;
   width: 150px;
-  width: max-content;
+  /* width: max-content; */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   transform: scale(0);
   opacity: 0;
