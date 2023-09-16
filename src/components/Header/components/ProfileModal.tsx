@@ -47,13 +47,13 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
         <div className={styles.account_logout_div}>
           <Link
             href="/pages/account"
-            className={styles.account_link}
+            className={styles.account_link + (mode ? " whiteBg1" : " blackBg1")}
             onClick={hideUserModal}
           >
             Account
           </Link>
           <span
-            className={styles.logout}
+            className={styles.logout + (mode ? " whiteBg1" : " blackBg1")}
             onClick={() => {
               signOut();
               hideUserModal();

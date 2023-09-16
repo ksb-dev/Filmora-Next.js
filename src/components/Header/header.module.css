@@ -245,18 +245,18 @@
   flex-direction: column;
   justify-content: center;
 }
-.account_link {
-  margin-bottom: 0.5rem;
-  width: min-content;
+.account_link,
+.logout {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-1);
 }
 .logout {
   display: inline-block;
   cursor: pointer;
-  width: min-content;
 }
 .account_link:hover,
 .logout:hover {
-  font-weight: 500;
+  filter: brightness(90%);
 }
 .user_name {
   font-weight: 400;
