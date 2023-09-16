@@ -18,8 +18,8 @@ const MainNav: React.FC = () => {
     <div className={styles.main_nav + (mode ? " whiteBg1" : " blackBg1")}>
       <div className={styles.main_nav_inner}>
         <div className={styles.main_nav_inner_1}>
-          <MediaType option={"movies"} />
-          <MediaType option={"tv shows"} />
+          <MediaType option={"movies"} mode={mode} />
+          <MediaType option={"tv shows"} mode={mode} />
           <span className="inline-block mr-[2rem]">Genres</span>
         </div>
         <div>

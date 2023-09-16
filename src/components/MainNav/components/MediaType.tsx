@@ -9,7 +9,10 @@ import MediaTypeModal from "./MediaTypeModal";
 // styles
 import styles from "../mainNav.module.css";
 
-const MediaType: React.FC<{ option: string }> = ({ option }) => {
+const MediaType: React.FC<{ option: string; mode: boolean }> = ({
+  option,
+  mode,
+}) => {
   const downIconRef = useRef<HTMLSpanElement>(null);
   const mediaTypeRef = useRef<HTMLDivElement>(null);
   const mediaTypeModalRef = useRef<HTMLDivElement>(null);
@@ -31,8 +34,10 @@ const MediaType: React.FC<{ option: string }> = ({ option }) => {
       <div
         ref={mediaTypeRef}
         onClick={() => {
-          setHoverState(true);
-          showOptionsModal();
+          !hoverState && setHoverState(true);
+          !hoverState && showOptionsModal();
+          hoverState && setHoverState(false);
+          hoverState && hideOptionsModal();
         }}
         onMouseOver={() => {
           hoverState && showOptionsModal();

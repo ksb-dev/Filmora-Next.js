@@ -280,7 +280,6 @@
   margin-bottom: 1rem;
   border-bottom: 0.5px solid #999;
 }
-
 @media screen and (max-width: 768px) {
   .modal {
     bottom: 3rem;

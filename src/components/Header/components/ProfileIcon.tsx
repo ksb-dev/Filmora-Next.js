@@ -34,8 +34,10 @@ const ProfileIcon: React.FC = (): JSX.Element => {
       <p
         ref={profileRef}
         onClick={() => {
-          setHoverState(true);
-          showUserModal();
+          !hoverState && setHoverState(true);
+          !hoverState && showUserModal();
+          hoverState && setHoverState(false);
+          hoverState && hideUserModal();
         }}
         onMouseOver={() => {
           hoverState && showUserModal();
