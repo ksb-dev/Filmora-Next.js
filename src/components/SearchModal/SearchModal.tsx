@@ -14,6 +14,7 @@ import { useGetSearchResults } from "@/hooks/useGetSearchResults";
 
 // components
 import SearchResults from "./components/SearchResults";
+import MediaTypeSwitch from "./components/MediaTypeSwitch";
 
 // react-icons
 import { BiSearch } from "react-icons/bi";
@@ -27,13 +28,12 @@ type Props = {};
 export type Ref = HTMLDivElement;
 
 export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
-  const [query, setQuery] = useState("");
-  const [mediaType, setMediaType] = useState("movie");
+  const [query, setQuery] = useState<string>("");
+  const [mediaType, setMediaType] = useState<string>("movie");
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 
   const ref1 = useRef<HTMLDivElement>(null);
   const ref2 = useRef<HTMLDivElement>(null);
-  const coverRef = useRef<HTMLSpanElement>(null);
 
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
 
@@ -44,28 +44,16 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   // Get search results
   useGetSearchResults(query, mediaType, setSearchResults);
 
-  const toggleOption = (value: string) => {
-    setQuery("");
-    setSearchResults([]);
-    value === "movie" ? setMediaType("tv") : setMediaType("movie");
-
-    if (value === "movie") {
-      coverRef.current!.style.transform = "translateX(-95.5px)";
-    } else {
-      coverRef.current!.style.transform = "translateX(-52.5px)";
-    }
-  };
-
   return (
     <div
       ref={ref1}
-      className={styles.search_modal + (mode ? " lightAlpha2" : " darkAlpha2")}
+      className={styles.search_modal + (mode ? " lightAlpha2" : " darkAlpha1")}
     >
       <div
         ref={ref2}
         className={
           styles.search_container +
-          (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+          (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
         }
       >
         <div className={styles.search_input_div}>
@@ -74,7 +62,7 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
             placeholder={`Search ${
               mediaType.charAt(0).toUpperCase() + mediaType.substring(1)
             }`}
-            className={styles.search_input + (mode ? " whiteBg2" : " blackBg2")}
+            className={styles.search_input + (mode ? " whiteBg1" : " blackBg1")}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
@@ -84,7 +72,10 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
         </div>
 
         <span
-          className={styles.close_icon}
+          className={
+            styles.close_icon +
+            (mode ? " blackBg1 whiteColor1" : " whiteBg2 blackColor1")
+          }
           onClick={() => {
             setQuery("");
             setSearchResults([]);
@@ -95,27 +86,13 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
           <IoClose />
         </span>
 
-        <div className={styles.search_options}>
-          <span
-            className={styles.search_option}
-            onClick={() => toggleOption("movie")}
-          >
-            Movie
-          </span>
-          <span
-            className={styles.search_option}
-            onClick={() => toggleOption("tv")}
-          >
-            Tv
-          </span>
-          <span
-            ref={coverRef}
-            className={styles.cover}
-            onClick={() => toggleOption(mediaType === "movie" ? "movie" : "tv")}
-          >
-            cover
-          </span>
-        </div>
+        <MediaTypeSwitch
+          setQuery={setQuery}
+          setSearchResults={setSearchResults}
+          setMediaType={setMediaType}
+          mediaType={mediaType}
+          mode={mode}
+        />
 
         <div className="mt-[1rem]">
           <p>

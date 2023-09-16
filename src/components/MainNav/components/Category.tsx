@@ -28,7 +28,7 @@ const Category: React.FC<Category> = ({
       }
       className={
         styles.category +
-        (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
       }
       onClick={hideOptionsModal}
     >

@@ -16,7 +16,6 @@
 
   border-radius: var(--border-radius-1);
 }
-
 .search_container {
   width: 750px;
   height: 90%;
@@ -27,16 +26,12 @@
   overflow-y: auto;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
-
 .search_options {
   width: fit-content;
   position: relative;
   margin-top: 1rem;
-  background: var(--secondary);
-  color: #000;
   border-radius: 50px;
 }
-
 .search_option {
   display: inline-block;
   width: 50px;
@@ -46,17 +41,14 @@
   font-size: 0.75rem;
   font-weight: 700;
 }
-
 .search_option:hover {
   filter: brightness(90%);
 }
-
 .cover {
   position: absolute;
   top: 0.25rem;
   width: 48px;
   padding: 0.25rem 0;
-  background: var(--primary);
   color: transparent;
   transform: translateX(-52.5px);
   transition: all 0.2s ease-in-out;
@@ -64,7 +56,6 @@
   border-radius: 50px;
   cursor: pointer;
 }
-
 .search_input_div {
   position: relative;
 
@@ -72,7 +63,6 @@
   align-items: center;
   justify-content: center;
 }
-
 .search_input {
   width: 100%;
   padding: 0.5rem 1rem;
@@ -80,7 +70,6 @@
   border-radius: var(--border-radius-1);
   color: #999;
 }
-
 .search_input::placeholder {
   color: #999;
 }
@@ -88,11 +77,9 @@
 .search_input:focus {
   outline: none;
 }
-
 .search_input:focus::placeholder {
   color: transparent;
 }
-
 .search_icon {
   position: absolute;
   font-size: 1.25rem;
@@ -101,7 +88,6 @@
   top: 0.65rem;
   left: 1rem;
 }
-
 .close_icon {
   position: absolute;
   font-size: 2rem;
@@ -109,15 +95,12 @@
   bottom: 1rem;
   right: 1rem;
   z-index: 2;
-  background: red;
-  color: #fff;
   display: none;
+  border-radius: var(--border-radius-1);
 }
-
 .close_icon:hover {
   filter: brightness(90%);
 }
-
 @media screen and (max-width: 640px) {
   .search_container {
     width: 100%;
@@ -126,7 +109,6 @@
     padding: 1rem;
     padding-right: 0.5rem;
   }
-
   .close_icon {
     display: flex;
   }
@@ -146,29 +128,24 @@
   padding: 0.5rem;
   border-radius: var(--border-radius-1);
 }
-
 .result:hover {
   filter: brightness(90%);
 }
-
 .img {
   width: 50px;
   height: 80px;
   margin-right: 1rem;
   border-radius: var(--border-radius-1);
 }
-
 .title_date_div {
   display: flex;
   flex-direction: column;
 }
-
 .title {
   display: inline-block;
   font-weight: 500;
   margin-bottom: 0.25rem;
 }
-
 .date {
   font-size: 0.8rem;
   color: #999;

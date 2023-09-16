@@ -1,4 +1,11 @@
-import { useRef, forwardRef, useImperativeHandle } from "react";
+import {
+  useRef,
+  forwardRef,
+  useImperativeHandle,
+  Dispatch,
+  SetStateAction,
+  RefObject,
+} from "react";
 
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
@@ -11,14 +18,16 @@ import { RootState } from "@/redux/store";
 import styles from "../header.module.css";
 
 interface Props {
+  profileRef: RefObject<HTMLDivElement>;
   showUserModal: () => void;
   hideUserModal: () => void;
+  setHoverState: Dispatch<SetStateAction<boolean>>;
 }
 type Ref = HTMLDivElement;
 
 export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
-  const { showUserModal, hideUserModal } = props;
+  const { profileRef, showUserModal, hideUserModal, setHoverState } = props;
   const { data: session } = useSession();
   const profileModalRef = useRef<HTMLDivElement>(null);
 
@@ -26,12 +35,23 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
 
   return (
     <div
-      onMouseOver={showUserModal}
-      onMouseLeave={hideUserModal}
+      onMouseOver={() => {
+        setHoverState(true);
+        showUserModal();
+      }}
+      onMouseLeave={() => {
+        !profileModalRef.current!.onmouseover &&
+          !profileRef.current!.onmouseover &&
+          hideUserModal();
+
+        !profileModalRef.current!.onmouseover &&
+          !profileRef.current!.onmouseover &&
+          setHoverState(false);
+      }}
       ref={profileModalRef}
       className={
         styles.modal +
-        (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
       }
     >
       <p className="font-semibold w-max">
@@ -47,13 +67,13 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
         <div className={styles.account_logout_div}>
           <Link
             href="/pages/account"
-            className={styles.account_link + (mode ? " whiteBg1" : " blackBg1")}
+            className={styles.account_link + (mode ? " whiteBg2" : " blackBg2")}
             onClick={hideUserModal}
           >
             Account
           </Link>
           <span
-            className={styles.logout + (mode ? " whiteBg1" : " blackBg1")}
+            className={styles.logout + (mode ? " whiteBg2" : " blackBg2")}
             onClick={() => {
               signOut();
               hideUserModal();
@@ -66,14 +86,20 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
         <div className={styles.login_register_div}>
           <Link
             href="/pages/login"
-            className={styles.login_link}
+            className={
+              styles.login_link +
+              (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+            }
             onClick={hideUserModal}
           >
             Login
           </Link>
           <Link
             href="/pages/register"
-            className={styles.register_link}
+            className={
+              styles.register_link +
+              (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
+            }
             onClick={hideUserModal}
           >
             Register

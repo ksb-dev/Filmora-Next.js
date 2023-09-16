@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  background: var(--blue) !important;
+  background: var(--primary) !important;
   color: #fff !important;
 }
 

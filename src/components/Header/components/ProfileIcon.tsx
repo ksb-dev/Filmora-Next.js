@@ -1,4 +1,6 @@
-import { useRef } from "react";
+"use client";
+
+import { useRef, useState } from "react";
 
 // react-icons
 import { FaRegUserCircle } from "react-icons/fa";
@@ -15,6 +17,8 @@ const ProfileIcon: React.FC = (): JSX.Element => {
   const profileModalRef = useRef<HTMLDivElement>(null);
   const downIconRef = useRef<HTMLSpanElement>(null);
 
+  const [hoverState, setHoverState] = useState<boolean>(false);
+
   const showUserModal = () => {
     downIconRef.current!.style.transform = "rotate(180deg)";
     profileModalRef.current!.style.transform = "scale(1)";
@@ -29,27 +33,40 @@ const ProfileIcon: React.FC = (): JSX.Element => {
     <div className="relative">
       <p
         ref={profileRef}
-        onMouseOver={showUserModal}
-        onMouseLeave={hideUserModal}
+        onClick={() => {
+          setHoverState(true);
+          showUserModal();
+        }}
+        onMouseOver={() => {
+          hoverState && showUserModal();
+          hoverState && setHoverState(true);
+        }}
+        onMouseLeave={() => {
+          !profileModalRef.current!.onmouseover &&
+            !profileRef.current!.onmouseover &&
+            hideUserModal();
+
+          !profileModalRef.current!.onmouseover &&
+            !profileRef.current!.onmouseover &&
+            setHoverState(false);
+        }}
         className={styles.profile}
       >
         <span className={styles.profile_icon}>
           <FaRegUserCircle />
         </span>
         <span className={styles.profile_text}>Profile</span>
-        <span
-          ref={downIconRef}
-          className="inline-block ml-[0.25rem]"
-          style={{ transition: "var(--transition)" }}
-        >
+        <span ref={downIconRef} className={styles.down_icon}>
           <AiFillCaretDown />
         </span>
       </p>
 
       <ProfileModal
+        profileRef={profileRef}
         ref={profileModalRef}
         showUserModal={showUserModal}
         hideUserModal={hideUserModal}
+        setHoverState={setHoverState}
       />
     </div>
   );

@@ -48,7 +48,7 @@ const Result: React.FC<Props> = ({
   return (
     <Link
       href={path}
-      className={styles.result + (mode ? " whiteBg1" : " blackBg1")}
+      className={styles.result + (mode ? " whiteBg2" : " blackBg2")}
       onClick={() => {
         setQuery("");
         setSearchResults([]);
