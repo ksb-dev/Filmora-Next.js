@@ -21,13 +21,11 @@ const MediaType: React.FC<{ option: string }> = ({ option }) => {
   const showOptionsModal = () => {
     downIconRef.current!.style.transform = "rotate(180deg)";
     mediaTypeModalRef.current!.style.transform = "scale(1)";
-    mediaTypeModalRef.current!.style.opacity = "1";
   };
 
   const hideOptionsModal = () => {
     downIconRef.current!.style.transform = "rotate(0deg)";
     mediaTypeModalRef.current!.style.transform = "scale(0)";
-    mediaTypeModalRef.current!.style.opacity = "0";
   };
 
   return (

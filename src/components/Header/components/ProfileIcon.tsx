@@ -18,13 +18,11 @@ const ProfileIcon: React.FC = (): JSX.Element => {
   const showUserModal = () => {
     downIconRef.current!.style.transform = "rotate(180deg)";
     profileModalRef.current!.style.transform = "scale(1)";
-    profileModalRef.current!.style.opacity = "1";
   };
 
   const hideUserModal = () => {
     downIconRef.current!.style.transform = "rotate(0deg)";
     profileModalRef.current!.style.transform = "scale(0)";
-    profileModalRef.current!.style.opacity = "0";
   };
 
   return (

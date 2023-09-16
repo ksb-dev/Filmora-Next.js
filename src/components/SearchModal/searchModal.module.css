@@ -32,8 +32,8 @@
   width: fit-content;
   position: relative;
   margin-top: 1rem;
-  background: var(--primary);
-  color: #fff;
+  background: var(--secondary);
+  color: #000;
   border-radius: 50px;
 }
 
@@ -44,7 +44,7 @@
   padding: 0.5rem 0;
   cursor: pointer;
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .search_option:hover {
@@ -56,7 +56,7 @@
   top: 0.25rem;
   width: 48px;
   padding: 0.25rem 0;
-  background: var(--secondary);
+  background: var(--primary);
   color: transparent;
   transform: translateX(-52.5px);
   transition: all 0.2s ease-in-out;

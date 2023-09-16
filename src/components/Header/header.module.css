@@ -103,6 +103,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: var(--transition);
+}
+.search:hover {
+  color: var(--secondary);
 }
 .search_icon {
   display: inline-block;
@@ -133,6 +137,10 @@
   justify-content: center;
   cursor: pointer;
   margin-left: 2rem;
+  transform: var(--transition);
+}
+.wishlist_link:hover {
+  color: var(--secondary);
 }
 .wishlist_icon {
   display: inline-block;
@@ -166,10 +174,15 @@
   margin-left: 2rem;
   margin-top: 1rem;
   padding-bottom: 1rem;
+  transition: var(--transition);
+}
+.profile:hover {
+  color: var(--secondary);
 }
 .profile_icon {
   display: inline-block;
   margin-right: 0.5rem;
+  transition: var(--transition);
 }
 .profile_text {
   font-size: 0.75rem;
@@ -198,9 +211,8 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  opacity: 0;
   transform: scale(0);
-  transition: opacity 0.3s ease;
+  transition: var(--transition);
   border-radius: var(--border-radius-1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
@@ -226,7 +238,7 @@
 }
 .login_link:hover,
 .register_link:hover {
-  letter-spacing: 1px;
+  color: var(--secondary);
 }
 .account_logout_div {
   display: flex;

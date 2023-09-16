@@ -51,15 +51,14 @@
 .down_icon {
   display: inline-block;
   margin-left: 0.25rem;
-  transition: transform 0.3s ease;
+  transition: var(--transition);
 }
 .media_type_modal {
   position: absolute;
   padding: 0.5rem 0;
   width: 150px;
   transform: scale(0);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: var(--transition);
   border-radius: var(--border-radius-1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }

@@ -29,7 +29,7 @@
   --lightBorder2: 4px solid var(--white-2);
   --darkBorder2: 4px solid var(--black-2);
 
-  --transition: all 0.3s ease;
+  --transition: all 0.1s ease-in-out;
 }
 
 * {

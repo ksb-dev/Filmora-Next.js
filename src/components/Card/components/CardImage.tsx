@@ -23,7 +23,7 @@ const CardImage: React.FC<Props> = ({ poster_path, title }): JSX.Element => {
       // priority
       loading="eager"
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-      className={styles.image_container}
+      className={styles.image}
     />
   );
 };

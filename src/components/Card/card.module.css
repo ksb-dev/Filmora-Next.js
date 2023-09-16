@@ -1,37 +1,28 @@
 .card {
   position: relative;
   transition: var(--transition);
-  /* border-top-left-radius: var(--border-radius-1);
-  border-top-right-radius: var(--border-radius-1); */
+  overflow: hidden;
   box-shadow: 0 0.5px 0 #777;
 }
-
-.card:hover {
-  filter: brightness(90%);
+.card:hover .image {
+  transform: scale(1.25);
 }
-
 .card_link {
   display: block;
   height: 100%;
 }
-
 .image_container {
   position: relative;
   height: 250px;
-  /* border-radius: var(--border-radius-1); */
 }
-
+.image {
+  transition: transform 0.3s ease;
+}
 @media screen and (max-width: 450px) {
   .image_container {
     height: 225px;
   }
 }
-
-.image {
-  border-top-left-radius: var(--border-radius-1);
-  border-top-right-radius: var(--border-radius-1);
-}
-
 .vote {
   position: absolute;
   height: 45px;
@@ -41,7 +32,6 @@
   bottom: -25px;
   left: 1rem;
 }
-
 .vote_text {
   position: absolute;
   top: 50%;
@@ -50,33 +40,27 @@
   font-size: 0.75rem;
   font-weight: 500;
 }
-
 .title_date_div {
   display: flex;
   flex-direction: column;
   padding: 2rem 1rem 1rem 1rem;
 }
-
 .title {
   display: inline-block;
   font-weight: 500;
 }
-
 .date {
   display: inline-block;
   margin-top: 0.5rem;
   font-weight: 400;
   font-size: 0.85rem;
 }
-
 .add_btn_container {
   position: absolute;
   top: 0;
   right: 0;
-  /*transform: scale(0);*/
   transition: var(--transition);
 }
-
 .add_btn,
 .delete_btn {
   position: relative;
@@ -88,9 +72,7 @@
   margin: 0.5rem;
   transition: var(--transition);
   cursor: pointer;
-  /* border-radius: var(--border-radius-1); */
 }
-
 .add_btn_icon,
 .delete_btn_icon {
   font-size: 1.15rem;
@@ -98,12 +80,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: var(--transition);
 }
-
-.add_btn:hover .add_btn_icon {
-  font-size: 1.45rem;
-}
-
+.add_btn:hover .add_btn_icon,
 .delete_btn:hover .delete_btn_icon {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
