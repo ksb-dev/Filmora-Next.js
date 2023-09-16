@@ -72,13 +72,16 @@ export default function Pagination() {
       ) : (
         <button
           onClick={goToPreviousPage}
-          className={styles.prev_btn}
-          aria-label="Prev"
+          className={
+            styles.prev_btn +
+            (mode ? " blackBg1 whiteColor1" : " whiteBg2 blackColor1")
+          }
+          aria-label="PREV"
         >
           <span className={styles.icon}>
             <MdNavigateBefore />
           </span>
-          <span>Prev</span>
+          <span className={styles.text}>PREV</span>
         </button>
       )}
 
@@ -107,10 +110,13 @@ export default function Pagination() {
       ) : (
         <button
           onClick={goToNextPage}
-          className={styles.next_btn}
-          aria-label="Next"
+          className={
+            styles.next_btn +
+            (mode ? " blackBg1 whiteColor1" : " whiteBg2 blackColor1")
+          }
+          aria-label="NEXT"
         >
-          <span>Next</span>
+          <span className={styles.text}>NEXT</span>
           <span className={styles.icon}>
             <MdNavigateNext />
           </span>
