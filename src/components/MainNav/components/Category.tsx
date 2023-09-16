@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // styles
-import styles from "./category.module.css";
+import styles from "../mainNav.module.css";
 
 interface Category {
   category: string;

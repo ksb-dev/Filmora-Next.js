@@ -9,11 +9,11 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // hooks
-import { useOutsideClick } from "@/hooks/useOutsideClick";
+import { useSearchModalOutsideClick } from "@/hooks/useSearchModalOutsideClick";
 import { useGetSearchResults } from "@/hooks/useGetSearchResults";
 
 // components
-import SearchResults from "./SearchResults/SearchResults";
+import SearchResults from "./components/SearchResults";
 
 // react-icons
 import { BiSearch } from "react-icons/bi";
@@ -40,7 +40,7 @@ export default forwardRef<Ref, Props>(function SearchModal(props, ref) {
   useImperativeHandle(ref, () => ref1.current as HTMLDivElement);
 
   // Handle outside click
-  useOutsideClick(setQuery, ref1, ref2, setSearchResults);
+  useSearchModalOutsideClick(setQuery, ref1, ref2, setSearchResults);
   // Get search results
   useGetSearchResults(query, mediaType, setSearchResults);
 

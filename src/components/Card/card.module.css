@@ -1,14 +1,13 @@
 .card {
   position: relative;
-  /* overflow: hidden; */
   transition: var(--transition);
-  border-top-left-radius: var(--border-radius-1);
-  border-top-right-radius: var(--border-radius-1);
-  box-shadow: 0 0.5px 0 #999;
+  /* border-top-left-radius: var(--border-radius-1);
+  border-top-right-radius: var(--border-radius-1); */
+  box-shadow: 0 0.5px 0 #777;
 }
 
 .card:hover {
-  box-shadow: 0 2px 0 var(--blue);
+  filter: brightness(90%);
 }
 
 .card_link {
@@ -19,7 +18,7 @@
 .image_container {
   position: relative;
   height: 250px;
-  border-radius: var(--border-radius-1);
+  /* border-radius: var(--border-radius-1); */
 }
 
 @media screen and (max-width: 450px) {
@@ -55,7 +54,7 @@
 .title_date_div {
   display: flex;
   flex-direction: column;
-  padding: 2rem 0.5rem 1rem 0.5rem;
+  padding: 2rem 1rem 1rem 1rem;
 }
 
 .title {
@@ -66,7 +65,7 @@
 .date {
   display: inline-block;
   margin-top: 0.5rem;
-  color: #999;
+  font-weight: 400;
   font-size: 0.85rem;
 }
 
@@ -88,8 +87,8 @@
   width: 40px;
   margin: 0.5rem;
   transition: var(--transition);
-  border-radius: var(--border-radius-1);
   cursor: pointer;
+  /* border-radius: var(--border-radius-1); */
 }
 
 .add_btn_icon,

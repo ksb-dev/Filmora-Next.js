@@ -4,39 +4,59 @@
   align-items: center;
   justify-content: center;
 }
-
 .btn {
   position: relative;
   height: 35px;
   width: 35px;
   margin-right: 0.5rem;
-  border-radius: var(--border-radius-1);
+  font-weight: 500;
+  transition: transform 0.1s ease;
+  /* border-radius: var(--border-radius-1); */
 }
-
 .btn:hover {
-  filter: brightness(90%);
-  transition: var(--transition);
+  font-size: 1.1rem;
 }
-
+.prev_btn,
+.next_btn {
+  position: relative;
+  height: 35px;
+  width: 70px;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  transition: transform 0.1s ease;
+  background: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.prev_btn:hover,
+.next_btn:hover {
+  letter-spacing: 1px;
+}
+/* .prev_btn {
+  padding: 0 1rem 0 0.25rem;
+}
+.next_btn {
+  padding: 0 0.25rem 0 1rem;
+} */
 .icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  display: none;
   font-size: 1.4rem;
+  margin-top: 0.15rem;
+  margin-left: 0.25rem;
 }
-
 .disable_icon {
   color: #fff;
 }
-
-.active {
-  background: var(--blue);
-  color: #fff;
-}
-
 .disable {
   pointer-events: none;
   background: #999;
   color: #fff !important;
+}
+.active_btn {
+  background: var(--secondary);
+  color: #000;
+  font-weight: 500;
+  pointer-events: none;
 }

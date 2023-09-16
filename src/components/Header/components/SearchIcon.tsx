@@ -11,10 +11,10 @@ import { ImSearch } from "react-icons/im";
 import { IoIosSearch } from "react-icons/io";
 
 // components
-import SearchModal from "../SearchModal/SearchModal";
+import SearchModal from "@/components/SearchModal/SearchModal";
 
 // styles
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 
 const SearchIcon: React.FC = (): JSX.Element => {
   const mode = useSelector((state: RootState) => state.mode.mode);

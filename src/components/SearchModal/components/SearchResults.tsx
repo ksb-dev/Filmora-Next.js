@@ -1,9 +1,9 @@
 // components
 import { RefObject } from "react";
-import Result from "./Result/Result";
+import Result from "./Result";
 
 // styles
-import styles from "./searchResults.module.css";
+import styles from "../searchModal.module.css";
 
 interface Props {
   searchResults: SearchResult[];

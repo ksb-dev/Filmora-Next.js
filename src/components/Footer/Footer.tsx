@@ -13,7 +13,7 @@ const Footer = () => {
     <div
       className={
         styles.footer +
-        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
+        (mode ? " whiteBg1 blackColor1" : " blackBg1 whiteColor1")
       }
     >
       <div className={styles.footer_content}>Footer</div>

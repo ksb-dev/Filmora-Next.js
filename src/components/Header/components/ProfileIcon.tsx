@@ -8,7 +8,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import ProfileModal from "./ProfileModal";
 
 // styles
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 
 const ProfileIcon: React.FC = (): JSX.Element => {
   const profileRef = useRef<HTMLDivElement>(null);

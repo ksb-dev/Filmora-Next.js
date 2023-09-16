@@ -12,7 +12,7 @@
   justify-content: center;
   color: #fff;
 
-  background: var(--blue) !important;
+  background: var(--primary) !important;
 }
 .header_inner {
   max-width: 1100px;
@@ -201,8 +201,8 @@
   opacity: 0;
   transform: scale(0);
   transition: opacity 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   border-radius: var(--border-radius-1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 .login_register_div {
   display: flex;
@@ -211,20 +211,22 @@
 }
 .login_link,
 .register_link {
+  font-weight: 500;
   padding: 0.5rem 0;
-  background: var(--blue);
+  background: var(--primary);
   color: #fff;
   margin-right: 1rem;
   width: 50%;
   text-align: center;
   border-radius: var(--border-radius-1);
+  transform: var(--transition);
 }
 .register_link {
   margin-right: 0;
 }
 .login_link:hover,
 .register_link:hover {
-  filter: brightness(90%);
+  letter-spacing: 1px;
 }
 .account_logout_div {
   display: flex;

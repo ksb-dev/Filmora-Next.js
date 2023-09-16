@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 
-export const useOutsideClick = (
+export const useSearchModalOutsideClick = (
   setQuery: React.Dispatch<React.SetStateAction<string>>,
   ref1: any,
   ref2: any,
   setSearchResults: (value: SearchResult[]) => void
-) => {
+): void => {
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (

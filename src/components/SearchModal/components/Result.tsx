@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+
+import { RefObject } from "react";
+
 import Link from "next/link";
 
 // redux
@@ -9,8 +12,7 @@ import { RootState } from "@/redux/store";
 import moment from "moment";
 
 // styles
-import styles from "./result.module.css";
-import { RefObject } from "react";
+import styles from "../searchModal.module.css";
 
 const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";

@@ -4,10 +4,10 @@ import { RefObject } from "react";
 
 // components
 import Title from "../Title/Title";
-import SearchIcon from "./SearchIcon";
-import WatchlistIcon from "./WatchlistIcon";
-import ProfileIcon from "./ProfileIcon";
-import MenuIcon from "./MenuIcon";
+import SearchIcon from "./components/SearchIcon";
+import WatchlistIcon from "./components/WatchlistIcon";
+import ProfileIcon from "./components/ProfileIcon";
+import MenuIcon from "./components/MenuIcon";
 
 // styles
 import styles from "./header.module.css";

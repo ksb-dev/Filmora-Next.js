@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 import { usePathname } from "next/navigation";
 
 // redux
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+
+// hooks
+import { useSideNavOutsideClick } from "@/hooks/useSideNavOutsideClick";
+import { useShowMainNav } from "@/hooks/useShowMainNav";
 
 // components
 import Header from "@/components/Header/Header";
@@ -25,70 +29,21 @@ const InnerRootLayout: React.FC<Children> = ({
 }) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const pathname = usePathname();
-  const id = pathname.split("/")[5];
-  const navRef = useRef<HTMLDivElement | null>(null);
-  const navInnerRef = useRef<HTMLDivElement | null>(null);
+  const sideNavRef = useRef<HTMLDivElement | null>(null);
+  const sideNavInnerRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      if (
-        navRef.current?.contains(e.target as Node) &&
-        !navInnerRef.current?.contains(e.target as Node)
-      ) {
-        navRef.current!.style.transform = "translateX(-100%)";
-      }
-    };
-
-    document.addEventListener("mousedown", handleOutsideClick);
-
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [navRef]);
-
-  const getPathnames = (): boolean => {
-    return pathname !== "/pages/login" &&
-      pathname !== "/pages/register" &&
-      pathname !== "/pages/about" &&
-      pathname !== "/pages/account" &&
-      !pathname.includes(`movie_detail`) &&
-      !pathname.includes(`tv_detail`) &&
-      !pathname.includes(`watchlist`)
-      ? true
-      : false;
-  };
+  useSideNavOutsideClick(sideNavRef, sideNavInnerRef);
 
   return (
     <div
       className={
-        "layout " + (mode ? "whiteBg1 blackColor1" : "blackBg1 whiteColor1")
+        "layout " + (mode ? "whiteBg2 blackColor1" : "blackBg2 whiteColor1")
       }
     >
-      <Header forwardedRef={navRef} />
+      <Header forwardedRef={sideNavRef} />
       <SmallHeader />
-      {getPathnames() && <MainNav />}
-
-      <div className="container">
-        {/* <div
-          className={
-            "nav w-[100vw] flex md:hidden fixed top-0 left-0 z-[2] " +
-            (mode ? "lightAlpha2" : "darkAlpha2")
-          }
-          ref={navRef}
-        >
-          <div
-            ref={navInnerRef}
-            className={
-              "min-w-[225px] min-h-[100vh] p-[2rem] " +
-              (mode ? " whiteBg1" : " blackBg1")
-            }
-          >
-            <Nav forwardedRef={navRef} />
-          </div> 
-          </div>*/}
-
-        {children}
-      </div>
+      {useShowMainNav(pathname) && <MainNav />}
+      <div className="container">{children}</div>
       <Footer />
     </div>
   );

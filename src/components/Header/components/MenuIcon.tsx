@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineMenu } from "react-icons/ai";
 
 // styles
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 
 interface Prop {
   showNav: () => void;

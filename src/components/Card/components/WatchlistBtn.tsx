@@ -2,7 +2,7 @@
 /* eslint-disable react/display-name */
 "use client";
 
-import {
+import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
@@ -12,10 +12,6 @@ import {
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-// redux
-import { useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-
 // lib
 import { getWatchlist } from "@/lib/getWatchlist";
 
@@ -24,29 +20,19 @@ import { HiPlus } from "react-icons/hi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 // styles
-import styles from "./card.module.css";
+import styles from "../card.module.css";
 
-type Props = {
-  showWatchlistBtn: () => void;
-  hideWatchlistBtn: () => void;
+interface Props {
   id: string;
   mediaType: string;
-};
+}
 
-export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
-  props,
-  ref
-) {
-  const mode: boolean = useSelector((state: RootState) => state.mode.mode);
+const WatchlistBtn: React.FC<Props> = ({ id, mediaType }) => {
   const [watchlist, setwatchlist] = useState<Watchlist[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const buttonRef = useRef<HTMLDivElement>(null);
-
   const { data: session } = useSession();
   const router = useRouter();
-
-  useImperativeHandle(ref, () => buttonRef.current as HTMLDivElement);
 
   useEffect(() => {
     session && getWatchlist().then((res) => setwatchlist(res));
@@ -59,8 +45,8 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        cardId: props.id,
-        mediaType: props.mediaType,
+        cardId: id,
+        mediaType: mediaType,
         email: session?.user?.email,
       }),
     };
@@ -87,8 +73,8 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        cardId: props.id,
-        mediaType: props.mediaType,
+        cardId: id,
+        mediaType: mediaType,
         email: session?.user?.email,
       }),
     };
@@ -113,18 +99,10 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
     <>
       {!session && (
         <div
-          //onMouseOver={props.showWatchlistBtn}
-          //onMouseLeave={props.hideWatchlistBtn}
-          ref={buttonRef}
           className={styles.add_btn_container}
           onClick={() => router.push("/pages/login")}
         >
-          <p
-            className={
-              styles.add_btn
-              //+ (mode ? " lightBorder" : " darkBorder")
-            }
-          >
+          <p className={styles.add_btn}>
             <span className={styles.add_btn_icon}>
               <HiPlus />
             </span>
@@ -134,19 +112,8 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
 
       {/* ADD-BUTTON */}
       {session && watchlist.length === 0 && (
-        <div
-          //onMouseOver={props.showWatchlistBtn}
-          //onMouseLeave={props.hideWatchlistBtn}
-          ref={buttonRef}
-          className={styles.add_btn_container}
-          onClick={addWatchlist}
-        >
-          <p
-            className={
-              styles.add_btn
-              //+ (mode ? " lightBorder" : " darkBorder")
-            }
-          >
+        <div className={styles.add_btn_container} onClick={addWatchlist}>
+          <p className={styles.add_btn}>
             {loading ? (
               <span className={styles.add_btn_icon}>...</span>
             ) : (
@@ -163,20 +130,9 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
       {/* ADD-BUTTON */}
       {session &&
         watchlist.length > 0 &&
-        watchlist.every((item: any, index) => item.cardId !== props.id) && (
-          <div
-            //onMouseOver={props.showWatchlistBtn}
-            //onMouseLeave={props.hideWatchlistBtn}
-            ref={buttonRef}
-            className={styles.add_btn_container}
-            onClick={addWatchlist}
-          >
-            <p
-              className={
-                styles.add_btn
-                //+ (mode ? " lightBorder" : " darkBorder")
-              }
-            >
+        watchlist.every((item: any) => item.cardId !== id) && (
+          <div className={styles.add_btn_container} onClick={addWatchlist}>
+            <p className={styles.add_btn}>
               {loading ? (
                 <span className={styles.add_btn_icon}>...</span>
               ) : (
@@ -195,22 +151,14 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
         watchlist &&
         watchlist.length > 0 &&
         watchlist.map((item: any, index) => {
-          if (item.cardId === props.id) {
+          if (item.cardId === id) {
             return (
               <div
                 key={index}
-                //onMouseOver={props.showWatchlistBtn}
-                //onMouseLeave={props.hideWatchlistBtn}
-                ref={buttonRef}
                 className={styles.add_btn_container}
                 onClick={deleteWatchlist}
               >
-                <p
-                  className={
-                    styles.delete_btn
-                    //+ (mode ? " lightBorder" : " darkBorder")
-                  }
-                >
+                <p className={styles.delete_btn}>
                   {loading ? (
                     <span className={styles.delete_btn_icon}>...</span>
                   ) : (
@@ -227,4 +175,6 @@ export default forwardRef<HTMLDivElement, Props>(function WatchlistBtn(
         })}
     </>
   );
-});
+};
+
+export default WatchlistBtn;

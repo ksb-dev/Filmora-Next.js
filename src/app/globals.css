@@ -3,23 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --border-radius-1: 0px;
+  --border-radius-1: 5px;
+
+  --primary: #000;
+  --secondary: #f3ce13;
 
   --white-1: rgb(255, 255, 255);
-  --white-2: rgb(240, 240, 240);
+  --white-2: rgb(230, 230, 230);
 
   --black-1: #333a45;
   --black-2: #23272f;
 
-  --blue: #4285f4;
-  --blue: #149eca;
   --blue: #1da1f2;
-  /* --blue: #61dafb; */
-  /* --blue: cornflowerblue; */
+  --blue: #4285f4;
+  /* --blue: #000; */
   --red: tomato;
   --green: #0f9d58;
-  --orange: darkorange;
-  --gold: rgb(252, 181, 0);
+  --orange: orange;
+  --gold: #f3ce13;
 
   --shadow-1: 0 2px 4px rgba(0, 0, 0, 0.2);
 
@@ -165,7 +166,7 @@ body {
 }
 
 .lightAlpha2 {
-  background: rgba(235, 236, 240, 0.95);
+  background: rgba(230, 230, 230, 0.95);
 }
 
 .darkAlpha2 {
@@ -193,11 +194,11 @@ body {
 }
 
 .lightBorder {
-  border: var(--lightBorder1);
+  border: var(--lightBorder2);
 }
 
 .darkBorder {
-  border: var(--darkBorder1);
+  border: var(--darkBorder2);
 }
 
 .lightShadow1 {

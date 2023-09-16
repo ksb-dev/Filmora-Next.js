@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // styles
-import styles from "./header.module.css";
+import styles from "../header.module.css";
 
 interface Props {
   showUserModal: () => void;

@@ -1,9 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-
-import Image from "next/legacy/image";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 // redux
 import { useSelector } from "react-redux";
@@ -12,21 +10,10 @@ import { RootState } from "@/redux/store";
 // moment
 import moment from "moment";
 
-// Circular progress bar
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import Link from "next/link";
-
-// recat-icons
-import { BsPlus } from "react-icons/bs";
-import { BiCheck } from "react-icons/bi";
-import { RiDeleteBinLine } from "react-icons/ri";
-import { FaPlus } from "react-icons/fa";
-import { HiPlus } from "react-icons/hi";
-
 // components
-import ProgressBar from "./ProgressBar";
-import CardImage from "./CardImage";
-import WatchlistBtn from "./WatchlistBtn";
+import ProgressBar from "./components/ProgressBar";
+import CardImage from "./components/CardImage";
+import WatchlistBtn from "./components/WatchlistBtn";
 
 // styles
 import styles from "./card.module.css";
@@ -47,7 +34,6 @@ export default function Card({ info }: Props) {
     name,
     first_air_date,
   } = info;
-  const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const type = pathname.split("/")[2];
   const path =
@@ -56,21 +42,11 @@ export default function Card({ info }: Props) {
       : `/pages/tv/tv_detail/${id}`;
   const mediaType = type === "movies" ? "movie" : "tv";
 
-  const showWatchlistBtn = () => {
-    ref.current!.style.transform = "scale(1)";
-  };
-
-  const hideWatchlistBtn = () => {
-    ref.current!.style.transform = "scale(0)";
-  };
-
   return (
     <div className={styles.card}>
       <Link
         href={path}
-        //onMouseOver={showWatchlistBtn}
-        //onMouseLeave={hideWatchlistBtn}
-        className={styles.card_link + (mode ? " whiteBg1" : " blackBg1")}
+        className={styles.card_link + (mode ? " whiteBg2" : " blackBg2")}
       >
         <div className={styles.image_container}>
           <CardImage poster_path={poster_path} title={title ? title : name} />
@@ -78,7 +54,7 @@ export default function Card({ info }: Props) {
         </div>
 
         <div
-          className={styles.title_date_div + (mode ? " whiteBg1" : " blackBg1")}
+          className={styles.title_date_div + (mode ? " whiteBg2" : " blackBg2")}
         >
           <span className={styles.title}>{title ? title : name}</span>
           <span className={styles.date}>
@@ -88,13 +64,7 @@ export default function Card({ info }: Props) {
         </div>
       </Link>
 
-      <WatchlistBtn
-        ref={ref}
-        showWatchlistBtn={showWatchlistBtn}
-        hideWatchlistBtn={hideWatchlistBtn}
-        id={String(id)}
-        mediaType={mediaType}
-      />
+      <WatchlistBtn id={String(id)} mediaType={mediaType} />
     </div>
   );
 }

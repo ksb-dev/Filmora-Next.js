@@ -6,28 +6,18 @@ import { RootState } from "@/redux/store";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 
 // styles
-import styles from "./card.module.css";
+import styles from "../card.module.css";
 
-export default function ProgressBar({ vote_average }: any) {
+const ProgressBar: React.FC<{ vote_average: number }> = ({ vote_average }) => {
   const mode = useSelector((state: RootState) => state.mode.mode);
 
   const getClassBg = (vote: any) => {
     if (vote >= 7.5) {
       return "greenBg";
     } else if (vote >= 5) {
-      return "goldBg";
+      return "orangeBg";
     } else {
       return "redBg";
-    }
-  };
-
-  const getClassColor = (vote: any) => {
-    if (vote >= 7.5) {
-      return "greenColor";
-    } else if (vote >= 5) {
-      return "orangeColor";
-    } else {
-      return "redColor";
     }
   };
 
@@ -51,6 +41,6 @@ export default function ProgressBar({ vote_average }: any) {
       </span>
     </div>
   );
-}
+};
 
-//export default ProgressBar;
+export default ProgressBar;
