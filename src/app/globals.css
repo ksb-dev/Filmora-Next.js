@@ -95,7 +95,7 @@ body {
 }
 @media screen and (max-width: 768px) {
   .container {
-    margin-top: 6rem;
+    margin-top: 10rem;
   }
   .main {
     padding-left: 0;

@@ -1,10 +1,10 @@
 .card {
   position: relative;
-  transition: var(--transition);
   overflow: hidden;
   box-shadow: 0 0.5px 0 #777;
 }
 .card:hover .image {
+  transition: var(--transition);
   transform: scale(1.25);
 }
 .card_link {

@@ -25,11 +25,11 @@
     padding: 0 2rem;
   }
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .main_nav {
     display: none;
   }
-}
+} */
 
 /* ----- Media Type (START) ----- */
 .media_type_container {

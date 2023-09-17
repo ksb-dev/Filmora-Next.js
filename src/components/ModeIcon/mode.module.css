@@ -1,23 +1,44 @@
-.mode_div {
+.mode {
   position: relative;
-  width: 30px;
-  height: 30px;
-  border-radius: var(--border-radius-1);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  height: 25px;
+  width: 50px;
   cursor: pointer;
+}
+.sun_div,
+.moon_div {
+  position: relative;
+  height: 25px;
+  width: 25px;
 }
 .sun_icon,
 .moon_icon {
-  font-size: 1.5rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.sun_icon {
-  color: var(--secondary);
+.cover {
+  height: 21px;
+  width: 25px;
+  position: absolute;
+  top: 2.25px;
+  color: transparent;
+  border-radius: 50px;
+  transform: translateX(23px);
+  transition: transform 0.1s ease;
 }
-@media screen and (max-width: 786px) {
+@media screen and (max-width: 768px) {
   .mode {
-    margin-right: 1rem;
+    background: #fff !important;
+  }
+  .sun_div,
+  .moon_div {
+    color: #000 !important;
+  }
+  .cover {
+    background: #000 !important;
   }
 }

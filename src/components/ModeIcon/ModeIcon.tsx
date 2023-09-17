@@ -1,19 +1,13 @@
+import { useRef, useEffect } from "react";
+
 // redux
 import { RootState } from "@/redux/store";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleMode } from "@/redux/services/getMode";
 
 // react-icons
-import {
-  PiMoonStarsLight,
-  PiMoonStarsFill,
-  PiMoonFill,
-  PiSunFill,
-  PiSunLight,
-} from "react-icons/pi";
-import { BsSun } from "react-icons/bs";
-import { BiSolidSun } from "react-icons/bi";
-import { HiMiniSun } from "react-icons/hi2";
+import { PiSunFill } from "react-icons/pi";
+import { BiSolidMoon } from "react-icons/bi";
 
 // styles
 import styles from "./mode.module.css";
@@ -21,23 +15,40 @@ import styles from "./mode.module.css";
 const ModeIcon: React.FC = (): JSX.Element => {
   const mode = useSelector((state: RootState) => state.mode.mode);
   const dispatch = useDispatch();
+  const coverRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    mode
+      ? (coverRef.current!.style.transform = "translateX(23px)")
+      : (coverRef.current!.style.transform = "translateX(2px)");
+  }, [mode]);
 
   const handleMode = () => {
     dispatch(toggleMode());
   };
 
   return (
-    <div className={styles.mode}>
-      <p onClick={handleMode} className={styles.mode_div}>
-        {mode ? (
-          <span className={styles.moon_icon}>
-            <PiMoonStarsFill />
-          </span>
-        ) : (
-          <span className={styles.sun_icon}>
-            <BiSolidSun />
-          </span>
-        )}
+    <div
+      className={
+        styles.mode + (mode ? " blackBg1 whiteColor1" : " whiteBg2 blackColor1")
+      }
+      onClick={handleMode}
+    >
+      <p className={styles.sun_div}>
+        <span className={styles.sun_icon}>
+          <PiSunFill />
+        </span>
+      </p>
+      <p className={styles.moon_div}>
+        <span className={styles.moon_icon}>
+          <BiSolidMoon />
+        </span>
+      </p>
+      <p
+        ref={coverRef}
+        className={styles.cover + (mode ? " whiteBg2" : " blackBg1")}
+      >
+        cover
       </p>
     </div>
   );

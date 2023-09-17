@@ -22,7 +22,7 @@ const MainNav: React.FC = () => {
           <MediaType option={"tv shows"} mode={mode} />
           <span className="inline-block mr-[2rem]">Genres</span>
         </div>
-        <div>
+        <div className="hidden md:flex">
           <ModeIcon />
         </div>
       </div>
