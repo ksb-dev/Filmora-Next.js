@@ -3,10 +3,6 @@
   overflow: hidden;
   box-shadow: 0 0.5px 0 #777;
 }
-.card:hover .image {
-  transition: var(--transition);
-  transform: scale(1.25);
-}
 .card_link {
   display: block;
   height: 100%;
@@ -17,6 +13,9 @@
 }
 .image {
   transition: transform 0.3s ease;
+}
+.card:hover .image {
+  transform: scale(1.25);
 }
 @media screen and (max-width: 450px) {
   .image_container {
@@ -48,8 +47,6 @@
 .title {
   display: inline-block;
   font-weight: 700;
-  /* text-transform: uppercase; */
-  /* font-size: 0.9rem; */
 }
 .date {
   display: inline-block;
