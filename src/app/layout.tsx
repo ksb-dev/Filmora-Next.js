@@ -1,13 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
-import SessionProvider from "./SessionProvider";
+import SessionProvider from "./Providers/SessionProvider";
+import ReduxProvider from "./Providers/ReduxProvider";
 
-import ReduxProvider from "./ReduxProvider";
 import InnerLayout from "./InnerLayout";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Filmora | Home",

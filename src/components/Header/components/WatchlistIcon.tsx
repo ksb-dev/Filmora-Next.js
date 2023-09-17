@@ -8,11 +8,11 @@ import styles from "../header.module.css";
 
 const WishlistIcon: React.FC = (): JSX.Element => {
   return (
-    <Link href="/pages/watchlist/all" className={styles.wishlist_link}>
-      <span className={styles.wishlist_icon}>
+    <Link href="/pages/watchlist/all" className={styles.watchlist_link}>
+      <span className={styles.watchlist_icon}>
         <HiPlus />
       </span>
-      <span className={styles.wishlist_text}>Wishlist</span>
+      <span className={styles.watchlist_text}>Wishlist</span>
     </Link>
   );
 };

@@ -52,7 +52,7 @@ const MediaType: React.FC<{ option: string; mode: boolean }> = ({
             !mediaTypeRef.current!.onmouseover &&
             setHoverState(false);
         }}
-        className={styles.media_type_div}
+        className={styles.media_type_div + (mode ? " whiteBg1" : " blackBg1")}
       >
         <span className={styles.media_type_text}>{option}</span>
         <span ref={downIconRef} className={styles.down_icon}>

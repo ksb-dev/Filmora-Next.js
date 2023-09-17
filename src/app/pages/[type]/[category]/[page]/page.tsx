@@ -42,7 +42,7 @@ export default async function Home({ params }: Params) {
   return (
     <main className="main">
       <div className="flex items-center justify-between mb-[2rem]">
-        <p className="max-w-fit font-bold uppercase">
+        <p className="max-w-fit font-[900] uppercase text-[1.25rem] md:text-[1.5rem] text-[#999]">
           {title} {type === "movies" ? "Movies" : "Shows"}
         </p>
         <p>Sort</p>

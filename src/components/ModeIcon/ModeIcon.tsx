@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useRef, useEffect } from "react";
-
 // redux
 import { RootState } from "@/redux/store";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,13 +5,15 @@ import { toggleMode } from "@/redux/services/getMode";
 
 // react-icons
 import {
-  PiSunLight,
   PiMoonStarsLight,
   PiMoonStarsFill,
+  PiMoonFill,
   PiSunFill,
+  PiSunLight,
 } from "react-icons/pi";
-import { RiMoonClearFill } from "react-icons/ri";
-import { BsFillSunFill, BsMoonStarsFill, BsSun } from "react-icons/bs";
+import { BsSun } from "react-icons/bs";
+import { BiSolidSun } from "react-icons/bi";
+import { HiMiniSun } from "react-icons/hi2";
 
 // styles
 import styles from "./mode.module.css";
@@ -29,14 +28,14 @@ const ModeIcon: React.FC = (): JSX.Element => {
 
   return (
     <div className={styles.mode}>
-      <p onClick={handleMode} className={styles.moon}>
+      <p onClick={handleMode} className={styles.mode_div}>
         {mode ? (
           <span className={styles.moon_icon}>
-            <PiMoonStarsLight />
+            <PiMoonStarsFill />
           </span>
         ) : (
           <span className={styles.sun_icon}>
-            <BsSun />
+            <BiSolidSun />
           </span>
         )}
       </p>

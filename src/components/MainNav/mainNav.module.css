@@ -42,11 +42,7 @@
   cursor: pointer;
   margin-top: 0.5rem;
   padding-bottom: 0.5rem;
-  transition: var(--transition);
   border-radius: var(--border-radius-1);
-}
-.media_type_div:hover {
-  filter: brightness(90%);
 }
 .media_type_text {
   font-weight: bold;
@@ -56,7 +52,7 @@
 .down_icon {
   display: inline-block;
   margin-left: 0.25rem;
-  transition: var(--transition);
+  transition: transform 0.3s ease;
 }
 .media_type_modal {
   position: absolute;
