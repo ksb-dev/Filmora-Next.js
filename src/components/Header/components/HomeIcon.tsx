@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // react-icons
 import { AiOutlineHome } from "react-icons/ai";
 
@@ -6,12 +8,12 @@ import styles from "../header.module.css";
 
 const HomeIcon: React.FC = (): JSX.Element => {
   return (
-    <p className={styles.home_link}>
+    <Link href="/pages/movies/popular/1" className={styles.home_link}>
       <span className={styles.home_icon}>
         <AiOutlineHome />
       </span>
       <span className={styles.home_text}>Home</span>
-    </p>
+    </Link>
   );
 };
 
