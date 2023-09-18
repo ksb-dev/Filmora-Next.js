@@ -1,8 +1,13 @@
 .card {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 0.5px 0 #999;
+  transition: filter 0.3s ease;
 }
+/* .card:hover {
+  filter: brightness(90%);
+} */
 .card_link {
   display: block;
   height: 100%;
