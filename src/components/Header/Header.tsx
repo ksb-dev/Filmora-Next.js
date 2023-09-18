@@ -11,6 +11,7 @@ import Title from "../Title/Title";
 import SearchIcon from "./components/SearchIcon";
 import WatchlistIcon from "./components/WatchlistIcon";
 import ProfileIcon from "./components/ProfileIcon";
+import HomeIcon from "./components/HomeIcon";
 import MenuIcon from "./components/MenuIcon";
 
 // styles
@@ -35,6 +36,7 @@ const Header: React.FC<HeaderProp> = ({ forwardedRef }) => {
 
         <div className={styles.header_options}>
           <MenuIcon showNav={showNav} />
+          <HomeIcon />
           <SearchIcon />
           <WatchlistIcon />
           <ProfileIcon />

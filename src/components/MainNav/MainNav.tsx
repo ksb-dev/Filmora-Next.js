@@ -5,7 +5,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 // components
-import MediaType from "./components/MediaType";
+import MediaTypeOption from "./components/MediaTypeOption";
+import GenreOption from "./components/GenreOption";
 import ModeIcon from "../ModeIcon/ModeIcon";
 
 // styles
@@ -18,9 +19,9 @@ const MainNav: React.FC = () => {
     <div className={styles.main_nav + (mode ? " whiteBg1" : " blackBg1")}>
       <div className={styles.main_nav_inner}>
         <div className={styles.main_nav_inner_1}>
-          <MediaType option={"movies"} mode={mode} />
-          <MediaType option={"tv shows"} mode={mode} />
-          <span className="inline-block mr-[2rem]">Genres</span>
+          <MediaTypeOption option={"movies"} mode={mode} />
+          <MediaTypeOption option={"tv shows"} mode={mode} />
+          <GenreOption mode={mode} />
         </div>
         <div className="hidden md:flex">
           <ModeIcon />

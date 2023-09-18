@@ -1,7 +1,7 @@
 .card {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0.5px 0 #777;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 .card_link {
   display: block;
@@ -46,13 +46,14 @@
 }
 .title {
   display: inline-block;
-  font-weight: 700;
+  font-weight: 500;
 }
 .date {
   display: inline-block;
   margin-top: 0.5rem;
-  font-weight: 400;
-  font-size: 0.85rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #999;
 }
 .add_btn_container {
   position: absolute;

@@ -64,33 +64,53 @@
     justify-content: space-between;
   }
 }
-
-/* ----- Menu Icon (START) ----- */
-.menu {
+@media screen and (max-width: 640px) {
+  .header {
+    padding: 0 0.5rem;
+  }
+}
+/* ----- Menu Icon & Home Icon (START) ----- */
+.menu,
+.home_link {
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
-.menu_icon {
+.menu:hover,
+.home:hover {
+  color: var(--secondary);
+}
+.menu_icon,
+.home_icon {
   display: inline-block;
 }
-.menu_text {
+.menu_text,
+.home_text {
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 @media screen and (max-width: 768px) {
-  .menu {
+  .menu,
+  .home_link {
     display: flex;
+    width: 40px;
   }
-  .menu_icon {
+  .menu_icon,
+  .home_icon {
     display: inline-block;
     margin-bottom: 0.25rem;
   }
 }
-/* ----- Menu Icon (END) ----- */
+@media screen and (max-width: 640px) {
+  .menu_text,
+  .home_text {
+    font-size: 0.6rem;
+  }
+}
+/* ----- Menu Icon & Home Icon (END) ----- */
 
 /* ----- Search Icon (START) ----- */
 .search {
@@ -100,6 +120,9 @@
   cursor: pointer;
   transition: var(--transition);
   border-radius: var(--border-radius-1);
+}
+.search:hover {
+  color: var(--secondary);
 }
 .search_icon {
   display: inline-block;
@@ -120,6 +143,14 @@
     margin-bottom: 0.25rem;
   }
 }
+@media screen and (max-width: 640px) {
+  .search {
+    width: 40px;
+  }
+  .search_text {
+    font-size: 0.6rem;
+  }
+}
 /* ----- Search Icon (END) ----- */
 
 /* ----- Wishlist Icon (START) ----- */
@@ -131,6 +162,9 @@
   margin-left: 2rem;
   transform: var(--transition);
   border-radius: var(--border-radius-1);
+}
+.watchlist_link:hover {
+  color: var(--secondary);
 }
 .watchlist_icon {
   display: inline-block;
@@ -152,6 +186,14 @@
     margin-bottom: 0.25rem;
   }
 }
+@media screen and (max-width: 640px) {
+  .watchlist_link {
+    width: 40px;
+  }
+  .watchlist_text {
+    font-size: 0.6rem;
+  }
+}
 /* ----- Wishlist Icon (END) ----- */
 
 /* ----- Profile Icon (START) ----- */
@@ -161,10 +203,12 @@
   justify-content: center;
   cursor: pointer;
   margin-left: 2rem;
-  transition: var(--transition);
   border-radius: var(--border-radius-1);
   margin-top: 1rem;
   padding-bottom: 1rem;
+}
+.profile:hover {
+  color: var(--secondary);
 }
 .profile_icon {
   display: inline-block;
@@ -199,6 +243,14 @@
     display: none;
   }
 }
+@media screen and (max-width: 640px) {
+  .profile {
+    width: 40px;
+  }
+  .profile_text {
+    font-size: 0.6rem;
+  }
+}
 /* ----- Profile Icon (END) ----- */
 
 /* ----- Profile Modal (START) ----- */
@@ -206,7 +258,7 @@
   position: absolute;
   right: 0;
   min-width: 200px;
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   transform: scale(0);

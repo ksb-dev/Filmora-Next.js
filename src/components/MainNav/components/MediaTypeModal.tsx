@@ -18,7 +18,7 @@ import Category from "./Category";
 import styles from "../mainNav.module.css";
 
 interface Props {
-  mediaTypeRef: RefObject<HTMLDivElement>;
+  mediaTypeOptionRef: RefObject<HTMLDivElement>;
   showOptionsModal: () => void;
   hideOptionsModal: () => void;
   setHoverState: Dispatch<SetStateAction<boolean>>;
@@ -37,7 +37,7 @@ export default forwardRef<Ref, Props>(function MediaTypeModal(props, ref) {
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
   const mediaTypeModalRef = useRef<HTMLDivElement>(null);
   const {
-    mediaTypeRef,
+    mediaTypeOptionRef,
     showOptionsModal,
     hideOptionsModal,
     setHoverState,
@@ -55,11 +55,11 @@ export default forwardRef<Ref, Props>(function MediaTypeModal(props, ref) {
       }}
       onMouseLeave={() => {
         !mediaTypeModalRef.current!.onmouseover &&
-          !mediaTypeRef.current!.onmouseover &&
+          !mediaTypeOptionRef.current!.onmouseover &&
           hideOptionsModal();
 
         !mediaTypeModalRef.current!.onmouseover &&
-          !mediaTypeRef.current!.onmouseover &&
+          !mediaTypeOptionRef.current!.onmouseover &&
           setHoverState(false);
       }}
       className={

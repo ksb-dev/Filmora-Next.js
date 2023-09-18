@@ -71,7 +71,6 @@
 .search_input::placeholder {
   color: #999;
 }
-
 .search_input:focus {
   outline: none;
 }
@@ -82,7 +81,6 @@
   position: absolute;
   font-size: 1.25rem;
   color: #999;
-
   top: 0.65rem;
   left: 1rem;
 }

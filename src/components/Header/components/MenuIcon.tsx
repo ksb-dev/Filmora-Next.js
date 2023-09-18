@@ -1,5 +1,4 @@
 // react-icons
-import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineMenu } from "react-icons/ai";
 
 // styles

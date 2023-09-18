@@ -20,6 +20,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.sun_icon {
+  color: var(--secondary);
+}
 .cover {
   height: 21px;
   width: 25px;
@@ -37,6 +40,9 @@
   .sun_div,
   .moon_div {
     color: #000 !important;
+  }
+  .sun_icon {
+    color: unset;
   }
   .cover {
     background: #000 !important;
