@@ -11,6 +11,7 @@
   margin-right: 0.5rem;
   font-weight: 500;
   transition: transform 0.1s ease;
+  border-radius: var(--border-radius-1);
 }
 .btn:hover {
   filter: brightness(90%);
@@ -26,6 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: var(--border-radius-1);
 }
 .prev_btn:hover,
 .next_btn:hover {

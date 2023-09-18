@@ -1,8 +1,10 @@
 .card {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 0.5px 0 #999;
   transition: filter 0.3s ease;
+  box-shadow: 0 0.5px 0 #999;
+  border-top-left-radius: var(--border-radius-1);
+  border-top-right-radius: var(--border-radius-1);
 }
 .card_link {
   display: block;
@@ -11,9 +13,12 @@
 .image_container {
   position: relative;
   height: 250px;
+  border-radius: var(--border-radius-1);
 }
 .image {
   transition: transform 0.3s ease;
+  border-top-right-radius: var(--border-radius-1);
+  border-top-left-radius: var(--border-radius-1);
 }
 .card:hover .image {
   transform: scale(1.25);
@@ -52,9 +57,8 @@
 .date {
   display: inline-block;
   margin-top: 0.5rem;
-  font-weight: 500;
-  font-size: 0.9rem;
-  color: #999;
+  font-weight: 400;
+  font-size: 0.8rem;
 }
 .add_btn_container {
   position: absolute;
@@ -73,6 +77,7 @@
   margin: 0.5rem;
   transition: var(--transition);
   cursor: pointer;
+  border-radius: var(--border-radius-1);
 }
 .add_btn_icon,
 .delete_btn_icon {

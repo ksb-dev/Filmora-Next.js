@@ -264,7 +264,7 @@
   transform: scale(0);
   transition: var(--transition);
   border-radius: var(--border-radius-1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 .login_register_div {
   display: flex;

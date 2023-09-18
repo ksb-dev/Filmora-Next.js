@@ -26,10 +26,7 @@ const Category: React.FC<Category> = ({
           ? `/pages/movies/${category}/1`
           : `/pages/tv/${category}/1`
       }
-      className={
-        styles.category +
-        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
-      }
+      className={styles.category + (mode ? " whiteBg2" : " blackBg2")}
       onClick={hideOptionsModal}
     >
       {category === "top_rated"

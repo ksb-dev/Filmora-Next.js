@@ -62,10 +62,7 @@ export default forwardRef<Ref, Props>(function MediaTypeModal(props, ref) {
           !mediaTypeOptionRef.current!.onmouseover &&
           setHoverState(false);
       }}
-      className={
-        styles.media_type_modal +
-        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
-      }
+      className={styles.media_type_modal + (mode ? " whiteBg2" : " blackBg2")}
     >
       {categoryArray.map((el) => (
         <Category

@@ -1,5 +1,9 @@
 import Image from "next/legacy/image";
 
+// Loading Skeleton
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
 // styles
 import styles from "../card.module.css";
 

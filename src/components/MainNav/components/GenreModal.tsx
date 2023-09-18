@@ -46,10 +46,7 @@ export default forwardRef<Ref, Props>(function GenreModal(props, ref) {
           !genreOptionRef.current!.onmouseover &&
           setHoverState(false);
       }}
-      className={
-        styles.genres_modal +
-        (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
-      }
+      className={styles.genres_modal + (mode ? " whiteBg2" : " blackBg2")}
     >
       Genres Options
     </div>

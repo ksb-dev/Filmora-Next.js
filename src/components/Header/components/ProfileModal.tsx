@@ -54,8 +54,8 @@ export default forwardRef<Ref, Props>(function ProfileModal(props, ref) {
         (mode ? " whiteBg2 blackColor1" : " blackBg2 whiteColor1")
       }
     >
-      <p className="font-semibold w-max">
-        Welcome{" "}
+      <p className="font-bold w-max">
+        Welcome!{" "}
         {session ? <span>{session.user?.name?.split(" ")[0]}!</span> : ""}
       </p>
       <p className="w-max">

@@ -13,8 +13,6 @@
   transform: scale(0);
   opacity: 0;
   transition: opacity 0.3s ease;
-
-  border-radius: var(--border-radius-1);
 }
 .search_container {
   width: 750px;
@@ -23,13 +21,13 @@
   margin: 2rem;
   border-radius: var(--border-radius-1);
   overflow-y: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 .search_options {
   width: fit-content;
   position: relative;
   margin-top: 1rem;
-  border-radius: 50px;
+  border-radius: var(--border-radius-1);
 }
 .search_option {
   display: inline-block;
@@ -52,7 +50,7 @@
   transform: translateX(-52.5px);
   transition: all 0.2s ease-in-out;
   font-size: 0.75rem;
-  border-radius: 50px;
+  border-radius: var(--border-radius-1);
   cursor: pointer;
 }
 .search_input_div {
