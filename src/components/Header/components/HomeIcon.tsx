@@ -8,7 +8,7 @@ import styles from "../header.module.css";
 
 const HomeIcon: React.FC = (): JSX.Element => {
   return (
-    <Link href="/pages/movies/popular/1" className={styles.home_link}>
+    <Link href="/" className={styles.home_link}>
       <span className={styles.home_icon}>
         <AiOutlineHome />
       </span>

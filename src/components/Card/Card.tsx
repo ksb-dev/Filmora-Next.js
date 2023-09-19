@@ -21,6 +21,7 @@ import styles from "./card.module.css";
 type Props = {
   key: number;
   info: Card;
+  type?: string;
 };
 
 export default function Card({ info }: Props) {
@@ -35,12 +36,16 @@ export default function Card({ info }: Props) {
     first_air_date,
   } = info;
   const pathname = usePathname();
-  const type = pathname.split("/")[2];
+  const type = info.media_type ? info.media_type : pathname.split("/")[2];
   const path =
-    type === "movies"
+    type === "movies" || "movie"
       ? `/pages/movies/movie_detail/${id}`
       : `/pages/tv/tv_detail/${id}`;
-  const mediaType = type === "movies" ? "movie" : "tv";
+  const mediaType = info.media_type
+    ? info.media_type
+    : type === "movies"
+    ? "movie"
+    : "tv";
 
   return (
     <div className={styles.card}>

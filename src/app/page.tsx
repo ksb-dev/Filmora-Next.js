@@ -1,44 +1,39 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-// "use client";
-
-// import { useEffect } from "react";
-
-// import { useRouter } from "next/navigation";
-
-// const Home = () => {
-//   const router = useRouter();
-
-//   useEffect(() => {
-//     router.push("/pages/movies/popular/1");
-//   }, []);
-//   return <div>Loading...</div>;
-// };
-
-// export default Home;
-import { Metadata } from "next";
-
-// lib
-import { getMoviesOrTv } from "@/lib/getMoviesOrTv";
-
 // components
 import Card from "@/components/Card/Card";
-import Pagination from "@/components/Pagination/Pagination";
+
+const getAllTrending = async () => {
+  const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+  const url = `https://api.themoviedb.org/3/trending/all/day?api_key=${apiKey}&language=en-US`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data ! ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
 
 export default async function Home() {
-  const data = await getMoviesOrTv("popular", 1, "movies", "popular");
+  const data = await getAllTrending();
 
   return (
     <main className="main">
       <div className="flex items-center justify-between mb-[2rem]">
-        <p className="max-w-fit font-[700] uppercase">Popular Movies</p>
+        <p className="max-w-fit font-[700] uppercase">Trending Today</p>
         <p>Sort</p>
       </div>
       <div className="inner">
         {data.results.map((info: Card) => (
-          <Card key={info.id} info={info} />
+          <Card key={info.id} info={info} type={info.media_type} />
         ))}
       </div>
-      <Pagination />
     </main>
   );
 }

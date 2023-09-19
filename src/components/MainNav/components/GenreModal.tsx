@@ -15,6 +15,7 @@ import { RootState } from "@/redux/store";
 import styles from "../mainNav.module.css";
 
 interface Props {
+  genres: Genres[];
   genreOptionRef: RefObject<HTMLDivElement>;
   showOptionsModal: () => void;
   hideOptionsModal: () => void;
@@ -26,8 +27,13 @@ type Ref = HTMLDivElement;
 export default forwardRef<Ref, Props>(function GenreModal(props, ref) {
   const mode: boolean = useSelector((state: RootState) => state.mode.mode);
   const genreModalRef = useRef<HTMLDivElement>(null);
-  const { genreOptionRef, showOptionsModal, hideOptionsModal, setHoverState } =
-    props;
+  const {
+    genres,
+    genreOptionRef,
+    showOptionsModal,
+    hideOptionsModal,
+    setHoverState,
+  } = props;
 
   useImperativeHandle(ref, () => genreModalRef.current as HTMLDivElement);
   return (
@@ -48,7 +54,9 @@ export default forwardRef<Ref, Props>(function GenreModal(props, ref) {
       }}
       className={styles.genres_modal + (mode ? " whiteBg2" : " blackBg2")}
     >
-      Genres Options
+      {genres.map((genre) => (
+        <span key={genre.id}>{genre.name}</span>
+      ))}
     </div>
   );
 });

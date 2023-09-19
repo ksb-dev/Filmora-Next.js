@@ -1,4 +1,5 @@
 interface Card {
+  media_type?: string;
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];

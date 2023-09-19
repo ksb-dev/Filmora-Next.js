@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 // react-icons
 import { AiFillCaretDown } from "react-icons/ai";
@@ -9,12 +9,36 @@ import GenreModal from "./GenreModal";
 // styles
 import styles from "../mainNav.module.css";
 
+const getGenres = async (type: string) => {
+  const apiKey = process.env.NEXT_PUBLIC_TMDB_API_KEY;
+  const url = `https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=en`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch genres! ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.genres;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    throw error;
+  }
+};
+
 const GenreOption: React.FC<{ mode: boolean }> = ({ mode }) => {
   const downIconRef = useRef<HTMLSpanElement>(null);
   const genreOptionRef = useRef<HTMLDivElement>(null);
   const genreModalRef = useRef<HTMLDivElement>(null);
 
   const [hoverState, setHoverState] = useState<boolean>(false);
+  const [genres, setGenres] = useState<Genres[]>([]);
+
+  useEffect(() => {
+    getGenres("movie").then((data) => setGenres(data));
+  }, []);
 
   const showOptionsModal = () => {
     downIconRef.current!.style.transform = "rotate(180deg)";
@@ -58,6 +82,7 @@ const GenreOption: React.FC<{ mode: boolean }> = ({ mode }) => {
       </div>
 
       <GenreModal
+        genres={genres}
         genreOptionRef={genreOptionRef}
         ref={genreModalRef}
         showOptionsModal={showOptionsModal}

@@ -23,12 +23,12 @@ export default function Pagination() {
   const params = useParams();
   const router = useRouter();
 
-  const [currentPage, setCurrentPage] = useState(Number(params.page));
+  const [currentPage, setCurrentPage] = useState(Number(params.page) || 1);
   const [totalPages, setTotalPages] = useState(0);
 
   const path = pathname.split("/");
-  const category = path[path.length - 2]!;
-  let type = path[path.length - 3]!;
+  const category = path[path.length - 2]! || "popular";
+  let type = path[path.length - 3]! || "movies";
 
   useEffect(() => {
     let title = "";
@@ -101,7 +101,7 @@ export default function Pagination() {
             }`
           }
         >
-          <span>{item}</span>
+          <span>{Number(item)}</span>
         </button>
       ))}
 
