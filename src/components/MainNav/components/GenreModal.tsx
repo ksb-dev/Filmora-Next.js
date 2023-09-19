@@ -15,6 +15,7 @@ import { RootState } from "@/redux/store";
 import styles from "../mainNav.module.css";
 
 interface Props {
+  mode: boolean;
   genres: Genres[];
   genreOptionRef: RefObject<HTMLDivElement>;
   showOptionsModal: () => void;
@@ -54,9 +55,16 @@ export default forwardRef<Ref, Props>(function GenreModal(props, ref) {
       }}
       className={styles.genres_modal + (mode ? " whiteBg2" : " blackBg2")}
     >
-      {genres.map((genre) => (
-        <span key={genre.id}>{genre.name}</span>
-      ))}
+      <div className={styles.genres_modal_inner}>
+        {genres.map((genre) => (
+          <span
+            key={genre.id}
+            className={styles.genre + (mode ? " whiteBg2" : " blackBg2")}
+          >
+            {genre.name}
+          </span>
+        ))}
+      </div>
     </div>
   );
 });

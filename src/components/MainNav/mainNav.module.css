@@ -72,6 +72,27 @@
   border-radius: var(--border-radius-1);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
+.genres_modal_inner {
+  width: 680px;
+  display: flex;
+  flex-wrap: wrap;
+}
+@media screen and (max-width: 1024px) {
+  .genres_modal_inner {
+    width: 400px;
+  }
+}
+.genre {
+  padding: 0.25rem 1rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: var(--transition);
+  box-shadow: 0 0 3px #999;
+}
+.genre:hover {
+  filter: brightness(90%);
+}
 @media screen and (max-width: 640px) {
   .genres_modal {
     right: 0;
@@ -87,7 +108,9 @@
   padding: 0.5rem 1rem;
   transition: var(--transition);
   border-radius: var(--border-radius-1);
-  font-weight: 500;
+  /* font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase; */
 }
 .category:hover {
   filter: brightness(90%);

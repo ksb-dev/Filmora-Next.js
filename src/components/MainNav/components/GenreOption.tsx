@@ -82,6 +82,7 @@ const GenreOption: React.FC<{ mode: boolean }> = ({ mode }) => {
       </div>
 
       <GenreModal
+        mode={mode}
         genres={genres}
         genreOptionRef={genreOptionRef}
         ref={genreModalRef}
